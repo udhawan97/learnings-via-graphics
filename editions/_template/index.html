@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="Learnings via Graphics field guide template">
+  <title>Field Guide Template — Learnings via Graphics</title>
+  <style>
+    :root{font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;line-height:1.65;color:#16233c;background:#f7f9fc}
+    *{box-sizing:border-box} body{margin:0} a{color:#164fbd} a:focus-visible{outline:3px solid #f59e0b;outline-offset:3px}
+    .wrap{max-width:1060px;margin:auto;padding:clamp(20px,4vw,48px)}
+    header{background:#101d38;color:#f8fafc} header .eyebrow{color:#9bd5ff;text-transform:uppercase;letter-spacing:.16em;font-size:.85rem;font-weight:700}
+    header h1{font-size:clamp(2rem,5vw,4.4rem);line-height:1.08;max-width:20ch;margin:.6rem 0} header p{max-width:70ch;color:#dce7fc}
+    main{display:grid;gap:24px} section,.card{background:white;border:1px solid #d9e2ef;border-radius:18px;padding:clamp(18px,3vw,30px)}
+    h2{line-height:1.2;margin-top:0} h3{line-height:1.25} .muted{color:#455570} .kicker{color:#215c9d;font-weight:750;letter-spacing:.05em;text-transform:uppercase;font-size:.85rem}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px}
+    .figure{background:#eff5ff;border-radius:14px;padding:16px;overflow-x:auto} svg{width:100%;height:auto;max-width:860px}
+    .tag{display:inline-block;border:1px solid #b8c8dd;border-radius:999px;padding:3px 11px;font-size:.85rem;margin:4px 6px 4px 0}
+    .note{border-left:5px solid #3269cb;background:#eef4ff;padding:16px;border-radius:8px}
+    footer{padding:28px 0;color:#465670;font-size:.9rem} code{background:#eef2fa;padding:.1rem .3rem;border-radius:4px}
+    @media(prefers-color-scheme:dark){:root{background:#0b1425;color:#e7efff}section,.card{background:#152541;border-color:#354b70}.muted,footer{color:#bccbeb}a{color:#9ec7ff}.figure,.note{background:#203657}.kicker{color:#9fceff}code{background:#243b5d}}
+  </style>
+</head>
+<body>
+  <header><div class="wrap">
+    <div class="eyebrow">Learnings via Graphics · Edition YYYY-MM-DD · DRAFT TEMPLATE</div>
+    <h1>One useful question that changes how you build or live</h1>
+    <p>Replace this with a carefully researched, specific promise. State clearly whether this edition covers a current release, a hypothesis, or foundational knowledge.</p>
+    <span class="tag">TRACK: BUILDER / HORIZON / LIFE / CAREER</span><span class="tag">READ: 10–15 MIN</span>
+  </div></header>
+  <main class="wrap">
+    <section aria-labelledby="why"><p class="kicker">01 · Why it matters</p><h2 id="why">What problem are we actually solving?</h2><p>Explain the real-world consequence. Replace all template text with sourced material before publishing.</p></section>
+    <section aria-labelledby="basics"><p class="kicker">02 · Foundations</p><h2 id="basics">The concept from first principles</h2><div class="grid"><div class="card"><h3>Key term A</h3><p>Simple accurate definition.</p></div><div class="card"><h3>Key term B</h3><p>Explain what it adds or changes.</p></div></div></section>
+    <section aria-labelledby="mechanism"><p class="kicker">03 · Visual model</p><h2 id="mechanism">How the mechanism works</h2>
+      <figure class="figure"><svg viewBox="0 0 720 250" role="img" aria-labelledby="diagramtitle diagramdesc" xmlns="http://www.w3.org/2000/svg">
+        <title id="diagramtitle">Template system flow from question to experiment to verified outcome</title>
+        <desc id="diagramdesc">Three labeled stages linked by directional arrows. This is an illustrative placeholder, not a measured system.</desc>
+        <defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto"><path d="M0 0 L8 3 L0 6" fill="none" stroke="#153b7b" stroke-width="2"/></marker></defs>
+        <rect x="16" y="60" rx="16" width="188" height="116" fill="#dbeafe" stroke="#315ba2" stroke-width="2"/>
+        <rect x="266" y="60" rx="16" width="188" height="116" fill="#fef3c7" stroke="#9b6111" stroke-width="2"/>
+        <rect x="516" y="60" rx="16" width="188" height="116" fill="#dcfce7" stroke="#25774a" stroke-width="2"/>
+        <g fill="#132747" text-anchor="middle" font-size="19" font-weight="700"><text x="110" y="112">Understand</text><text x="360" y="112">Try safely</text><text x="610" y="112">Verify</text></g>
+        <g fill="#33476a" text-anchor="middle" font-size="13"><text x="110" y="139">Foundation</text><text x="360" y="139">Practical lab</text><text x="610" y="139">Observable result</text></g>
+        <path d="M208 118 H255" stroke="#153b7b" stroke-width="3" marker-end="url(#arrow)"/>
+        <path d="M458 118 H505" stroke="#153b7b" stroke-width="3" marker-end="url(#arrow)"/>
+      </svg><figcaption>Illustrative progression only. Replace this diagram with one specific to the researched topic.</figcaption></figure>
+    </section>
+    <section aria-labelledby="case"><p class="kicker">04 · In practice</p><h2 id="case">A realistic worked example</h2><p>Walk through inputs, constraints, choices, output and ways to verify it. For technical issues, include Build / Test / Ship Safely; for life skills, a decision tree or checklist; for frontier technology, a maturity map.</p><div class="note"><strong>Field wisdom:</strong> Prefer a reversible small experiment with a clear success criterion to a big confident guess.</div></section>
+    <section aria-labelledby="limits"><p class="kicker">05 · Reality check</p><h2 id="limits">Failure modes, costs and counterarguments</h2><p>Distinguish facts from estimates and prototypes. Explain safety, privacy, economic trade-offs and when professional help is needed.</p></section>
+    <section aria-labelledby="try"><p class="kicker">06 · Practice</p><h2 id="try">Your 20-minute challenge</h2><ol><li>Define a small testable question.</li><li>Try a reversible experiment.</li><li>Record what actually happened.</li></ol><h3>Knowledge check</h3><ol><li>What is the mechanism?</li><li>Where could it fail?</li><li>How would you know the approach worked?</li></ol><details><summary>Reveal answer guidance</summary><p>Answers must be filled with topic-specific explanations, not generic filler.</p></details></section>
+    <section aria-labelledby="references"><p class="kicker">07 · Next steps</p><h2 id="references">Source notes and further learning</h2><p>Source ledger: <a href="sources.md">sources.md</a>. Replace with 2–4 curated next reads and a specific task for the coming week.</p></section>
+  </main>
+  <footer class="wrap">Original educational diagram and editorial template. Draft only; not a published research article.</footer>
+</body>
+</html>
