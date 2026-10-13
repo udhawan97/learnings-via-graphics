@@ -4,6 +4,39 @@
 
 A visual, practical knowledge library designed to teach *how things work*, *how to use them*, and *how to improve your judgment over time*. Original accessible diagrams, real examples, documented sources, and short exercises replace vague inspiration and recycled headlines.
 
+## Start with the first field guide
+
+**[RAG that knows when to say “I don't know”](editions/2026-10-12-rag-that-can-abstain/index.html)** — October 12, 2026 · The Builder's Workbench
+
+Learn how to retrieve authorized evidence, combine keyword and vector search, cite sources, and abstain when an answer is unsupported. The guide includes two original diagrams, a worked ranking example, an 18-minute offline Python exercise, and three questions with answer guidance.
+
+- [Read the source ledger](editions/2026-10-12-rag-that-can-abstain/sources.md) for dated references and limitations.
+- [Inspect the teaching lab](editions/2026-10-12-rag-that-can-abstain/offline_rag_lab.py) and its [five tests](editions/2026-10-12-rag-that-can-abstain/test_offline_rag_lab.py).
+- [Browse all completed editions](archive.md).
+
+## Open the illustrated layout
+
+GitHub displays the lesson's HTML source. To read the diagrams and full layout:
+
+1. [Download the repository ZIP](https://github.com/udhawan97/learnings-via-graphics/archive/refs/heads/main.zip), or select **Code → Download ZIP** on this repository.
+2. Extract the ZIP and open `editions/2026-10-12-rag-that-can-abstain/index.html` in your browser.
+3. Follow the guide's exercise and expand the knowledge-check answers.
+
+The lesson renders locally without a server, account, API key, or paid service. Its source references open external documentation when clicked. GitHub Pages is disabled; there is no hosted lesson website.
+
+### Run the offline lab
+
+Requires **Python 3.10+** and Git for the clone command. Alternatively, download and extract the ZIP, then open a terminal in the edition's folder.
+
+```sh
+git clone https://github.com/udhawan97/learnings-via-graphics.git
+cd learnings-via-graphics/editions/2026-10-12-rag-that-can-abstain
+python3 offline_rag_lab.py
+python3 -m unittest -v test_offline_rag_lab.py
+```
+
+Expected result: the refund-window question cites `POL-001`, the unsupported contract question abstains, and all five tests pass. This standard-library example demonstrates lexical retrieval and permission filtering; it does not call an LLM or implement production RAG. The small test suite does not establish general prompt-injection protection.
+
 ## Four tracks
 
 | Track | What you'll learn | What you'll do |
@@ -36,4 +69,6 @@ Read [the editorial handbook](docs/editorial-standards.md). Current releases and
 4. Verify internal links, markup and (when available) browser rendering and practical examples.
 5. Open one scoped PR, wait for required checks, then merge only when no public deployment or release is triggered without the owner's authorization.
 
-**No auto-deployment, public release or published installer is implied by merging educational source files.**
+Elf and Mobster maintain this library using the editorial handbook, existing templates, and a shared archive. They should resume an existing edition before creating a competing PR, and add an archive entry only for completed, reviewed work that lands on `main`.
+
+**Repository publication means committing reviewed source to GitHub. GitHub Pages and Actions remain disabled; releases, release tags, hosted websites, and automated deployments are not part of this workflow.** Do not enable Actions to obtain checks for an edition; honor any configured checks and protections, and hold the PR when a required gate cannot be satisfied.
