@@ -67,6 +67,9 @@ Read [the editorial handbook](docs/editorial-standards.md). Current releases and
 
 ## Contribution workflow
 
+**Operational reliability:** Elf and Mobster use the [default-branch delivery and failed-write recovery checklist](docs/default-branch-delivery.md) to finish stranded work, distinguish commit objects from landed changes, and verify the actual default-branch SHA. The 9 PM Last Call monitor remains read-only.
+
+
 1. Check the current archive and active PRs to prevent duplicates.
 2. Research primary sources and design one independently useful lesson.
 3. Review across facts, domain knowledge, pedagogy, accessibility/design, and safety.
