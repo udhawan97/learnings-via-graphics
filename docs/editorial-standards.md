@@ -43,3 +43,7 @@ Do not claim independent specialists participated unless actually available; lab
 ## Merge and release boundary
 
 A source commit or PR may be merged after checks/reviews and a verified no-deployment trigger map. GitHub Pages, published releases, or other public deployments require separately confirmed owner approval. Never enable deployment during routine editorial maintenance.
+
+## Default-branch delivery is the success gate
+
+Elf and Mobster must follow the [default-branch delivery and failed-write recovery guide](default-branch-delivery.md) before describing work as landed. Preparing a Git commit object without confirming its branch ref is **not** delivery. Recover independently useful stranded work before starting duplicate editions, require non-forced ref updates against verified heads, classify failures instead of bypassing safety denials, and read back `main` after an authorized PR merge. The 9 PM Last Call remains a read-only monitor and must never perform recovery writes.
