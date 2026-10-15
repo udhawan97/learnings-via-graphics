@@ -14,13 +14,17 @@ Learn how to retrieve authorized evidence, combine keyword and vector search, ci
 - [Inspect the teaching lab](editions/2026-10-12-rag-that-can-abstain/offline_rag_lab.py) and its [five tests](editions/2026-10-12-rag-that-can-abstain/test_offline_rag_lab.py).
 - [Browse all completed editions](archive.md).
 
+**[Safe Saves: atomic replacement vs durability](editions/2026-10-13-safe-saves/index.html)** — October 13, 2026 · The Builder's Workbench
+
+Understand why an atomic rename is not a durability guarantee, with original diagrams, a 20-minute no-dependency Python lab and five failure-focused tests. [Read the source ledger](editions/2026-10-13-safe-saves/sources.md) or [inspect the lab](editions/2026-10-13-safe-saves/save_lab.py).
+
 ## Open the illustrated layout
 
-GitHub displays the lesson's HTML source. To read the diagrams and full layout:
+GitHub displays the lesson's HTML source. To read the diagrams and full layout of either field guide:
 
 1. [Download the repository ZIP](https://github.com/udhawan97/learnings-via-graphics/archive/refs/heads/main.zip), or select **Code → Download ZIP** on this repository.
 2. Extract the ZIP and open `editions/2026-10-12-rag-that-can-abstain/index.html` in your browser.
-3. Follow the guide's exercise and expand the knowledge-check answers.
+3. Open the HTML file in either edition directory and follow its exercise and knowledge-check answers.
 
 The lesson renders locally without a server, account, API key, or paid service. Its source references open external documentation when clicked. GitHub Pages is disabled; there is no hosted lesson website.
 
