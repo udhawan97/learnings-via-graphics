@@ -1,10 +1,10 @@
-# Sources & claim ledger — reviewed source draft
+# Sources & claim ledger — reviewed source edition
 
 - **Edition:** Safe Saves: why a renamed file is not the same as a durable transaction
 - **Track:** The Builder's Workbench
 - **Reporting date:** 2026-10-13 (America/Chicago)
 - **Primary-source consultation:** 2026-10-13; rechecked 2026-10-14
-- **Publication scope:** Educational source files only. No GitHub Pages website, installer, package release or deployment; a draft PR is not a merged archive edition.
+- **Publication scope:** Educational source files only. No GitHub Pages website, installer, package release or deployment; only a merged, reviewed PR is indexed as a completed archive edition.
 
 | Claim / panel | Evidence level | Primary source | Publication/update date | Consulted | Qualification |
 | --- | --- | --- | --- | --- | --- |
