@@ -67,7 +67,7 @@ Read [the editorial handbook](docs/editorial-standards.md). Current releases and
 
 ## Contribution workflow
 
-**Operational reliability:** Elf and Mobster use the [default-branch delivery and failed-write recovery checklist](docs/default-branch-delivery.md) to finish stranded work, distinguish commit objects from landed changes, and verify the actual default-branch SHA. The 9 PM Last Call monitor remains read-only.
+**Operational reliability:** Elf and Mobster use the [default-branch delivery and failed-write recovery checklist](docs/default-branch-delivery.md) to finish stranded work, distinguish commit objects from landed changes, and verify the actual default-branch SHA. The 9 PM GitHub Delivery Supervisor may recover safe unfinished GitHub work and make evidence-backed prompt-only corrections to Elf or Mobster for later runs. It must preserve their schedule, timezone, enabled state, mission, and every safety, review, and deployment boundary.
 
 
 1. Check the current archive and active PRs to prevent duplicates.

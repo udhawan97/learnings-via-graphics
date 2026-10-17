@@ -42,9 +42,11 @@ For a single existing text-file correction, choose the contents update transacti
 
 In priority order: (1) merge a ready and reviewed nondeploying PR; (2) recover a useful stranded commit; (3) make a bounded tested defect/maintenance improvement; (4) publish **one substantive educational field guide** with original accessible diagrams, source ledger and exercise if all engineering routes are blocked or unproductive. Do not invent a fifth route made of filler, duplicate logs, rewritten dates or empty commits. A verified contribution today is permission to focus on quality, not to stop useful engineering work.
 
-## Publishing firewall and read-only monitor
+## Publishing firewall and delivery supervisor
 
-GitHub Pages and GitHub Actions are intentionally disabled. Do **not** enable them, create a release or tag, publish a website, or initiate deployment. Inspect available repository settings and push/PR/reusable-workflow/release triggers using the supported evidence above. If there is a concrete deployment path or material unresolved trigger risk, **hold the merge** and report the precise evidence gap; do not assert inaccessible settings or external hooks were verified. Never bypass branch protection, checks or human reviews. The 9 PM **GitHub Contribution Last Call** automation is **read-only**: it must never write to GitHub or edit any task. Elf and Mobster also must not mutate their own or other automation schedules from their scheduled runs.
+GitHub Pages and GitHub Actions are intentionally disabled. Do **not** enable them, create a release or tag, publish a website, or initiate deployment. Inspect available repository settings and push/PR/reusable-workflow/release triggers using the supported evidence above. If there is a concrete deployment path or material unresolved trigger risk, **hold the merge** and report the precise evidence gap; do not assert inaccessible settings or external hooks were verified. Never bypass branch protection, checks or human reviews.
+
+The 9 PM **GitHub Delivery Supervisor** (`6acbeadbcc308191854721b16dae6a07`) may recover safe unfinished GitHub work and make evidence-backed **prompt-only** corrections to Elf or Mobster for later runs. This supersedes the former read-only Last Call rule. It must preserve each task's schedule, timezone, enabled state, mission, and every safety, review, and deployment boundary. Elf and Mobster still must not mutate their own or other automation schedules from their scheduled runs.
 
 ## Incident: October 14–15, 2026
 
