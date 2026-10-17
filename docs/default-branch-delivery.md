@@ -20,6 +20,16 @@ Only step 4 is a **verified default-branch landing**. Never label a commit eligi
 - Choose a bounded, meaningful deliverable with verifiable tests or source evidence. Respect the editorial pre-draft and final five-perspective checks.
 - Capture exact base SHA and use a feature branch and PR; do not equate creating a branch with landing a contribution. Favor the **smallest verified path to a safe merge**; avoid broad speculative rewrites that cannot be completed during this invocation.
 
+## Bound the run and use supported evidence
+
+Select one useful deliverable after a short triage of existing work and at most two deep candidate inspections. Reserve time for validation, merge and read-back. Correcting a real defect in an existing lesson or lab is a complete deliverable; a new full edition is not required. A blocked product repository does not make an unrelated, nondeploying source correction blocked. An actual safety denial still prohibits equivalent retries through another target or API.
+
+The connected GitHub fetch tool supports repository metadata, complete Git trees, branches, rulesets and workflow runs. Its URL allowlist rejects `/actions/permissions`, `/actions/workflows`, `/pages` and `/rules/branches/main`. Classify that `INVALID_ARGUMENT` response as **unsupported read endpoint**, not a failed write, GitHub outage or safety rejection. Do not repeat the same unsupported read every shift.
+
+For this repository, build the repository-native trigger map from raw repository `has_pages`, the complete untruncated tree (including any workflows/publication configuration), applicable rulesets, branch requirements and workflow runs. Zero runs does **not** establish that Actions is disabled. Report inaccessible settings and external-hook visibility separately; never claim those were inspected. Hold when evidence indicates a deployment path or a material unresolved trigger risk, and name the exact missing evidence. Missing administrative visibility alone does not establish that a deployment exists or that a required CI check exists.
+
+For a single existing text-file correction, choose the contents update transaction upfront with the current blob SHA and explicit feature branch, then verify the resulting branch SHA. Multi-file Git-data changes still require verified non-forced ref movement. This is normal transaction selection before a write, never an alternate route after a safety denial. A historical denial must be identified by operation, target, reviewed change and error; neither a vague past failure nor elapsed time establishes permission or prohibition for a different current task.
+
 ## Recover a stranded commit safely
 
 1. **Read back:** fetch both `main` and the intended feature branch ref, plus the proposed commit. Compare `main...<commit SHA>` and inspect changed paths, parents, GitHub-linked author and diff. An unreferenced object may still be fetchable by SHA.
@@ -34,7 +44,7 @@ In priority order: (1) merge a ready and reviewed nondeploying PR; (2) recover a
 
 ## Publishing firewall and read-only monitor
 
-GitHub Pages and GitHub Actions are intentionally disabled. Do **not** enable them, create a release or tag, publish a website, or initiate deployment. Inspect both repository settings and push/PR/reusable-workflow/release triggers when available. If external hooks or an unknown deployment path cannot be verified, **hold the merge** and report the evidence gap. Never bypass branch protection, checks or human reviews. The 9 PM **GitHub Contribution Last Call** automation is **read-only**: it must never write to GitHub or edit any task. Elf and Mobster also must not mutate their own or other automation schedules from their scheduled runs.
+GitHub Pages and GitHub Actions are intentionally disabled. Do **not** enable them, create a release or tag, publish a website, or initiate deployment. Inspect available repository settings and push/PR/reusable-workflow/release triggers using the supported evidence above. If there is a concrete deployment path or material unresolved trigger risk, **hold the merge** and report the precise evidence gap; do not assert inaccessible settings or external hooks were verified. Never bypass branch protection, checks or human reviews. The 9 PM **GitHub Contribution Last Call** automation is **read-only**: it must never write to GitHub or edit any task. Elf and Mobster also must not mutate their own or other automation schedules from their scheduled runs.
 
 ## Incident: October 14–15, 2026
 
