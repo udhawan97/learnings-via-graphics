@@ -22,6 +22,7 @@ DOCUMENTS = (
 )
 
 STOPWORDS = {"a", "an", "and", "are", "can", "do", "for", "from", "how", "i", "in", "is", "of", "on", "or", "our", "the", "to", "we", "what", "when", "within", "your"}
+CLARIFY = "NEEDS CLARIFICATION — add a specific action or constraint to the question."
 
 
 def tokens(text: str) -> set[str]:
@@ -45,7 +46,9 @@ def retrieve(question: str, allowed_ids: set[str], *, min_overlap: int = 2):
 
 
 def answer(question: str, allowed_ids: set[str]) -> str:
-    """Return a verbatim evidence snippet, not an LLM-generated assertion."""
+    """Return evidence, request specificity, or abstain safely."""
+    if len(tokens(question)) < 2:
+        return CLARIFY
     match = retrieve(question, allowed_ids)
     if not match:
         return "NOT ENOUGH EVIDENCE — ask a human or search an authorized source."
@@ -56,6 +59,7 @@ if __name__ == "__main__":
     permitted = {doc.doc_id for doc in DOCUMENTS}
     for question in (
         "What is the refund request window?",
+        "refund",
         "What is the enterprise contract cancellation penalty?",
     ):
         print(f"Q: {question}\nA: {answer(question, permitted)}\n")

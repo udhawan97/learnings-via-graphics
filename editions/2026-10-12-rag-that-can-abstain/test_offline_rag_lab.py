@@ -12,6 +12,11 @@ class RetrievalGuardrails(unittest.TestCase):
         self.assertIn("[POL-001]", response)
         self.assertIn("30 days", response)
 
+    def test_underspecified_question_requests_clarification(self):
+        response = answer("refund", self.allowed)
+        self.assertIn("NEEDS CLARIFICATION", response)
+        self.assertNotIn("EVIDENCE [", response)
+
     def test_unknown_or_ambiguous_question_abstains(self):
         unknown = answer("What is the enterprise contract cancellation penalty?", self.allowed)
         ambiguous = answer("customer refund payment method", self.allowed)

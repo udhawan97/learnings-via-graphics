@@ -11,7 +11,7 @@ A visual, practical knowledge library designed to teach *how things work*, *how 
 Learn how to retrieve authorized evidence, combine keyword and vector search, cite sources, and abstain when an answer is unsupported. The guide includes two original diagrams, a worked ranking example, an 18-minute offline Python exercise, and three questions with answer guidance.
 
 - [Read the source ledger](editions/2026-10-12-rag-that-can-abstain/sources.md) for dated references and limitations.
-- [Inspect the teaching lab](editions/2026-10-12-rag-that-can-abstain/offline_rag_lab.py) and its [five tests](editions/2026-10-12-rag-that-can-abstain/test_offline_rag_lab.py).
+- [Inspect the teaching lab](editions/2026-10-12-rag-that-can-abstain/offline_rag_lab.py) and its [six tests](editions/2026-10-12-rag-that-can-abstain/test_offline_rag_lab.py).
 - [Browse all completed editions](archive.md).
 
 **[Safe Saves: atomic replacement vs durability](editions/2026-10-13-safe-saves/index.html)** — October 13, 2026 · The Builder's Workbench
@@ -39,7 +39,7 @@ python3 offline_rag_lab.py
 python3 -m unittest -v test_offline_rag_lab.py
 ```
 
-Expected result: the refund-window question cites `POL-001`, the unsupported contract question abstains, and all five tests pass. This standard-library example demonstrates lexical retrieval and permission filtering; it does not call an LLM or implement production RAG. The small test suite does not establish general prompt-injection protection.
+Expected result: the refund-window question cites `POL-001`, the one-word refund query requests clarification, the unsupported contract question abstains, and all six tests pass. This standard-library example demonstrates lexical retrieval and permission filtering; it does not call an LLM or implement production RAG. The small test suite does not establish general prompt-injection protection.
 
 ## Four tracks
 
