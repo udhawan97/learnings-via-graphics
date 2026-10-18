@@ -12,9 +12,11 @@ class RetrievalGuardrails(unittest.TestCase):
         self.assertIn("[POL-001]", response)
         self.assertIn("30 days", response)
 
-    def test_unknown_question_abstains(self):
-        response = answer("What is the enterprise contract cancellation penalty?", self.allowed)
-        self.assertIn("NOT ENOUGH EVIDENCE", response)
+    def test_unknown_or_ambiguous_question_abstains(self):
+        unknown = answer("What is the enterprise contract cancellation penalty?", self.allowed)
+        ambiguous = answer("customer refund payment method", self.allowed)
+        self.assertIn("NOT ENOUGH EVIDENCE", unknown)
+        self.assertIn("NOT ENOUGH EVIDENCE", ambiguous)
 
     def test_access_control_filters_before_ranking(self):
         self.assertIsNone(retrieve("What is the refund request window?", {"ACC-003"}))
