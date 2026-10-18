@@ -30,7 +30,7 @@ def tokens(text: str) -> set[str]:
 
 
 def retrieve(question: str, allowed_ids: set[str], *, min_overlap: int = 2):
-    """Filter by permission BEFORE lexical scoring; abstain on weak matches."""
+    """Filter before scoring; abstain on weak or ambiguous top matches."""
     terms = tokens(question)
     eligible = [doc for doc in DOCUMENTS if doc.doc_id in allowed_ids]
     ranked = sorted(
@@ -38,6 +38,8 @@ def retrieve(question: str, allowed_ids: set[str], *, min_overlap: int = 2):
         key=lambda item: (-item[0], item[1].doc_id),
     )
     if not ranked or ranked[0][0] < min_overlap:
+        return None
+    if len(ranked) > 1 and ranked[0][0] == ranked[1][0]:
         return None
     return ranked[0][1]
 
