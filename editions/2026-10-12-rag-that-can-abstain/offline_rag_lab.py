@@ -32,6 +32,8 @@ def tokens(text: str) -> set[str]:
 
 def retrieve(question: str, allowed_ids: set[str], *, min_overlap: int = 2):
     """Filter before scoring; abstain on weak or ambiguous top matches."""
+    if min_overlap < 1:
+        raise ValueError("min_overlap must be at least 1")
     terms = tokens(question)
     eligible = [doc for doc in DOCUMENTS if doc.doc_id in allowed_ids]
     ranked = sorted(

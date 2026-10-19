@@ -23,8 +23,10 @@ class RetrievalGuardrails(unittest.TestCase):
         self.assertIn("NOT ENOUGH EVIDENCE", unknown)
         self.assertIn("NOT ENOUGH EVIDENCE", ambiguous)
 
-    def test_access_control_filters_before_ranking(self):
+    def test_retrieval_guardrails_filter_access_and_reject_disabled_threshold(self):
         self.assertIsNone(retrieve("What is the refund request window?", {"ACC-003"}))
+        with self.assertRaisesRegex(ValueError, "at least 1"):
+            retrieve("banana spaceship", {"POL-001"}, min_overlap=0)
 
     def test_empty_knowledge_base_abstains(self):
         self.assertIn("NOT ENOUGH EVIDENCE", answer("What is the refund request window?", set()))
