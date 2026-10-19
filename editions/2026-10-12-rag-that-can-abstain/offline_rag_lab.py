@@ -23,6 +23,7 @@ DOCUMENTS = (
 
 STOPWORDS = {"a", "an", "and", "are", "can", "do", "for", "from", "how", "i", "in", "is", "of", "on", "or", "our", "the", "to", "we", "what", "when", "within", "your"}
 CLARIFY = "NEEDS CLARIFICATION — add a specific action or constraint to the question."
+ABSTAIN = "NOT ENOUGH EVIDENCE — ask a human or search an authorized source."
 
 
 def tokens(text: str) -> set[str]:
@@ -49,11 +50,14 @@ def retrieve(question: str, allowed_ids: set[str], *, min_overlap: int = 2):
 
 def answer(question: str, allowed_ids: set[str]) -> str:
     """Return evidence, request specificity, or abstain safely."""
+    authorized_ids = allowed_ids & {doc.doc_id for doc in DOCUMENTS}
+    if not authorized_ids:
+        return ABSTAIN
     if len(tokens(question)) < 2:
         return CLARIFY
-    match = retrieve(question, allowed_ids)
+    match = retrieve(question, authorized_ids)
     if not match:
-        return "NOT ENOUGH EVIDENCE — ask a human or search an authorized source."
+        return ABSTAIN
     return f"EVIDENCE [{match.doc_id}] {match.text}"
 
 
