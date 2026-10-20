@@ -87,7 +87,7 @@
       <div class="exercise"><h3>Run these commands from this edition's folder</h3><pre class="code">python3 offline_rag_lab.py
 python3 -m unittest -v test_offline_rag_lab.py</pre>
         <p>Files: <a href="offline_rag_lab.py">offline_rag_lab.py</a> and <a href="test_offline_rag_lab.py">test_offline_rag_lab.py</a>. Requirements: Python 3.10+, no packages or API keys. The code is an educational example with a miniature fictional policy corpus.</p>
-        <ol class="checklist"><li><strong>Minutes 0–4:</strong> Read the three document IDs in <code>DOCUMENTS</code>. Notice there is no enterprise contract.</li><li><strong>Minutes 5–8:</strong> Run the script. The refund-window question quotes <code>POL-001</code>; the invented contract-penalty question says <code>NOT ENOUGH EVIDENCE</code>.</li><li><strong>Minutes 9–12:</strong> Run all six tests. One denies access to refund documents; another checks that a one-word query requests clarification.</li><li><strong>Minutes 13–18:</strong> Change the query or threshold and observe a false negative. Explain why overlap count is not a calibrated confidence score.</li></ol>
+        <ol class="checklist"><li><strong>Minutes 0–4:</strong> Read the three document IDs in <code>DOCUMENTS</code>. Notice there is no enterprise contract.</li><li><strong>Minutes 5–8:</strong> Run the script. The refund-window question quotes <code>POL-001</code>; the invented contract-penalty question says <code>NOT ENOUGH EVIDENCE</code>.</li><li><strong>Minutes 9–12:</strong> Run the complete test suite. It covers denied access to refund documents and checks that a one-word query requests clarification.</li><li><strong>Minutes 13–18:</strong> Change the query or threshold and observe a false negative. Explain why overlap count is not a calibrated confidence score.</li></ol>
       </div>
       <p class="eyebrow">Expected output excerpt</p><pre class="code">Q: What is the refund request window?
 A: EVIDENCE [POL-001] A customer may request a refund within 30 days of purchase. A receipt is required.
@@ -98,8 +98,8 @@ A: NEEDS CLARIFICATION — add a specific action or constraint to the question.
 Q: What is the enterprise contract cancellation penalty?
 A: NOT ENOUGH EVIDENCE — ask a human or search an authorized source.
 
-# unittest: 6 tests ... OK</pre>
-      <div class="callout"><p class="eyebrow">What success really means</p>Passing tests establishes behavior only for this tiny sample corpus and six tested cases. It says <strong>nothing</strong> about enterprise retrieval accuracy, semantic search, jailbreak robustness, UI accessibility or customer production readiness. Those require a larger labelled dataset and real system evaluation. <a href="#source-3">[3]</a></div>
+# unittest: suite passes ... OK</pre>
+      <div class="callout"><p class="eyebrow">What success really means</p>A passing suite establishes behavior only for this tiny sample corpus and the cases it currently exercises. It says <strong>nothing</strong> about enterprise retrieval accuracy, semantic search, jailbreak robustness, UI accessibility or customer production readiness. Those require a larger labelled dataset and real system evaluation. <a href="#source-3">[3]</a></div>
     </section>
 
     <section class="panel" id="deploy" aria-labelledby="deploy-h"><p class="section-no">08 / Upgrade to a real product</p><h2 id="deploy-h">From toy demo to an accountable assistant</h2>
