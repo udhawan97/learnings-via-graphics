@@ -1,5 +1,9 @@
 # Evidence and source ledger — RAG that knows when to say “I don't know”
 
+- **Primary category / track:** Engineering / The Builder's Workbench
+- **Topic:** AI & retrieval
+- **Reading layers:** [Visual brief](brief.md) · [Full guide](index.html)
+
 - Edition date in America/Chicago: **2026-10-12**
 - Source access/check date: **2026-10-12**
 - Editorial classification: **foundation with 2026 product-documentation context**; not a breaking-news announcement.
@@ -26,3 +30,7 @@
 - Microsoft documentation is updated continuously. This article's classification and citation ledger reflect what was observed on 2026-10-12, not a guarantee of future feature naming, billing or regional support.
 - A production system needs tenant isolation, doc versioning, safe chunk preprocessing, stronger retrieval, empirical thresholds, adversarial evaluation, privacy controls, monitoring and rollback beyond this lab.
 - OWASP identifies a security class; this educational toy's suspicious-query unit test is not a certification against the wider class.
+
+## Visual brief and reusable diagrams
+
+The brief added on October 20, 2026 summarizes this edition; the SVGs in `assets/` reproduce its original inline diagrams. Existing claim mappings and limitations apply to both reading layers. This navigation update does not redate the original source review or assert a new product release.
