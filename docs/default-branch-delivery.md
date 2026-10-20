@@ -2,6 +2,8 @@
 
 This is the operational checklist for Elf and Mobster when maintaining this repository. Follow [editorial standards](editorial-standards.md) for content quality and safety. The objective is **a genuine, reviewed improvement reachable from `main`**, not an unreferenced Git object, an open PR, or a contribution square alone.
 
+For every scheduled run, also apply the [scheduled-run guardrails](scheduled-run-guardrails.md): current cloud capabilities, visual briefs and categories, exact-file validation, bounded retries, and truthful handoff states.
+
 ## Completion contract
 
 An attempted write has four distinct states. Never collapse them into “committed”:
