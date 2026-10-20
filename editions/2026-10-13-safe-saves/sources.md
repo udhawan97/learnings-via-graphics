@@ -1,5 +1,9 @@
 # Sources & claim ledger — reviewed source edition
 
+- **Primary category / track:** Engineering / The Builder's Workbench
+- **Topic:** Files & reliability
+- **Reading layers:** [Visual brief](brief.md) · [Full guide](index.html)
+
 - **Edition:** Safe Saves: why a renamed file is not the same as a durable transaction
 - **Track:** The Builder's Workbench
 - **Reporting date:** 2026-10-13 (America/Chicago)
@@ -21,3 +25,8 @@
 **No simulated crash is a hardware power-off test.** The 5 included tests run controlled ordinary Python exceptions and inspect local filesystem states. The diagram is conceptual with no empirical axes or measured reliability percentages. `sync_directory()` returns an attempted local `fsync` result, not proof that all device caches persisted data. The lab intentionally uses a single writer and trusted temporary folder; it is not an audited replacement for production application save pipelines. For untrusted input, shared drives, multi-writer state, coordinated metadata, encryption and backups, use vetted platform APIs / transactional storage and a tailored threat model.
 
 **Review:** Sequential fact-check, domain analysis, education design, visual/accessibility, and safety/minimalism perspectives; no independent external editorial participants. Final test/render outcomes must be recorded separately, not inferred here.
+
+
+## Visual brief and reusable diagrams
+
+The brief added on October 20, 2026 summarizes this edition; the SVGs in `assets/` reproduce its original inline diagrams. Existing claim mappings and limitations apply to both reading layers. This navigation update does not redate the original source review or assert a new product release.
