@@ -2,6 +2,8 @@
 
 [Front page](README.md) · [Editorial standards](docs/editorial-standards.md) · [Starter files](editions/_template/)
 
+**Scheduled ChatGPT runs:** start with the [run guardrails](docs/scheduled-run-guardrails.md); use current GitHub files and the capabilities available in that run.
+
 ## The short version
 
 1. **Check existing work.** Read the [resource index](archive.md) and open PRs. Improve or finish a relevant existing edition before duplicating it.
