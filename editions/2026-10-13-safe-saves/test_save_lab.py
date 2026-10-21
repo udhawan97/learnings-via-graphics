@@ -45,6 +45,18 @@ class SafeSaveLabTests(unittest.TestCase):
         self.assertEqual(self.target.read_bytes(), b"KNOWN GOOD")
         self.assertEqual(sorted(p.name for p in self.root.iterdir()), ["document.txt"])
 
+    def test_file_sync_failure_preserves_original_and_cleans_staging(self):
+        self.target.write_bytes(b"KNOWN GOOD")
+        with (
+            patch("save_lab.os.fsync", side_effect=OSError("sync failed")),
+            patch("save_lab.os.replace") as replace,
+        ):
+            with self.assertRaisesRegex(OSError, "sync failed"):
+                safe_save(self.target, b"NEW")
+        replace.assert_not_called()
+        self.assertEqual(self.target.read_bytes(), b"KNOWN GOOD")
+        self.assertEqual(sorted(p.name for p in self.root.iterdir()), ["document.txt"])
+
     def test_missing_parent_fails_closed(self):
         missing_target = self.root / "does-not-exist" / "document.txt"
         with self.assertRaises(FileNotFoundError):
