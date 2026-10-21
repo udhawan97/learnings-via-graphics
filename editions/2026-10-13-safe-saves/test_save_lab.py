@@ -3,6 +3,7 @@
 import tempfile
 import unittest
 from pathlib import Path
+from unittest.mock import patch
 
 from save_lab import SimulatedInterruption, safe_save
 
@@ -34,6 +35,14 @@ class SafeSaveLabTests(unittest.TestCase):
         self.target.write_bytes(b"OLD")
         with self.assertRaises(SimulatedInterruption):
             safe_save(self.target, b"NEW", interrupt_before_swap=True)
+        self.assertEqual(sorted(p.name for p in self.root.iterdir()), ["document.txt"])
+
+    def test_replace_failure_preserves_original_and_cleans_staging(self):
+        self.target.write_bytes(b"KNOWN GOOD")
+        with patch("save_lab.os.replace", side_effect=PermissionError("replace blocked")):
+            with self.assertRaisesRegex(PermissionError, "replace blocked"):
+                safe_save(self.target, b"NEW")
+        self.assertEqual(self.target.read_bytes(), b"KNOWN GOOD")
         self.assertEqual(sorted(p.name for p in self.root.iterdir()), ["document.txt"])
 
     def test_missing_parent_fails_closed(self):
