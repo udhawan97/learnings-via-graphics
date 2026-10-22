@@ -57,6 +57,15 @@ class SafeSaveLabTests(unittest.TestCase):
         self.assertEqual(self.target.read_bytes(), b"KNOWN GOOD")
         self.assertEqual(sorted(p.name for p in self.root.iterdir()), ["document.txt"])
 
+    def test_directory_sync_failure_is_reported_after_replacement(self):
+        self.target.write_bytes(b"OLD")
+        with patch("save_lab.sync_directory", return_value=False) as sync:
+            parent_synced = safe_save(self.target, b"NEW")
+        self.assertFalse(parent_synced)
+        sync.assert_called_once_with(self.root)
+        self.assertEqual(self.target.read_bytes(), b"NEW")
+        self.assertEqual(sorted(p.name for p in self.root.iterdir()), ["document.txt"])
+
     def test_missing_parent_fails_closed(self):
         missing_target = self.root / "does-not-exist" / "document.txt"
         with self.assertRaises(FileNotFoundError):
