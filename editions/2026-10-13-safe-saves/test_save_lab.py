@@ -66,6 +66,13 @@ class SafeSaveLabTests(unittest.TestCase):
         self.assertEqual(self.target.read_bytes(), b"NEW")
         self.assertEqual(sorted(p.name for p in self.root.iterdir()), ["document.txt"])
 
+    def test_non_bytes_payload_preserves_original_without_staging(self):
+        self.target.write_bytes(b"KNOWN GOOD")
+        with self.assertRaisesRegex(TypeError, "payload must be bytes"):
+            safe_save(self.target, "NEW")
+        self.assertEqual(self.target.read_bytes(), b"KNOWN GOOD")
+        self.assertEqual(sorted(p.name for p in self.root.iterdir()), ["document.txt"])
+
     def test_missing_parent_fails_closed(self):
         missing_target = self.root / "does-not-exist" / "document.txt"
         with self.assertRaises(FileNotFoundError):
