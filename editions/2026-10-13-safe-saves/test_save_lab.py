@@ -20,6 +20,11 @@ class SafeSaveLabTests(unittest.TestCase):
         safe_save(self.target, b"NEW")
         self.assertEqual(self.target.read_bytes(), b"NEW")
 
+    def test_successful_first_save_creates_target_and_cleans_staging(self):
+        safe_save(self.target, b"FIRST")
+        self.assertEqual(self.target.read_bytes(), b"FIRST")
+        self.assertEqual(sorted(p.name for p in self.root.iterdir()), ["document.txt"])
+
     def test_interruption_before_replace_keeps_original(self):
         self.target.write_bytes(b"KNOWN GOOD")
         with self.assertRaises(SimulatedInterruption):
