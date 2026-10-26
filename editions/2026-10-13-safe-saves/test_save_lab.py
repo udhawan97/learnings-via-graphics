@@ -84,6 +84,20 @@ class SafeSaveLabTests(unittest.TestCase):
         open_fd.assert_called_once_with(self.root, 65536)
         close.assert_called_once_with(41)
 
+    def test_directory_sync_closes_descriptor_after_success(self):
+        with (
+            patch("save_lab.os.name", "posix"),
+            patch("save_lab.os.O_DIRECTORY", 65536, create=True),
+            patch("save_lab.os.O_RDONLY", 0, create=True),
+            patch("save_lab.os.open", return_value=41) as open_fd,
+            patch("save_lab.os.fsync") as fsync,
+            patch("save_lab.os.close") as close,
+        ):
+            self.assertTrue(sync_directory(self.root))
+        open_fd.assert_called_once_with(self.root, 65536)
+        fsync.assert_called_once_with(41)
+        close.assert_called_once_with(41)
+
     def test_non_bytes_payload_preserves_original_without_staging(self):
         self.target.write_bytes(b"KNOWN GOOD")
         with self.assertRaisesRegex(TypeError, "payload must be bytes"):
