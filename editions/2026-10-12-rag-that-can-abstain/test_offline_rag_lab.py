@@ -23,6 +23,11 @@ class RetrievalGuardrails(unittest.TestCase):
         self.assertIn("NOT ENOUGH EVIDENCE", unknown)
         self.assertIn("NOT ENOUGH EVIDENCE", ambiguous)
 
+    def test_unauthorized_tied_document_is_filtered_before_ranking(self):
+        response = answer("customer refund payment method", {"POL-001"})
+        self.assertIn("EVIDENCE [POL-001]", response)
+        self.assertNotIn("POL-002", response)
+
     def test_retrieval_guardrails_filter_access_and_reject_disabled_threshold(self):
         self.assertIsNone(retrieve("What is the refund request window?", {"ACC-003"}))
         with self.assertRaisesRegex(ValueError, "at least 1"):
