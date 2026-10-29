@@ -110,6 +110,14 @@ class SafeSaveLabTests(unittest.TestCase):
         fsync.assert_called_once_with(41)
         close.assert_called_once_with(41)
 
+    def test_non_posix_directory_sync_returns_false_without_open(self):
+        with (
+            patch("save_lab.os.name", "nt"),
+            patch("save_lab.os.open") as open_fd,
+        ):
+            self.assertFalse(sync_directory(self.root))
+        open_fd.assert_not_called()
+
     def test_non_bytes_payload_preserves_original_without_staging(self):
         self.target.write_bytes(b"KNOWN GOOD")
         with self.assertRaisesRegex(TypeError, "payload must be bytes"):
