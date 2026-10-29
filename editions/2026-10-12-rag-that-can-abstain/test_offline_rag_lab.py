@@ -28,6 +28,14 @@ class RetrievalGuardrails(unittest.TestCase):
         self.assertIn("EVIDENCE [POL-001]", response)
         self.assertNotIn("POL-002", response)
 
+    def test_unauthorized_higher_score_is_filtered_before_ranking(self):
+        question = "customer refund original payment method"
+        self.assertIn("EVIDENCE [POL-002]", answer(question, self.allowed))
+
+        authorized_response = answer(question, {"POL-001"})
+        self.assertIn("EVIDENCE [POL-001]", authorized_response)
+        self.assertNotIn("POL-002", authorized_response)
+
     def test_retrieval_guardrails_filter_access_and_reject_disabled_threshold(self):
         self.assertIsNone(retrieve("What is the refund request window?", {"ACC-003"}))
         with self.assertRaisesRegex(ValueError, "at least 1"):
