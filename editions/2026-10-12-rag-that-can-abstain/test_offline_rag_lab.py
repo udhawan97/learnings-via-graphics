@@ -41,6 +41,12 @@ class RetrievalGuardrails(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "at least 1"):
             retrieve("banana spaceship", {"POL-001"}, min_overlap=0)
 
+    def test_retrieval_threshold_rejects_non_integer_values(self):
+        for invalid in (True, 1.5, "2"):
+            with self.subTest(invalid=invalid):
+                with self.assertRaisesRegex(ValueError, "integer of at least 1"):
+                    retrieve("refund request window", {"POL-001"}, min_overlap=invalid)
+
     def test_empty_knowledge_base_abstains(self):
         self.assertIn("NOT ENOUGH EVIDENCE", answer("What is the refund request window?", set()))
         short_response = answer("refund", set())
