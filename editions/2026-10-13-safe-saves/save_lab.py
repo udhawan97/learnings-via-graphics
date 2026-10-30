@@ -8,6 +8,7 @@ Only use paths inside a directory you own and trust.
 from __future__ import annotations
 
 import os
+import stat
 import tempfile
 from pathlib import Path
 
@@ -40,6 +41,8 @@ def sync_directory(directory: Path) -> bool:
 def safe_save(target: Path, payload: bytes, *, interrupt_before_swap: bool = False) -> bool:
     """Stage bytes beside target; sync temp; replace target; try dir sync.
 
+    On POSIX, preserve an existing regular file's permission bits. Ownership,
+    ACLs, extended metadata, and new-file policy remain outside this lab.
     Assumes a trusted directory and a single writer. Returns whether the
     optional directory-sync attempt succeeded, *not* a durability guarantee.
     """
@@ -48,6 +51,16 @@ def safe_save(target: Path, payload: bytes, *, interrupt_before_swap: bool = Fal
         raise FileNotFoundError(f"Parent directory does not exist: {target.parent}")
     if not isinstance(payload, bytes):
         raise TypeError("payload must be bytes")
+
+    existing_mode: int | None = None
+    if os.name == "posix":
+        try:
+            target_status = target.lstat()
+        except FileNotFoundError:
+            pass
+        else:
+            if stat.S_ISREG(target_status.st_mode):
+                existing_mode = stat.S_IMODE(target_status.st_mode)
 
     scratch: Path | None = None
     try:
@@ -58,6 +71,8 @@ def safe_save(target: Path, payload: bytes, *, interrupt_before_swap: bool = Fal
             scratch = Path(file.name)
             file.write(payload)
             file.flush()
+            if existing_mode is not None:
+                os.fchmod(file.fileno(), existing_mode)
             os.fsync(file.fileno())
         if interrupt_before_swap:
             raise SimulatedInterruption("Stop after temp sync, before replacement")
