@@ -1,5 +1,7 @@
 """Run with: python3 -m unittest -v test_save_lab.py"""
 
+import os
+import stat
 import tempfile
 import unittest
 from pathlib import Path
@@ -19,6 +21,28 @@ class SafeSaveLabTests(unittest.TestCase):
         self.target.write_bytes(b"OLD")
         safe_save(self.target, b"NEW")
         self.assertEqual(self.target.read_bytes(), b"NEW")
+
+    @unittest.skipUnless(os.name == "posix", "POSIX permission bits required")
+    def test_replacement_preserves_existing_permission_bits(self):
+        self.target.write_bytes(b"OLD")
+        self.target.chmod(0o640)
+
+        safe_save(self.target, b"NEW")
+
+        self.assertEqual(stat.S_IMODE(self.target.stat().st_mode), 0o640)
+
+    @unittest.skipUnless(os.name == "posix", "POSIX permission bits required")
+    def test_permission_copy_failure_preserves_original_and_cleans_staging(self):
+        self.target.write_bytes(b"KNOWN GOOD")
+        with (
+            patch("save_lab.os.fchmod", side_effect=PermissionError("mode copy blocked")),
+            patch("save_lab.os.replace") as replace,
+        ):
+            with self.assertRaisesRegex(PermissionError, "mode copy blocked"):
+                safe_save(self.target, b"NEW")
+        replace.assert_not_called()
+        self.assertEqual(self.target.read_bytes(), b"KNOWN GOOD")
+        self.assertEqual(sorted(p.name for p in self.root.iterdir()), ["document.txt"])
 
     def test_successful_first_save_creates_target_and_cleans_staging(self):
         safe_save(self.target, b"FIRST")
