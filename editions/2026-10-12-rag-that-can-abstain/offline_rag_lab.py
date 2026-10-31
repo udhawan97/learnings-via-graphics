@@ -31,12 +31,23 @@ def tokens(text: str) -> set[str]:
     return set(re.findall(r"[a-z0-9]+", text.lower())) - STOPWORDS
 
 
+def _authorized_ids(allowed_ids: object) -> set[str]:
+    """Accept only a built-in set of string IDs; malformed access data fails closed."""
+    if type(allowed_ids) is not set:
+        return set()
+    if any(type(doc_id) is not str for doc_id in allowed_ids):
+        return set()
+    current_ids = {doc.doc_id for doc in DOCUMENTS}
+    return set(allowed_ids) & current_ids
+
+
 def retrieve(question: str, allowed_ids: set[str], *, min_overlap: int = 2):
     """Filter before scoring; abstain on weak or ambiguous top matches."""
     if type(min_overlap) is not int or min_overlap < 1:
         raise ValueError("min_overlap must be an integer of at least 1")
     terms = tokens(question)
-    eligible = [doc for doc in DOCUMENTS if doc.doc_id in allowed_ids]
+    authorized_ids = _authorized_ids(allowed_ids)
+    eligible = [doc for doc in DOCUMENTS if doc.doc_id in authorized_ids]
     ranked = sorted(
         ((len(terms & tokens(doc.text + " " + doc.title)), doc) for doc in eligible),
         key=lambda item: (-item[0], item[1].doc_id),
@@ -50,7 +61,7 @@ def retrieve(question: str, allowed_ids: set[str], *, min_overlap: int = 2):
 
 def answer(question: str, allowed_ids: set[str]) -> str:
     """Return evidence, request specificity, or abstain safely."""
-    authorized_ids = allowed_ids & {doc.doc_id for doc in DOCUMENTS}
+    authorized_ids = _authorized_ids(allowed_ids)
     if not authorized_ids:
         return ABSTAIN
     if len(tokens(question)) < 2:
