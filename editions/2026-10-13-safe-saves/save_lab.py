@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import os
 import stat
+import sys
 import tempfile
 from pathlib import Path
 
@@ -83,8 +84,17 @@ def safe_save(target: Path, payload: bytes, *, interrupt_before_swap: bool = Fal
         os.replace(scratch, target)
         return sync_directory(target.parent)
     finally:
+        primary_error = sys.exc_info()[1]
         if scratch is not None:
-            scratch.unlink(missing_ok=True)
+            try:
+                scratch.unlink(missing_ok=True)
+            except OSError as cleanup_error:
+                if primary_error is None:
+                    raise
+                if hasattr(primary_error, "add_note"):
+                    primary_error.add_note(f"Staging cleanup also failed: {cleanup_error}")
+                else:
+                    primary_error.__context__ = cleanup_error
 
 
 def demo() -> None:
