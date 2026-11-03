@@ -148,6 +148,20 @@ class SafeSaveLabTests(unittest.TestCase):
         fsync.assert_called_once_with(41)
         close.assert_called_once_with(41)
 
+    def test_directory_sync_close_failure_is_reported(self):
+        with (
+            patch("save_lab.os.name", "posix"),
+            patch("save_lab.os.O_DIRECTORY", 65536, create=True),
+            patch("save_lab.os.O_RDONLY", 0, create=True),
+            patch("save_lab.os.open", return_value=41) as open_fd,
+            patch("save_lab.os.fsync") as fsync,
+            patch("save_lab.os.close", side_effect=OSError("close blocked")) as close,
+        ):
+            self.assertFalse(sync_directory(self.root))
+        open_fd.assert_called_once_with(self.root, 65536)
+        fsync.assert_called_once_with(41)
+        close.assert_called_once_with(41)
+
     def test_non_posix_directory_sync_returns_false_without_open(self):
         with (
             patch("save_lab.os.name", "nt"),
