@@ -80,6 +80,17 @@ class SafeSaveLabTests(unittest.TestCase):
             safe_save(self.target, b"NEW", interrupt_before_swap=True)
         self.assertEqual(sorted(p.name for p in self.root.iterdir()), ["document.txt"])
 
+    def test_cleanup_failure_preserves_primary_error(self):
+        self.target.write_bytes(b"KNOWN GOOD")
+        with patch("save_lab.Path.unlink", side_effect=OSError("cleanup blocked")):
+            with self.assertRaises(SimulatedInterruption) as raised:
+                safe_save(self.target, b"NEW", interrupt_before_swap=True)
+        if hasattr(raised.exception, "__notes__"):
+            self.assertEqual(raised.exception.__notes__, ["Staging cleanup also failed: cleanup blocked"])
+        else:
+            self.assertRegex(str(raised.exception.__context__), "cleanup blocked")
+        self.assertEqual(self.target.read_bytes(), b"KNOWN GOOD")
+
     def test_replace_failure_preserves_original_and_cleans_staging(self):
         self.target.write_bytes(b"KNOWN GOOD")
         with patch("save_lab.os.replace", side_effect=PermissionError("replace blocked")):
