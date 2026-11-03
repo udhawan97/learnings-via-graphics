@@ -28,14 +28,18 @@ def sync_directory(directory: Path) -> bool:
         fd = os.open(directory, os.O_RDONLY | os.O_DIRECTORY)
     except OSError:
         return False
+    synced = True
     try:
         try:
             os.fsync(fd)
         except OSError:
-            return False
-        return True
+            synced = False
     finally:
-        os.close(fd)
+        try:
+            os.close(fd)
+        except OSError:
+            synced = False
+    return synced
 
 
 def safe_save(target: Path, payload: bytes, *, interrupt_before_swap: bool = False) -> bool:
