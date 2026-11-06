@@ -26,8 +26,10 @@ CLARIFY = "NEEDS CLARIFICATION — add a specific action or constraint to the qu
 ABSTAIN = "NOT ENOUGH EVIDENCE — ask a human or search an authorized source."
 
 
-def tokens(text: str) -> set[str]:
-    """Toy exact-word matching; real search engines need broader ranking."""
+def tokens(text: object) -> set[str]:
+    """Return toy exact-word tokens; malformed question data has no terms."""
+    if type(text) is not str:
+        return set()
     return set(re.findall(r"[a-z0-9]+", text.lower())) - STOPWORDS
 
 
@@ -41,7 +43,7 @@ def _authorized_ids(allowed_ids: object) -> set[str]:
     return set(allowed_ids) & current_ids
 
 
-def retrieve(question: str, allowed_ids: set[str], *, min_overlap: int = 2):
+def retrieve(question: object, allowed_ids: set[str], *, min_overlap: int = 2):
     """Filter before scoring; abstain on weak or ambiguous top matches."""
     if type(min_overlap) is not int or min_overlap < 1:
         raise ValueError("min_overlap must be an integer of at least 1")
@@ -59,7 +61,7 @@ def retrieve(question: str, allowed_ids: set[str], *, min_overlap: int = 2):
     return ranked[0][1]
 
 
-def answer(question: str, allowed_ids: set[str]) -> str:
+def answer(question: object, allowed_ids: set[str]) -> str:
     """Return evidence, request specificity, or abstain safely."""
     authorized_ids = _authorized_ids(allowed_ids)
     if not authorized_ids:

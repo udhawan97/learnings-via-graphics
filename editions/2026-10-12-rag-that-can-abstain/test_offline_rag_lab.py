@@ -17,6 +17,18 @@ class RetrievalGuardrails(unittest.TestCase):
         self.assertIn("NEEDS CLARIFICATION", response)
         self.assertNotIn("EVIDENCE [", response)
 
+    def test_malformed_question_requests_clarification_without_retrieval(self):
+        for invalid in (None, b"refund request window", ["refund", "request"]):
+            with self.subTest(invalid=invalid):
+                response = answer(invalid, self.allowed)
+                self.assertIn("NEEDS CLARIFICATION", response)
+                self.assertNotIn("EVIDENCE [", response)
+                self.assertIsNone(retrieve(invalid, self.allowed))
+
+        unauthorized = answer(None, set())
+        self.assertIn("NOT ENOUGH EVIDENCE", unauthorized)
+        self.assertNotIn("NEEDS CLARIFICATION", unauthorized)
+
     def test_unknown_or_ambiguous_question_abstains(self):
         unknown = answer("What is the enterprise contract cancellation penalty?", self.allowed)
         ambiguous = answer("customer refund payment method", self.allowed)
