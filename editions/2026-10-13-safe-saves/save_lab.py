@@ -46,7 +46,8 @@ def sync_directory(directory: Path) -> bool:
 def safe_save(target: Path, payload: bytes, *, interrupt_before_swap: bool = False) -> bool:
     """Stage bytes beside target; sync temp; replace target; try dir sync.
 
-    On POSIX, preserve an existing regular file's permission bits. Ownership,
+    On POSIX, preserve an existing regular file's ordinary read/write/execute
+    permission bits, but not set-user-ID, set-group-ID, or sticky bits. Ownership,
     ACLs, extended metadata, and new-file policy remain outside this lab.
     Assumes a trusted directory and a single writer. Returns whether the
     optional directory-sync attempt succeeded, *not* a durability guarantee.
@@ -65,7 +66,7 @@ def safe_save(target: Path, payload: bytes, *, interrupt_before_swap: bool = Fal
             pass
         else:
             if stat.S_ISREG(target_status.st_mode):
-                existing_mode = stat.S_IMODE(target_status.st_mode)
+                existing_mode = stat.S_IMODE(target_status.st_mode) & 0o777
 
     scratch: Path | None = None
     try:
