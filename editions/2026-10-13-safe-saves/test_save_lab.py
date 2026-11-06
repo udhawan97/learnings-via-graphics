@@ -31,6 +31,17 @@ class SafeSaveLabTests(unittest.TestCase):
 
         self.assertEqual(stat.S_IMODE(self.target.stat().st_mode), 0o640)
 
+    @unittest.skipUnless(os.name == "posix", "POSIX permission bits required")
+    def test_replacement_drops_special_permission_bits(self):
+        self.target.write_bytes(b"OLD")
+        self.target.chmod(0o6755)
+        self.assertEqual(stat.S_IMODE(self.target.stat().st_mode), 0o6755)
+
+        safe_save(self.target, b"NEW")
+
+        self.assertEqual(self.target.read_bytes(), b"NEW")
+        self.assertEqual(stat.S_IMODE(self.target.stat().st_mode), 0o755)
+
     @unittest.skipUnless(os.name == "posix", "POSIX symlink behavior required")
     def test_symlink_target_replaces_link_without_touching_referent(self):
         referent = self.root / "referent.txt"
