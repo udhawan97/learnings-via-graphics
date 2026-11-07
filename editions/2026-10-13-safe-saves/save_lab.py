@@ -71,7 +71,7 @@ def safe_save(target: Path, payload: bytes, *, interrupt_before_swap: bool = Fal
     scratch: Path | None = None
     try:
         with tempfile.NamedTemporaryFile(
-            mode="wb", dir=target.parent, prefix=f".{target.name}.",
+            mode="wb", dir=target.parent, prefix=".safe-save-",
             suffix=".tmp", delete=False
         ) as file:
             scratch = Path(file.name)
