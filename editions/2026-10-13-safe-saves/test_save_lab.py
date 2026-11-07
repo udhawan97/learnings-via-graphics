@@ -22,6 +22,19 @@ class SafeSaveLabTests(unittest.TestCase):
         safe_save(self.target, b"NEW")
         self.assertEqual(self.target.read_bytes(), b"NEW")
 
+    @unittest.skipUnless(os.name == "posix", "POSIX filename limits required")
+    def test_max_length_filename_can_be_replaced(self):
+        name_max = os.pathconf(self.root, "PC_NAME_MAX")
+        if name_max < 1:
+            self.skipTest("filesystem does not report a finite filename limit")
+        target = self.root / ("x" * name_max)
+        target.write_bytes(b"OLD")
+
+        safe_save(target, b"NEW")
+
+        self.assertEqual(target.read_bytes(), b"NEW")
+        self.assertEqual(sorted(p.name for p in self.root.iterdir()), [target.name])
+
     @unittest.skipUnless(os.name == "posix", "POSIX permission bits required")
     def test_replacement_preserves_existing_permission_bits(self):
         self.target.write_bytes(b"OLD")
