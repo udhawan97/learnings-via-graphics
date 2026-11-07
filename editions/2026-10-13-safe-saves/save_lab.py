@@ -53,10 +53,10 @@ def safe_save(target: Path, payload: bytes, *, interrupt_before_swap: bool = Fal
     optional directory-sync attempt succeeded, *not* a durability guarantee.
     """
     target = Path(target)
-    if not target.parent.is_dir():
-        raise FileNotFoundError(f"Parent directory does not exist: {target.parent}")
     if not isinstance(payload, bytes):
         raise TypeError("payload must be bytes")
+    if not target.parent.is_dir():
+        raise FileNotFoundError(f"Parent directory does not exist: {target.parent}")
 
     existing_mode: int | None = None
     if os.name == "posix":
@@ -114,3 +114,4 @@ def demo() -> None:
 
 if __name__ == "__main__":
     demo()
+
