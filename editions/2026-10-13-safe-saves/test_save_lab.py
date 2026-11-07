@@ -199,6 +199,15 @@ class SafeSaveLabTests(unittest.TestCase):
         self.assertEqual(self.target.read_bytes(), b"KNOWN GOOD")
         self.assertEqual(sorted(p.name for p in self.root.iterdir()), ["document.txt"])
 
+    def test_non_bytes_payload_is_rejected_before_filesystem_probe(self):
+        missing_target = self.root / "does-not-exist" / "document.txt"
+        with patch(
+            "save_lab.Path.is_dir",
+            side_effect=AssertionError("filesystem should not be probed"),
+        ):
+            with self.assertRaisesRegex(TypeError, "payload must be bytes"):
+                safe_save(missing_target, "NEW")
+
     def test_missing_parent_fails_closed(self):
         missing_target = self.root / "does-not-exist" / "document.txt"
         with self.assertRaises(FileNotFoundError):
