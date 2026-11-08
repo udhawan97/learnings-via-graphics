@@ -41,9 +41,11 @@ class SafeSaveLabTests(unittest.TestCase):
         marker = directory / "keep.txt"
         marker.write_bytes(b"KEEP")
 
-        with self.assertRaises(OSError):
-            safe_save(directory, b"NEW")
+        with patch("save_lab.tempfile.NamedTemporaryFile") as staging:
+            with self.assertRaisesRegex(IsADirectoryError, "Target is a directory"):
+                safe_save(directory, b"NEW")
 
+        staging.assert_not_called()
         self.assertTrue(directory.is_dir())
         self.assertEqual(marker.read_bytes(), b"KEEP")
         self.assertEqual(sorted(p.name for p in self.root.iterdir()), ["collection"])
