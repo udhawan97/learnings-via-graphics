@@ -59,14 +59,18 @@ def safe_save(target: Path, payload: bytes, *, interrupt_before_swap: bool = Fal
         raise FileNotFoundError(f"Parent directory does not exist: {target.parent}")
 
     existing_mode: int | None = None
-    if os.name == "posix":
-        try:
-            target_status = target.lstat()
-        except FileNotFoundError:
-            pass
-        else:
-            if stat.S_ISREG(target_status.st_mode):
-                existing_mode = stat.S_IMODE(target_status.st_mode) & 0o777
+    try:
+        target_status = target.lstat()
+    except FileNotFoundError:
+        target_status = None
+    if target_status is not None and stat.S_ISDIR(target_status.st_mode):
+        raise IsADirectoryError(f"Target is a directory: {target}")
+    if (
+        os.name == "posix"
+        and target_status is not None
+        and stat.S_ISREG(target_status.st_mode)
+    ):
+        existing_mode = stat.S_IMODE(target_status.st_mode) & 0o777
 
     scratch: Path | None = None
     try:
