@@ -35,6 +35,19 @@ class SafeSaveLabTests(unittest.TestCase):
         self.assertEqual(target.read_bytes(), b"NEW")
         self.assertEqual(sorted(p.name for p in self.root.iterdir()), [target.name])
 
+    def test_directory_target_is_preserved_and_staging_is_cleaned(self):
+        directory = self.root / "collection"
+        directory.mkdir()
+        marker = directory / "keep.txt"
+        marker.write_bytes(b"KEEP")
+
+        with self.assertRaises(OSError):
+            safe_save(directory, b"NEW")
+
+        self.assertTrue(directory.is_dir())
+        self.assertEqual(marker.read_bytes(), b"KEEP")
+        self.assertEqual(sorted(p.name for p in self.root.iterdir()), ["collection"])
+
     @unittest.skipUnless(os.name == "posix", "POSIX permission bits required")
     def test_replacement_preserves_existing_permission_bits(self):
         self.target.write_bytes(b"OLD")
