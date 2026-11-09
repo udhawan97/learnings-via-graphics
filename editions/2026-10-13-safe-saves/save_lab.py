@@ -55,6 +55,8 @@ def safe_save(target: Path, payload: bytes, *, interrupt_before_swap: bool = Fal
     target = Path(target)
     if not isinstance(payload, bytes):
         raise TypeError("payload must be bytes")
+    if type(interrupt_before_swap) is not bool:
+        raise TypeError("interrupt_before_swap must be a bool")
     if not target.parent.is_dir():
         raise FileNotFoundError(f"Parent directory does not exist: {target.parent}")
 
