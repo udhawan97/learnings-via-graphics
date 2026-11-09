@@ -251,6 +251,22 @@ class SafeSaveLabTests(unittest.TestCase):
             with self.assertRaisesRegex(TypeError, "payload must be bytes"):
                 safe_save(missing_target, "NEW")
 
+    def test_non_bool_interruption_flag_is_rejected_before_filesystem_probe(self):
+        self.target.write_bytes(b"KNOWN GOOD")
+
+        for invalid in (0, 1, "false", None):
+            with (
+                self.subTest(invalid=invalid),
+                patch("save_lab.Path.is_dir") as parent_probe,
+                patch("save_lab.tempfile.NamedTemporaryFile") as staging,
+            ):
+                with self.assertRaisesRegex(TypeError, "must be a bool"):
+                    safe_save(self.target, b"NEW", interrupt_before_swap=invalid)
+                parent_probe.assert_not_called()
+                staging.assert_not_called()
+
+        self.assertEqual(self.target.read_bytes(), b"KNOWN GOOD")
+
     def test_missing_parent_fails_closed(self):
         missing_target = self.root / "does-not-exist" / "document.txt"
         with self.assertRaises(FileNotFoundError):
