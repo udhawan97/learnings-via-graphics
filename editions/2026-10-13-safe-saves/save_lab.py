@@ -65,6 +65,10 @@ def safe_save(target: Path, payload: bytes, *, interrupt_before_swap: bool = Fal
         target_status = None
     if target_status is not None and stat.S_ISDIR(target_status.st_mode):
         raise IsADirectoryError(f"Target is a directory: {target}")
+    if target_status is not None and not (
+        stat.S_ISREG(target_status.st_mode) or stat.S_ISLNK(target_status.st_mode)
+    ):
+        raise OSError(f"Target is not a regular file or symbolic link: {target}")
     if (
         os.name == "posix"
         and target_status is not None
@@ -118,3 +122,4 @@ def demo() -> None:
 
 if __name__ == "__main__":
     demo()
+
