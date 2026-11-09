@@ -50,6 +50,21 @@ class SafeSaveLabTests(unittest.TestCase):
         self.assertEqual(marker.read_bytes(), b"KEEP")
         self.assertEqual(sorted(p.name for p in self.root.iterdir()), ["collection"])
 
+    @unittest.skipUnless(
+        os.name == "posix" and hasattr(os, "mkfifo"),
+        "POSIX named pipes required",
+    )
+    def test_named_pipe_target_is_preserved_without_staging(self):
+        os.mkfifo(self.target)
+
+        with patch("save_lab.tempfile.NamedTemporaryFile") as staging:
+            with self.assertRaisesRegex(OSError, "not a regular file"):
+                safe_save(self.target, b"NEW")
+
+        staging.assert_not_called()
+        self.assertTrue(stat.S_ISFIFO(self.target.lstat().st_mode))
+        self.assertEqual(sorted(p.name for p in self.root.iterdir()), ["document.txt"])
+
     @unittest.skipUnless(os.name == "posix", "POSIX permission bits required")
     def test_replacement_preserves_existing_permission_bits(self):
         self.target.write_bytes(b"OLD")
