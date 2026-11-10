@@ -42,6 +42,13 @@ class RetrievalGuardrails(unittest.TestCase):
         self.assertNotIn("EVIDENCE [", response)
         self.assertIsNone(retrieve(question, self.allowed))
 
+    def test_query_coverage_boundary_is_inclusive(self):
+        at_boundary = "refund request banana spaceship nebula"
+        below_boundary = f"{at_boundary} volcano"
+
+        self.assertIn("EVIDENCE [POL-001]", answer(at_boundary, {"POL-001"}))
+        self.assertIn("NOT ENOUGH EVIDENCE", answer(below_boundary, {"POL-001"}))
+
     def test_unauthorized_tied_document_is_filtered_before_ranking(self):
         response = answer("customer refund payment method", {"POL-001"})
         self.assertIn("EVIDENCE [POL-001]", response)
