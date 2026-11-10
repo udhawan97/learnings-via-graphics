@@ -22,6 +22,7 @@ DOCUMENTS = (
 )
 
 STOPWORDS = {"a", "an", "and", "are", "can", "do", "for", "from", "how", "i", "in", "is", "of", "on", "or", "our", "the", "to", "we", "what", "when", "within", "your"}
+MIN_QUERY_COVERAGE = 0.4
 CLARIFY = "NEEDS CLARIFICATION — add a specific action or constraint to the question."
 ABSTAIN = "NOT ENOUGH EVIDENCE — ask a human or search an authorized source."
 
@@ -55,6 +56,8 @@ def retrieve(question: object, allowed_ids: set[str], *, min_overlap: int = 2):
         key=lambda item: (-item[0], item[1].doc_id),
     )
     if not ranked or ranked[0][0] < min_overlap:
+        return None
+    if ranked[0][0] / len(terms) < MIN_QUERY_COVERAGE:
         return None
     if len(ranked) > 1 and ranked[0][0] == ranked[1][0]:
         return None

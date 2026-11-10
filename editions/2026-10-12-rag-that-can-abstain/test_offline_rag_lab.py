@@ -35,6 +35,13 @@ class RetrievalGuardrails(unittest.TestCase):
         self.assertIn("NOT ENOUGH EVIDENCE", unknown)
         self.assertIn("NOT ENOUGH EVIDENCE", ambiguous)
 
+    def test_mostly_unsupported_question_abstains(self):
+        question = "What is the customer refund rule for enterprise annual contract cancellation?"
+        response = answer(question, self.allowed)
+        self.assertIn("NOT ENOUGH EVIDENCE", response)
+        self.assertNotIn("EVIDENCE [", response)
+        self.assertIsNone(retrieve(question, self.allowed))
+
     def test_unauthorized_tied_document_is_filtered_before_ranking(self):
         response = answer("customer refund payment method", {"POL-001"})
         self.assertIn("EVIDENCE [POL-001]", response)
