@@ -99,6 +99,19 @@ class SafeSaveLabTests(unittest.TestCase):
         self.assertEqual(self.target.read_bytes(), b"NEW")
         self.assertEqual(referent.read_bytes(), b"KEEP")
 
+    @unittest.skipUnless(os.name == "posix", "POSIX hard-link behavior required")
+    def test_replacement_leaves_sibling_hard_link_on_old_inode(self):
+        self.target.write_bytes(b"OLD")
+        sibling = self.root / "sibling.txt"
+        os.link(self.target, sibling)
+        self.assertEqual(self.target.stat().st_ino, sibling.stat().st_ino)
+
+        safe_save(self.target, b"NEW")
+
+        self.assertEqual(self.target.read_bytes(), b"NEW")
+        self.assertEqual(sibling.read_bytes(), b"OLD")
+        self.assertNotEqual(self.target.stat().st_ino, sibling.stat().st_ino)
+
     @unittest.skipUnless(os.name == "posix", "POSIX permission bits required")
     def test_permission_copy_failure_preserves_original_and_cleans_staging(self):
         self.target.write_bytes(b"KNOWN GOOD")

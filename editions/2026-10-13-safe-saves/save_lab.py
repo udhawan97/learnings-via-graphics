@@ -49,8 +49,9 @@ def safe_save(target: Path, payload: bytes, *, interrupt_before_swap: bool = Fal
     On POSIX, preserve an existing regular file's ordinary read/write/execute
     permission bits, but not set-user-ID, set-group-ID, or sticky bits. Ownership,
     ACLs, extended metadata, and new-file policy remain outside this lab.
-    Assumes a trusted directory and a single writer. Returns whether the
-    optional directory-sync attempt succeeded, *not* a durability guarantee.
+    Replacement is pathname-scoped: sibling hard links remain attached to the
+    old inode. Assumes a trusted directory and a single writer. Returns whether
+    the optional directory-sync attempt succeeded, *not* a durability guarantee.
     """
     target = Path(target)
     if not isinstance(payload, bytes):
