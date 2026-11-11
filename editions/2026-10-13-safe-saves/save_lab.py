@@ -88,7 +88,12 @@ def safe_save(target: Path, payload: bytes, *, interrupt_before_swap: bool = Fal
             suffix=".tmp", delete=False
         ) as file:
             scratch = Path(file.name)
-            file.write(payload)
+            written = file.write(payload)
+            if written != len(payload):
+                raise OSError(
+                    f"Staging write was incomplete: expected {len(payload)} bytes, "
+                    f"wrote {written}"
+                )
             file.flush()
             if existing_mode is not None:
                 os.fchmod(file.fileno(), existing_mode)
