@@ -273,6 +273,24 @@ class SafeSaveLabTests(unittest.TestCase):
             safe_save(missing_target, b"NEW")
         self.assertFalse(missing_target.exists())
 
+    def test_non_directory_parent_fails_closed_without_staging(self):
+        parent = self.root / "parent.txt"
+        parent.write_bytes(b"KEEP")
+        nested_target = parent / "document.txt"
+
+        with patch("save_lab.tempfile.NamedTemporaryFile") as staging:
+            with self.assertRaisesRegex(
+                NotADirectoryError, "Parent path is not a directory"
+            ):
+                safe_save(nested_target, b"NEW")
+
+        staging.assert_not_called()
+        self.assertEqual(parent.read_bytes(), b"KEEP")
+        self.assertEqual(
+            sorted(path.name for path in self.root.iterdir()),
+            ["parent.txt"],
+        )
+
 
 if __name__ == "__main__":
     unittest.main()

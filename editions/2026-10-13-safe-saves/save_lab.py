@@ -57,8 +57,11 @@ def safe_save(target: Path, payload: bytes, *, interrupt_before_swap: bool = Fal
         raise TypeError("payload must be bytes")
     if type(interrupt_before_swap) is not bool:
         raise TypeError("interrupt_before_swap must be a bool")
-    if not target.parent.is_dir():
-        raise FileNotFoundError(f"Parent directory does not exist: {target.parent}")
+    parent = target.parent
+    if not parent.is_dir():
+        if parent.exists():
+            raise NotADirectoryError(f"Parent path is not a directory: {parent}")
+        raise FileNotFoundError(f"Parent directory does not exist: {parent}")
 
     existing_mode: int | None = None
     try:
@@ -81,7 +84,7 @@ def safe_save(target: Path, payload: bytes, *, interrupt_before_swap: bool = Fal
     scratch: Path | None = None
     try:
         with tempfile.NamedTemporaryFile(
-            mode="wb", dir=target.parent, prefix=".safe-save-",
+            mode="wb", dir=parent, prefix=".safe-save-",
             suffix=".tmp", delete=False
         ) as file:
             scratch = Path(file.name)
@@ -93,7 +96,7 @@ def safe_save(target: Path, payload: bytes, *, interrupt_before_swap: bool = Fal
         if interrupt_before_swap:
             raise SimulatedInterruption("Stop after temp sync, before replacement")
         os.replace(scratch, target)
-        return sync_directory(target.parent)
+        return sync_directory(parent)
     finally:
         primary_error = sys.exc_info()[1]
         if scratch is not None:
