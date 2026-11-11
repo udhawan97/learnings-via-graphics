@@ -5,7 +5,7 @@ import stat
 import tempfile
 import unittest
 from pathlib import Path
-from unittest.mock import patch
+from unittest.mock import MagicMock, patch
 
 from save_lab import SimulatedInterruption, safe_save, sync_directory
 
@@ -161,6 +161,28 @@ class SafeSaveLabTests(unittest.TestCase):
         ):
             with self.assertRaisesRegex(OSError, "sync failed"):
                 safe_save(self.target, b"NEW")
+        replace.assert_not_called()
+        self.assertEqual(self.target.read_bytes(), b"KNOWN GOOD")
+        self.assertEqual(sorted(p.name for p in self.root.iterdir()), ["document.txt"])
+
+    def test_short_staging_write_preserves_original_and_cleans_staging(self):
+        self.target.write_bytes(b"KNOWN GOOD")
+        scratch = self.root / ".safe-save-short.tmp"
+        scratch.write_bytes(b"NE")
+        staged_file = MagicMock(name="staged_file")
+        staged_file.name = str(scratch)
+        staged_file.write.return_value = 2
+        staging = MagicMock(name="staging")
+        staging.__enter__.return_value = staged_file
+
+        with (
+            patch("save_lab.tempfile.NamedTemporaryFile", return_value=staging),
+            patch("save_lab.os.replace") as replace,
+        ):
+            with self.assertRaisesRegex(OSError, "Staging write was incomplete"):
+                safe_save(self.target, b"NEW")
+
+        staged_file.flush.assert_not_called()
         replace.assert_not_called()
         self.assertEqual(self.target.read_bytes(), b"KNOWN GOOD")
         self.assertEqual(sorted(p.name for p in self.root.iterdir()), ["document.txt"])
