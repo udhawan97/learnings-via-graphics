@@ -206,6 +206,32 @@ class SafeSaveLabTests(unittest.TestCase):
         self.assertEqual(self.target.read_bytes(), b"KNOWN GOOD")
         self.assertEqual(sorted(p.name for p in self.root.iterdir()), ["document.txt"])
 
+    def test_close_failure_on_first_save_leaves_no_file(self):
+        scratch = self.root / ".safe-save-close.tmp"
+        scratch.write_bytes(b"NEW")
+        staged_file = MagicMock(name="staged_file")
+        staged_file.name = str(scratch)
+        staged_file.write.return_value = 3
+        staged_file.fileno.return_value = 41
+        staging = MagicMock(name="staging")
+        staging.__enter__.return_value = staged_file
+        staging.__exit__.side_effect = OSError("close failed")
+
+        with (
+            patch("save_lab.tempfile.NamedTemporaryFile", return_value=staging),
+            patch("save_lab.os.fsync") as fsync,
+            patch("save_lab.os.replace") as replace,
+        ):
+            with self.assertRaisesRegex(OSError, "close failed"):
+                safe_save(self.target, b"NEW")
+
+        staged_file.write.assert_called_once_with(b"NEW")
+        staged_file.flush.assert_called_once_with()
+        fsync.assert_called_once_with(41)
+        replace.assert_not_called()
+        self.assertFalse(self.target.exists())
+        self.assertEqual(list(self.root.iterdir()), [])
+
     def test_short_staging_write_preserves_original_and_cleans_staging(self):
         self.target.write_bytes(b"KNOWN GOOD")
         scratch = self.root / ".safe-save-short.tmp"
