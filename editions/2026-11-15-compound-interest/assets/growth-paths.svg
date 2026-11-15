@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" role="img" aria-labelledby="title desc">
+  <title id="title">Simple and compound interest paths over three years</title>
+  <desc id="desc">An invented comparison starts both paths at one thousand dollars and five percent annual interest. Simple interest adds fifty dollars each year and ends at one thousand one hundred fifty dollars. Compound interest recalculates from the previous balance and ends at one thousand one hundred fifty-seven dollars and sixty-three cents.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto">
+      <path d="M0 0 L9 4 L0 8 Z" fill="#314b74"/>
+    </marker>
+    <style>
+      .title{font:700 28px system-ui,sans-serif;fill:#13233d}
+      .label{font:700 20px system-ui,sans-serif;fill:#13233d}
+      .amount{font:700 18px system-ui,sans-serif;fill:#13233d}
+      .note{font:15px system-ui,sans-serif;fill:#344763}
+      .year{font:600 15px system-ui,sans-serif;fill:#52627a}
+      .box{stroke-width:2}
+      .line{stroke:#314b74;stroke-width:3;fill:none;marker-end:url(#arrow)}
+    </style>
+  </defs>
+  <rect width="960" height="520" rx="24" fill="#f7f9fc"/>
+  <text class="title" x="48" y="52">Same start and rate, different calculation base</text>
+  <text class="note" x="48" y="82">Invented example: $1,000 · 5% once a year · no deposits or withdrawals</text>
+
+  <text class="label" x="48" y="158">Simple</text>
+  <text class="note" x="48" y="184">From original principal</text>
+  <text class="note" x="48" y="204">$50 each year</text>
+  <g>
+    <rect class="box" x="230" y="120" width="145" height="92" rx="16" fill="#e3efff" stroke="#3d6fb3"/>
+    <text class="year" x="302" y="148" text-anchor="middle">Start</text>
+    <text class="amount" x="302" y="184" text-anchor="middle">$1,000.00</text>
+    <path class="line" d="M380 166 H420"/>
+    <rect class="box" x="430" y="120" width="145" height="92" rx="16" fill="#e3efff" stroke="#3d6fb3"/>
+    <text class="year" x="502" y="148" text-anchor="middle">Year 1</text>
+    <text class="amount" x="502" y="184" text-anchor="middle">$1,050.00</text>
+    <path class="line" d="M580 166 H620"/>
+    <rect class="box" x="630" y="120" width="125" height="92" rx="16" fill="#e3efff" stroke="#3d6fb3"/>
+    <text class="year" x="692" y="148" text-anchor="middle">Year 2</text>
+    <text class="amount" x="692" y="184" text-anchor="middle">$1,100.00</text>
+    <path class="line" d="M760 166 H800"/>
+    <rect class="box" x="810" y="120" width="125" height="92" rx="16" fill="#e3efff" stroke="#3d6fb3"/>
+    <text class="year" x="872" y="148" text-anchor="middle">Year 3</text>
+    <text class="amount" x="872" y="184" text-anchor="middle">$1,150.00</text>
+  </g>
+
+  <text class="label" x="48" y="328">Compound</text>
+  <text class="note" x="48" y="354">From previous balance</text>
+  <text class="note" x="48" y="374">5% each year</text>
+  <g>
+    <rect class="box" x="230" y="290" width="145" height="92" rx="16" fill="#e7f8ed" stroke="#2d8051"/>
+    <text class="year" x="302" y="318" text-anchor="middle">Start</text>
+    <text class="amount" x="302" y="354" text-anchor="middle">$1,000.00</text>
+    <path class="line" d="M380 336 H420"/>
+    <rect class="box" x="430" y="290" width="145" height="92" rx="16" fill="#e7f8ed" stroke="#2d8051"/>
+    <text class="year" x="502" y="318" text-anchor="middle">Year 1</text>
+    <text class="amount" x="502" y="354" text-anchor="middle">$1,050.00</text>
+    <path class="line" d="M580 336 H620"/>
+    <rect class="box" x="630" y="290" width="125" height="92" rx="16" fill="#e7f8ed" stroke="#2d8051"/>
+    <text class="year" x="692" y="318" text-anchor="middle">Year 2</text>
+    <text class="amount" x="692" y="354" text-anchor="middle">$1,102.50</text>
+    <path class="line" d="M760 336 H800"/>
+    <rect class="box" x="810" y="290" width="125" height="92" rx="16" fill="#fff2c7" stroke="#a86f00"/>
+    <text class="year" x="872" y="318" text-anchor="middle">Year 3</text>
+    <text class="amount" x="872" y="354" text-anchor="middle">$1,157.63</text>
+  </g>
+
+  <rect x="230" y="426" width="705" height="58" rx="14" fill="#fff7df" stroke="#b98216" stroke-width="2"/>
+  <text class="label" x="582" y="451" text-anchor="middle">Year-three difference: $7.63</text>
+  <text class="note" x="582" y="474" text-anchor="middle">The gap is interest earned on earlier interest.</text>
+</svg>

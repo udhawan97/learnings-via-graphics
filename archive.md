@@ -2,7 +2,7 @@
 
 [Front page](README.md) · [How to read or run a lab](docs/reading-guide.md) · [How categories work](docs/editorial-standards.md#choose-one-home)
 
-**5 completed editions across four sections.** Each has a visual brief, an original diagram, a practice activity and a dated source ledger. The Engineering editions also have Python labs. The dates identify when each edition appeared.
+**6 completed editions across four sections.** Each has a visual brief, an original diagram, a practice activity and a dated source ledger. The Engineering editions also have Python labs. The dates identify when each edition appeared.
 
 [Engineering](#engineering) · [Frontier technology](#frontier-technology) · [Everyday life](#everyday-life) · [Work & money](#work-and-money)
 
@@ -66,6 +66,15 @@ Trace authorized evidence through retrieval, support checks, citations, and abst
 ## Work & money
 
 *Career & Independence — careers, portfolios, negotiation, business economics, and financial literacy.*
+
+### Financial literacy
+
+**[Where does interest on interest come from?](editions/2026-11-15-compound-interest/brief.md)** · November 15, 2026
+
+- **Read** the [visual brief](editions/2026-11-15-compound-interest/brief.md) or the [full guide for offline reading](editions/2026-11-15-compound-interest/index.html).
+- **See** the original illustration. [Compare simple and compound growth](editions/2026-11-15-compound-interest/assets/growth-paths.svg)
+- **Try** the [prediction and answer on GitHub](editions/2026-11-15-compound-interest/brief.md) or use the offline worksheet. [Calculate three years](editions/2026-11-15-compound-interest/index.html#try)
+- **Check** the [evidence and limitations](editions/2026-11-15-compound-interest/sources.md) and test another scenario with [Investor.gov’s compound interest calculator](https://www.investor.gov/financial-tools-calculators/calculators/compound-interest-calculator).
 
 ### Small business costs
 
