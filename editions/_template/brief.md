@@ -25,7 +25,7 @@ Visual brief: [estimated 3–5] minutes · Optional practice: [15–30] minutes
 
 ## Try and check
 
-[One small action with an observable outcome.]
+[Ask the reader to predict or choose before revealing the answer. Make the exercise work here on GitHub without setup. Define the first unfamiliar term in plain language.]
 
 **Quick check:** [One question.]
 
@@ -35,6 +35,10 @@ Visual brief: [estimated 3–5] minutes · Optional practice: [15–30] minutes
 [Topic-specific answer.]
 
 </details>
+
+## Keep exploring
+
+[Link directly to a free, beginner-friendly resource and say what to look for. Give a text alternative for a video. Record the source and access date in the ledger.]
 
 [Full illustrated guide](index.html) · [Evidence and limitations](sources.md)
 

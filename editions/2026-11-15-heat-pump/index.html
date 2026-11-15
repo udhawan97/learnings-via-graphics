@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Where do the other two units of heat come from? | Learnings via Graphics</title>
+  <meta name="description" content="The meter records one unit of electricity. The room receives three units of heat. Trace both inputs to find the missing energy.">
+  <link rel="stylesheet" href="../../assets/field-guide.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to the guide</a>
+  <nav aria-label="Reading options"><a href="../../README.md">Learnings via Graphics</a><a href="brief.md">Visual brief</a><a href="sources.md">Source notes</a></nav>
+  <main id="main">
+    <header>
+      <p class="desk">Frontier technology · Heating and energy · November 15, 2026</p>
+      <h1>Where do the other two units of heat come from?</h1>
+      <p class="dek">The meter records one unit of electricity. The room receives three units of heat. Trace both inputs to find the missing energy.</p>
+    </header>
+    <figure>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 282" role="img" aria-labelledby="heat-title heat-desc">
+  <title id="heat-title">Three kilowatt-hours reach the room from two sources</title>
+  <desc id="heat-desc">A simplified heating cycle takes in two kilowatt-hours of heat from outdoor air and one kilowatt-hour of electricity. Together they deliver three kilowatt-hours of heat indoors.</desc>
+  <rect width="440" height="282" fill="#f6f3eb"/>
+  <g font-family="system-ui, sans-serif" fill="#1f343a">
+    <text x="18" y="31" font-size="20" font-weight="700">Follow one hour of energy</text>
+    <rect x="18" y="48" width="189" height="82" rx="6" fill="#d7e8e7"/>
+    <rect x="233" y="48" width="189" height="82" rx="6" fill="#f3e4b2"/>
+    <text x="34" y="77" font-size="16">From outdoor air</text>
+    <text x="34" y="114" font-size="27" font-weight="700">2 kWh</text>
+    <text x="248" y="77" font-size="16">From electricity</text>
+    <text x="248" y="114" font-size="27" font-weight="700">1 kWh</text>
+    <g stroke="#2b454c" stroke-width="3" fill="none">
+      <path d="M113 131 V151 H327 V131 M220 151 V170 M213 163 L220 170 L227 163"/>
+    </g>
+    <rect x="18" y="177" width="404" height="64" rx="6" fill="#234b53"/>
+    <text x="34" y="216" fill="#fff" font-size="19">Heat delivered indoors</text>
+    <text x="316" y="219" fill="#fff" font-size="24" font-weight="700">3 kWh</text>
+    <text x="18" y="267" font-size="14">Illustrated heating cycle · kWh measures energy</text>
+  </g>
+</svg>
+      <figcaption>In this invented hour, the pump takes 2 kWh of heat from outdoor air and 1 kWh of electrical energy. Together they deliver 3 kWh indoors. <a href="assets/heat-balance.svg">Full-size diagram</a>.</figcaption>
+    </figure>
+    <section>
+      <h2>Follow the fluid around the loop</h2>
+      <p>A refrigerant is a fluid that carries heat as it circulates. The outdoor coil lets a cold refrigerant absorb heat from outdoor air. A compressor powered by electricity raises the refrigerant’s pressure and temperature. At the indoor coil the warmer refrigerant releases heat. Its pressure then falls through an expansion device, and it can collect heat again.</p>
+      <p>The warmth you feel near a refrigerator’s back coils is a familiar example of the same cycle. Home air-source heat pumps already use this cycle. The question for a particular installation is how much heat it delivers under the conditions being measured.</p>
+    </section>
+    <section id="try" class="activity" aria-labelledby="activity-title">
+      <h2 id="activity-title">Balance the energy</h2>
+      <p>Give the model exactly 1 kWh of electricity. Predict what reaches the room if the outdoor coil collects a different amount of heat during the same hour.</p>
+      <fieldset id="controls" hidden>
+        <legend>Choose your example</legend>
+        <label for="outside">Heat collected from outdoor air</label>
+          <select id="outside"><option value="1">1 kWh</option><option value="2" selected>2 kWh</option><option value="3">3 kWh</option></select>
+        <output id="result" for="outside" aria-live="polite">2 kWh outdoors + 1 kWh electricity = 3 kWh indoors. Heating COP = 3.</output>
+      </fieldset>
+      <noscript><p>The paper exercise below uses the same numbers and gives the answers.</p></noscript>
+    </section>
+    <section>
+      <h2>Check an energy claim on paper</h2>
+      <p>Make three columns headed “electricity”, “heat picked up” and “heat delivered”. With electricity fixed at 1 kWh, try outside contributions of 1, 2 and 3 kWh. The delivered totals are 2, 3 and 4 kWh. Hide one cell and let a partner recover it from the other two.</p>
+      <p>Heating coefficient of performance, or COP, tells you how much useful heat is delivered per unit of electricity consumed. Use the same time period and units for both. If 2 kWh of electricity delivers 6 kWh of heat in another example, its COP is still 3.</p>
+      <p><strong>Where the example ends.</strong> This steady-state model assumes the two inputs reach the room as heat. A measured rating depends on temperatures, test conditions and which equipment is included. A season also includes changing loads, defrosting and sometimes backup heating.</p>
+    </section>
+    <section aria-labelledby="questions">
+      <h2 id="questions">Check your reasoning</h2>
+      <details><summary>Where did the extra 2 kWh enter the system?</summary><p>Through the outdoor coil, as heat taken from outdoor air.</p></details>
+      <details><summary>How do you get a heating COP of 3?</summary><p>Divide 3 kWh of delivered heat by 1 kWh of electricity, measured over the same period.</p></details>
+      <details><summary>Does one hour tell you the winter bill?</summary><p>You would also need the building’s heating demand, weather, system operation and electricity price over the season.</p></details>
+    </section>
+    <section aria-labelledby="further">
+      <h2 id="further">Keep exploring</h2>
+      <p>Start with the <a href="https://www.energy.gov/articles/pump-your-savings-heat-pumps">Department of Energy’s “How They Work” section</a>. Then look up “Coefficient of Performance” and the heating cycle in <a href="https://natural-resources.canada.ca/energy-efficiency/energy-star/heating-cooling-heat-pump">Natural Resources Canada’s illustrated guide</a>.</p>
+      <p><a href="sources.md">Read the sources and the limits of this example</a>.</p>
+    </section>
+  </main>
+  <footer><a href="../../issues/2026-11-15.md">Read the other stories in this issue</a></footer>
+  <script>
+    const controls = document.getElementById('controls');
+    const result = document.getElementById('result');
+    const outside = document.getElementById('outside');
+    function update() {
+      const collected = Number(outside.value);
+      const delivered = collected + 1;
+      result.textContent = collected + ' kWh outdoors + 1 kWh electricity = ' + delivered + ' kWh indoors. Heating COP = ' + delivered + '.';
+    }
+    controls.addEventListener('change', update);
+    update();
+    controls.hidden = false;
+  </script>
+</body>
+</html>

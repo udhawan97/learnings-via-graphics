@@ -9,13 +9,16 @@ For Elf, Mobster, and the Delivery Supervisor working on this repository. Read t
 - If a discovery or read endpoint is unsupported, record that once and use an available supported equivalent. If none exists, report the specific missing capability. Do not repeatedly call the same rejected endpoint, invent API names, install tooling, or enable Actions to manufacture a check.
 - Preserve useful work on an authorized GitHub branch/PR when possible. A temporary file or attachment from an earlier run is not a dependable shared handoff.
 
-## 2. Keep the edition small and visual
+## 2. Choose a different reader question
+
+Once this repository is selected, both workers apply the [newsletter story selection rule](editorial-standards.md#choose-the-next-newsletter-story). Check the staged proposal before committing, or use the manual GitHub equivalent. Put the topic comparison, beginner outcome and any evidenced exception in the PR. The newsletter issue can span several desks.
+
 
 Use **one primary category + one topic**, chosen by the reader's outcome. Categories are Engineering / The Builder's Workbench; Frontier technology / The Horizon; Everyday life / Dad's Field Notes; Work & money / Career & Independence. Keep empty categories explicitly empty; never duplicate an edition to populate them.
 
 A new edition uses `editions/_template/brief.md`, `index.html`, and `sources.md`: a 40–60-word takeaway, a 250–450-word visual brief with 1–2 explanatory graphics, a worked example, a usable artifact/checklist, a visible limitation, and one answered quick check. Full explanations and 15–30-minute practice are optional reading depth. Keep source evidence and important safety limits accessible from the brief. Estimate reading time separately from lab time.
 
-Store original standalone SVGs in the edition's `assets/` and keep any inline/exported copies synchronized. Index every artifact through **Read / See / Try / Check** under one topic in `archive.md`. Update README links/counts when editions change. Prefer a real correction to existing work over an unnecessary new edition or recurring process rewrite.
+Store original standalone SVGs in the edition's `assets/` and keep any inline/exported copies synchronized. Index every artifact through **Read / See / Try / Check** under one topic in `archive.md`. Update README links/counts when editions change. Use a dated mixed-section issue to give completed field guides a reader-facing front page.
 
 ## 3. Validate the exact proposed files
 

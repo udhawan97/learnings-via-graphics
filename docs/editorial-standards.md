@@ -29,6 +29,20 @@ Classify by the **lesson's outcome**, not every noun it mentions. Implementing G
 
 Use an existing topic when it fits. Add a topic only for a completed edition; leave empty categories explicitly empty. Cross-link related lessons rather than duplicating archive entries. Keep dates and paths stable. Within each topic, list newest editions first.
 
+## Choose the next newsletter story
+
+Before committing editorial work, read the latest [newsletter issues and section index](../archive.md), open PRs and the last four changes to published lessons on the default branch. In the archive, give each edition one bold title linked to its brief beneath its section and topic headings. Count that title once. A lab repair, a reprint and a link from a second desk add zero editions to that count.
+
+For an ordinary shift, pick a reader question in one of the sections with the fewest editions. Within those sections prefer a topic outside the last four lesson changes. State the new thing a beginner can do after reading. If the proposed work revisits a recent topic or follows two successive maintenance changes, give the next slot to a fresh story. A newly formatted diagram or a new folder name alone adds no reader outcome.
+
+A specific unfinished edition already claimed by a contributor, a demonstrated error that misleads readers, a broken exercise or accessibility barrier can take priority. Identify the draft or show the reader’s failing step and expected result. If the least-covered section has no adequately sourced story ready, explain the evidence gap and the worthwhile alternative. Record the reason with the PR. Leave the shift without a commit when there is no useful, verifiable work.
+
+**Run the coverage check from the repository root.** After fetching the current default branch, stage the complete proposal, including new files, and run `python3 scripts/check_coverage.py --base origin/main`. For a committed PR use `python3 scripts/check_coverage.py --base BASE_SHA --head HEAD_SHA` with its actual commits. The output gives section counts, recent topics and newly indexed editions. Use `--exception "specific reason and evidence"` for the editorial cases above. Verify the reason in review. If the base advances, reconcile the candidate and repeat on the new base.
+
+**With GitHub access only,** read the archive and the files changed in the last four lesson deliveries on the first-parent history of the default branch. List sections with the lowest counts, the recent topics, and whether each delivery added an edition or maintained one. Compare those with the PR’s actual files, real new reader outcome and section. Apply the same exception rule and put the evidence in the PR template.
+
+**Assemble a newsletter issue from completed stories.** Keep one home per lesson. Use `issues/YYYY-MM-DD.md` for a dated issue. Give at least two sections their own `## Section · Headline` heading, and link that section’s featured brief first beneath it. A labelled archive pick can follow. Feature at least one story outside the previous four issues, or explain the new teaching activity that makes a retrospective worthwhile. Give each story a plain-language question, a prediction or choice with an explained answer usable on GitHub, and a direct beginner resource with a reason to open it. Offer a written or local alternative when recommending video. Define the first unfamiliar term and keep equipment, accounts and downloads optional for the brief. Link the issue from the front page and archive. Reprints belong to their original edition date.
+
 ## Make the visual do the teaching
 
 | Need to explain | Prefer |
@@ -65,4 +79,4 @@ Sequential review is acceptable; never claim independent reviewers participated 
 
 Use the [contribution checklist](../CONTRIBUTING.md) and [delivery guide](default-branch-delivery.md). Merge the archive entry with the completed, reviewed edition; a draft or commit object is not a landed publication. Preserve checks, protections, and the verified no-deployment boundary. Pages, Actions, releases, tags, and deployments remain outside routine editorial work.
 
-Elf and Mobster resume useful existing work first. The 9 PM GitHub Delivery Supervisor may recover safe unfinished GitHub work and make evidence-backed prompt-only corrections for later runs, preserving schedules, timezone, enabled state, mission, and every safety/review/deployment boundary. Operational detail stays in the delivery guide.
+Once this repository is selected, Elf and Mobster follow the [story selection rule](#choose-the-next-newsletter-story) before committing. The 9 PM GitHub Delivery Supervisor may recover safe unfinished GitHub work and make evidence-backed prompt-only corrections for later runs, preserving schedules, timezone, enabled state, mission, and every safety/review/deployment boundary. Operational detail stays in the delivery guide.
