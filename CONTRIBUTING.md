@@ -6,7 +6,7 @@
 
 ## The short version
 
-1. **Check existing work.** Read the [resource index](archive.md) and open PRs. Improve or finish a relevant existing edition before duplicating it.
+1. **Choose from current coverage.** Read the [resource index](archive.md), open PRs and the [story selection rule](docs/editorial-standards.md#choose-the-next-newsletter-story). Compare the proposed reader question against recent deliveries before drafting and run the staged or exact-PR coverage check before committing.
 2. **Choose one question and one home.** Assign a primary category and topic by the reader's intended outcome. Use the [category rules](docs/editorial-standards.md#choose-one-home).
 3. **Sketch the explanation first.** Choose a process diagram, comparison, decision tree, annotated artifact, or evidence chart. Draft the takeaway and main limitation before prose.
 4. **Build from the template.** Copy `editions/_template/` to `editions/YYYY-MM-DD-topic/`. Complete `brief.md`, `index.html`, and `sources.md`; add original SVGs in `assets/` and a useful lab, checklist, worksheet, or worked example. Remove every placeholder.
@@ -16,7 +16,8 @@
 
 ## Done means
 
-- [ ] The brief explains the idea without opening the full guide.
+- [ ] A first-time reader can try a prediction and reveal the explanation on GitHub. A direct, annotated beginner resource offers a next step.
+- [ ] The PR records the recent topics, section choice and evidence for any editorial exception.
 - [ ] The visual teaches a mechanism, comparison, decision, or evidence; adjacent text conveys the same information.
 - [ ] One worked example, one useful artifact, one visible limitation, and a checkable next action are present.
 - [ ] All edition resources are reachable from its single category entry.

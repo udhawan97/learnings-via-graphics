@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 305" role="img" aria-labelledby="map-title map-desc">
+  <title id="map-title">Two paths gain forty metres on the same horizontal scale</title>
+  <desc id="map-desc">Path A crosses four ten-metre intervals from 100 to 140 metres over 100 metres of horizontal travel. Path B crosses the same four intervals over 400 metres. A is steeper on average.</desc>
+  <rect width="440" height="305" fill="#faf6e9"/>
+  <g font-family="system-ui, sans-serif" fill="#23392d">
+    <text x="16" y="30" font-size="20" font-weight="700">Two paths up the same rise</text>
+    <text x="16" y="53" font-size="15">Each solid curve is 10 m above the last.</text>
+    <text x="16" y="84" font-size="17" font-weight="700">A</text>
+    <text x="16" y="189" font-size="17" font-weight="700">B</text>
+    <g stroke="#537449" fill="none" stroke-width="2.5">
+    <path d="M56 86 Q64 96 60 108 T63 131"/>
+    <path d="M76 86 Q84 96 80 108 T83 131"/>
+    <path d="M96 86 Q104 96 100 108 T103 131"/>
+    <path d="M116 86 Q124 96 120 108 T123 131"/>
+    <path d="M136 86 Q144 96 140 108 T143 131"/>
+    <path d="M56 191 Q64 201 60 213 T63 236"/>
+    <path d="M136 191 Q144 201 140 213 T143 236"/>
+    <path d="M216 191 Q224 201 220 213 T223 236"/>
+    <path d="M296 191 Q304 201 300 213 T303 236"/>
+    <path d="M376 191 Q384 201 380 213 T383 236"/>
+    </g>
+    <g stroke="#253b32" stroke-dasharray="3 4" stroke-width="3">
+      <path d="M60 108 H140"/><path d="M60 213 H380"/>
+    </g>
+    <g fill="#253b32">
+      <circle cx="60" cy="108" r="4"/><circle cx="140" cy="108" r="4"/>
+      <circle cx="60" cy="213" r="4"/><circle cx="380" cy="213" r="4"/>
+    </g>
+    <g font-size="14" text-anchor="middle">
+      <text x="60" y="80">100 m</text><text x="140" y="80">140 m</text>
+      <text x="60" y="185">100 m</text><text x="380" y="185">140 m</text>
+    </g>
+    <text x="59" y="154" font-size="16" font-weight="650">100 m across</text>
+    <text x="59" y="259" font-size="16" font-weight="650">400 m across</text>
+    <path d="M60 283 H140 M60 278 V288 M140 278 V288" stroke="#23392d" stroke-width="2"/>
+    <text x="150" y="289" font-size="14">100 m on either sketch</text>
+  </g>
+</svg>

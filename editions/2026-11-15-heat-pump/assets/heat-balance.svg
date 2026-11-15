@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 282" role="img" aria-labelledby="heat-title heat-desc">
+  <title id="heat-title">Three kilowatt-hours reach the room from two sources</title>
+  <desc id="heat-desc">A simplified heating cycle takes in two kilowatt-hours of heat from outdoor air and one kilowatt-hour of electricity. Together they deliver three kilowatt-hours of heat indoors.</desc>
+  <rect width="440" height="282" fill="#f6f3eb"/>
+  <g font-family="system-ui, sans-serif" fill="#1f343a">
+    <text x="18" y="31" font-size="20" font-weight="700">Follow one hour of energy</text>
+    <rect x="18" y="48" width="189" height="82" rx="6" fill="#d7e8e7"/>
+    <rect x="233" y="48" width="189" height="82" rx="6" fill="#f3e4b2"/>
+    <text x="34" y="77" font-size="16">From outdoor air</text>
+    <text x="34" y="114" font-size="27" font-weight="700">2 kWh</text>
+    <text x="248" y="77" font-size="16">From electricity</text>
+    <text x="248" y="114" font-size="27" font-weight="700">1 kWh</text>
+    <g stroke="#2b454c" stroke-width="3" fill="none">
+      <path d="M113 131 V151 H327 V131 M220 151 V170 M213 163 L220 170 L227 163"/>
+    </g>
+    <rect x="18" y="177" width="404" height="64" rx="6" fill="#234b53"/>
+    <text x="34" y="216" fill="#fff" font-size="19">Heat delivered indoors</text>
+    <text x="316" y="219" fill="#fff" font-size="24" font-weight="700">3 kWh</text>
+    <text x="18" y="267" font-size="14">Illustrated heating cycle · kWh measures energy</text>
+  </g>
+</svg>

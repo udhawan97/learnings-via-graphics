@@ -2,6 +2,10 @@
 
 [Front page](../README.md) · [All resources by topic](../archive.md)
 
+## Start with the newsletter
+
+Open the current issue from the [front page](../README.md), pick a question and expand its answer on GitHub. Each story links to a full brief and a public resource you can read, watch or try. The book-fair, heat-pump and contour activities also work on paper.
+
 ## Choose your depth
 
 | Time available | Open | Leave with |
@@ -17,12 +21,15 @@ Times are editorial estimates, including diagram inspection; lab time is separat
 
 **On GitHub:** open a visual brief from the [resource index](../archive.md). Markdown displays the text and SVG diagrams together. Each brief also links a full-size diagram; its text explains the same mechanism without relying on color.
 
-**Offline:** [download the ZIP](https://github.com/udhawan97/learnings-via-graphics/archive/refs/heads/main.zip), extract it, then open either file in your browser:
+**Offline:** [download the ZIP](https://github.com/udhawan97/learnings-via-graphics/archive/refs/heads/main.zip), extract the entire folder, then open the guide you want in your browser:
 
+- `editions/2026-11-15-reading-contours/index.html` — change horizontal distance and compare grades.
+- `editions/2026-11-15-heat-pump/index.html` — choose how much heat comes from outside.
+- `editions/2026-11-15-zine-table/index.html` — choose copies sold and materials cost.
 - `editions/2026-10-13-safe-saves/index.html`
 - `editions/2026-10-12-rag-that-can-abstain/index.html`
 
-The full HTML guides include their own styles and diagrams. Reading requires no server, Python, account, API key, or paid service. Source links lead to external sites. GitHub displays HTML as source, not as a hosted article.
+The full HTML guides, diagrams and styles are included in the ZIP. Keep its folders together. Reading requires no server, Python, account, API key, or paid service. Source links lead to external sites. GitHub displays HTML as source, not as a hosted article.
 
 ## Run a lab
 

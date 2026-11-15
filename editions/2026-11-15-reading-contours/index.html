@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Which path climbs more steeply? | Learnings via Graphics</title>
+  <meta name="description" content="Two pencil lines climb forty metres. Put a finger on each path and see where the map makes you do the most climbing in the least distance.">
+  <link rel="stylesheet" href="../../assets/field-guide.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to the guide</a>
+  <nav aria-label="Reading options"><a href="../../README.md">Learnings via Graphics</a><a href="brief.md">Visual brief</a><a href="sources.md">Source notes</a></nav>
+  <main id="main">
+    <header>
+      <p class="desk">Everyday life · Map reading · November 15, 2026</p>
+      <h1>Which path climbs more steeply?</h1>
+      <p class="dek">Two pencil lines climb forty metres. Put a finger on each path and see where the map makes you do the most climbing in the least distance.</p>
+    </header>
+    <figure>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 305" role="img" aria-labelledby="map-title map-desc">
+  <title id="map-title">Two paths gain forty metres on the same horizontal scale</title>
+  <desc id="map-desc">Path A crosses four ten-metre intervals from 100 to 140 metres over 100 metres of horizontal travel. Path B crosses the same four intervals over 400 metres. A is steeper on average.</desc>
+  <rect width="440" height="305" fill="#faf6e9"/>
+  <g font-family="system-ui, sans-serif" fill="#23392d">
+    <text x="16" y="30" font-size="20" font-weight="700">Two paths up the same rise</text>
+    <text x="16" y="53" font-size="15">Each solid curve is 10 m above the last.</text>
+    <text x="16" y="84" font-size="17" font-weight="700">A</text>
+    <text x="16" y="189" font-size="17" font-weight="700">B</text>
+    <g stroke="#537449" fill="none" stroke-width="2.5">
+    <path d="M56 86 Q64 96 60 108 T63 131"/>
+    <path d="M76 86 Q84 96 80 108 T83 131"/>
+    <path d="M96 86 Q104 96 100 108 T103 131"/>
+    <path d="M116 86 Q124 96 120 108 T123 131"/>
+    <path d="M136 86 Q144 96 140 108 T143 131"/>
+    <path d="M56 191 Q64 201 60 213 T63 236"/>
+    <path d="M136 191 Q144 201 140 213 T143 236"/>
+    <path d="M216 191 Q224 201 220 213 T223 236"/>
+    <path d="M296 191 Q304 201 300 213 T303 236"/>
+    <path d="M376 191 Q384 201 380 213 T383 236"/>
+    </g>
+    <g stroke="#253b32" stroke-dasharray="3 4" stroke-width="3">
+      <path d="M60 108 H140"/><path d="M60 213 H380"/>
+    </g>
+    <g fill="#253b32">
+      <circle cx="60" cy="108" r="4"/><circle cx="140" cy="108" r="4"/>
+      <circle cx="60" cy="213" r="4"/><circle cx="380" cy="213" r="4"/>
+    </g>
+    <g font-size="14" text-anchor="middle">
+      <text x="60" y="80">100 m</text><text x="140" y="80">140 m</text>
+      <text x="60" y="185">100 m</text><text x="380" y="185">140 m</text>
+    </g>
+    <text x="59" y="154" font-size="16" font-weight="650">100 m across</text>
+    <text x="59" y="259" font-size="16" font-weight="650">400 m across</text>
+    <path d="M60 283 H140 M60 278 V288 M140 278 V288" stroke="#23392d" stroke-width="2"/>
+    <text x="150" y="289" font-size="14">100 m on either sketch</text>
+  </g>
+</svg>
+      <figcaption>Both sketches use the same scale. The dotted transects cross the same four 10 m intervals. A climbs 40 m in 100 horizontal metres and B in 400. <a href="assets/contours.svg">Full-size diagram</a>.</figcaption>
+    </figure>
+    <section>
+      <h2>A contour is a line you could walk level</h2>
+      <p>Imagine marking the edge of a pond at one water level. Every mark sits at the same height. A contour draws that kind of line on a map, even where there is no water. Move across the curves and the labels tell you whether you are going up or down.</p>
+      <p>Read the map key for the vertical interval. Then follow the horizontal scale bar for distance along your path as seen from above. In our sketch, the sequence is 100, 110, 120, 130, 140 metres. Five lines enclose four gaps. Both paths climb 40 metres without dipping along the way.</p>
+    </section>
+    <section id="try" class="activity" aria-labelledby="activity-title">
+      <h2 id="activity-title">Stretch the climb</h2>
+      <p>Keep the rise at 40 metres. Guess the grade when the horizontal distance doubles, then change the distance to check.</p>
+      <fieldset id="controls" hidden>
+        <legend>Choose your example</legend>
+        <label for="distance">Horizontal distance</label>
+          <select id="distance"><option value="100">100 metres</option><option value="200">200 metres</option><option value="400">400 metres</option></select>
+        <output id="result" for="distance" aria-live="polite">40 m ÷ 100 m = 40% average grade.</output>
+      </fieldset>
+      <noscript><p>The paper exercise below uses the same numbers and gives the answers.</p></noscript>
+    </section>
+    <section>
+      <h2>Make a pocket map key</h2>
+      <p>On paper draw five contour marks, ten metres apart in height. Sketch three paths rising across all five, using 100, 200 and 400 metres of horizontal travel. Write down the rise, the run and your predicted grade for each. Fold over the answers and ask someone to rank the climbs from the sketch alone.</p>
+      <p>Your answer key is 40%, 20% and 10%. To make a counterexample, add a dip to a route. The final height minus the starting height now misses some climbing. Read each uphill stretch separately when estimating total ascent.</p>
+      <p><strong>Where the example ends.</strong> Grade is rise divided by horizontal distance. A 40% grade corresponds to 40 metres up per 100 metres across. Surface, weather and trail access need separate evidence before using a real route.</p>
+    </section>
+    <section aria-labelledby="questions">
+      <h2 id="questions">Check your reasoning</h2>
+      <details><summary>Why are there four height changes across five contours?</summary><p>The changes happen between neighbouring lines. Each of the four gaps adds 10 m.</p></details>
+      <details><summary>Which distance gives a 20% average grade?</summary><p>200 horizontal metres. Divide 40 by 200, then multiply by 100.</p></details>
+      <details><summary>Would reversing the walk change its steepness?</summary><p>The direction changes to downhill. On the same path, the magnitude of the average grade stays the same.</p></details>
+    </section>
+    <section aria-labelledby="further">
+      <h2 id="further">Keep exploring</h2>
+      <p>Watch the hill take shape with <a href="https://www.youtube.com/watch?v=4i_6eToM3X8">Ordnance Survey’s contour video</a>, or follow the photos and map on <a href="https://osmaps.com/discover/guides/understanding-map-contour-lines-for-beginners/">the written beginner guide</a>.</p>
+      <p><a href="sources.md">Read the sources and the limits of this example</a>.</p>
+    </section>
+  </main>
+  <footer><a href="../../issues/2026-11-15.md">Read the other stories in this issue</a></footer>
+  <script>
+    const controls = document.getElementById('controls');
+    const result = document.getElementById('result');
+    const distance = document.getElementById('distance');
+    function update() {
+      const metres = Number(distance.value);
+      result.textContent = '40 m ÷ ' + metres + ' m = ' + (40 / metres * 100) + '% average grade.';
+    }
+    controls.addEventListener('change', update);
+    update();
+    controls.hidden = false;
+  </script>
+</body>
+</html>

@@ -15,16 +15,16 @@ An attempted write has four distinct states. Never collapse them into “committ
 
 Only step 4 is a **verified default-branch landing**. Never label a commit eligible if ownership/fork/attribution/ancestry cannot be verified. No guarantee is made about when GitHub updates its contribution calendar.
 
-## Start fast: finish existing work before starting another
+## Check active work and choose a story
 
 - Confirm authenticated account `udhawan97`, public owned writable non-fork repository, `main` head, rulesets, currently open PRs and automation branches. Never guess fork status.
-- Inspect open or stranded Elf/Mobster PRs and automation branches **first**. Resume independently valuable unmerged work rather than creating a competing edition or generic engineering log.
+- Inspect open or stranded Elf/Mobster PRs and automation branches **first**. Resume a specific claimed edition or verified reader-blocking repair when appropriate. Select other editorial work under the [newsletter story rule](editorial-standards.md#choose-the-next-newsletter-story).
 - Choose a bounded, meaningful deliverable with verifiable tests or source evidence. Respect the editorial pre-draft and final five-perspective checks.
 - Capture exact base SHA and use a feature branch and PR; do not equate creating a branch with landing a contribution. Favor the **smallest verified path to a safe merge**; avoid broad speculative rewrites that cannot be completed during this invocation.
 
 ## Bound the run and use supported evidence
 
-Select one useful deliverable after a short triage of existing work and at most two deep candidate inspections. Reserve time for validation, merge and read-back. Correcting a real defect in an existing lesson or lab is a complete deliverable; a new full edition is not required. A blocked product repository does not make an unrelated, nondeploying source correction blocked. An actual safety denial still prohibits equivalent retries through another target or API.
+Select one useful deliverable after a short triage of existing work and at most two deep candidate inspections. Reserve time for validation, merge and read-back. For a repair, demonstrate the effect on a reader and explain the selection in the PR. A blocked product repository does not make an unrelated, nondeploying source correction blocked. An actual safety denial still prohibits equivalent retries through another target or API.
 
 The connected GitHub fetch tool supports repository metadata, complete Git trees, branches, rulesets and workflow runs. Its URL allowlist rejects `/actions/permissions`, `/actions/workflows`, `/pages` and `/rules/branches/main`. Classify that `INVALID_ARGUMENT` response as **unsupported read endpoint**, not a failed write, GitHub outage or safety rejection. Do not repeat the same unsupported read every shift.
 
@@ -42,7 +42,7 @@ For a single existing text-file correction, choose the contents update transacti
 
 ## Distinct legitimate fallback routes
 
-In priority order: (1) merge a ready and reviewed nondeploying PR; (2) recover a useful stranded commit; (3) make a bounded tested defect/maintenance improvement; (4) publish **one substantive educational field guide** with original accessible diagrams, source ledger and exercise if all engineering routes are blocked or unproductive. Do not invent a fifth route made of filler, duplicate logs, rewritten dates or empty commits. A verified contribution today is permission to focus on quality, not to stop useful engineering work.
+A ready, reviewed PR or a specifically identified unfinished draft may be delivered through the existing recovery process. Once this library is selected for ordinary editorial work, choose a fresh beginner question under the [newsletter story rule](editorial-standards.md#choose-the-next-newsletter-story). Carry out a repair when its reader impact warrants the documented exception. Do not invent a fifth route made of filler, duplicate logs, rewritten dates or empty commits. A verified contribution today is permission to focus on quality, not to stop useful engineering work.
 
 ## Publishing firewall and delivery supervisor
 
