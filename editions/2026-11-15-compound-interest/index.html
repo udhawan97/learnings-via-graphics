@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="A beginner field guide to simple and compound interest">
+  <title>Interest on interest — Learnings via Graphics</title>
+  <style>
+    :root{font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;line-height:1.65;color:#17233a;background:#f6f8fc}
+    *{box-sizing:border-box}body{margin:0}a{color:#1855b5}a:focus-visible,summary:focus-visible{outline:3px solid #e29a00;outline-offset:3px}
+    .wrap{max-width:1040px;margin:auto;padding:clamp(20px,4vw,48px)}header{background:#13233d;color:#f8fbff}header a{color:#b9dcff}
+    .eyebrow,.kicker{text-transform:uppercase;letter-spacing:.12em;font-weight:750;font-size:.82rem}.eyebrow{color:#9dd2ff}
+    h1{font-size:clamp(2.2rem,6vw,4.8rem);line-height:1.04;max-width:16ch;margin:.6rem 0}header p{max-width:72ch;color:#dce7f8}
+    main{display:grid;gap:22px}section,.card{background:#fff;border:1px solid #d5dfec;border-radius:18px;padding:clamp(18px,3vw,30px)}
+    h2{line-height:1.2;margin-top:0}h3{line-height:1.25}.kicker{color:#2c659f}.muted{color:#4c5e78}
+    .figure{margin:0;background:#edf3fb;border-radius:14px;padding:14px;overflow-x:auto}.figure img{width:100%;min-width:700px;height:auto;display:block}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:14px}.note{border-left:5px solid #2d8051;background:#eef9f2;padding:16px;border-radius:8px}
+    table{width:100%;border-collapse:collapse}th,td{text-align:left;padding:10px;border-bottom:1px solid #cdd8e7}th{background:#edf3fb}
+    code{background:#eef2f8;padding:.12rem .34rem;border-radius:4px}.skip{position:absolute;left:16px;top:-80px;padding:12px;background:white;color:#17233a;z-index:10}.skip:focus{top:12px}
+    footer{padding:28px 0;color:#52617a;font-size:.92rem}
+    @media(max-width:760px){.figure img{min-width:620px}table{font-size:.92rem}}
+    @media(prefers-color-scheme:dark){:root{background:#0b1424;color:#e7effc}section,.card{background:#152640;border-color:#354b6a}a{color:#9cc7ff}.figure,th{background:#203754}.muted,footer{color:#bbc9df}.note{background:#183d30}.kicker{color:#9dceff}code{background:#263c5b}}
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to the guide</a>
+  <header><div class="wrap">
+    <nav aria-label="Reading options"><a href="brief.md">Visual brief</a> · <a href="../../archive.md">Browse topics</a> · <a href="sources.md">Evidence</a></nav>
+    <div class="eyebrow">Learnings via Graphics · Work &amp; money · Financial literacy</div>
+    <h1>Where does interest on interest come from?</h1>
+    <p>Compound interest changes the balance used for the next calculation. This guide shows the arithmetic, the comparison inputs and the limits that an example cannot answer.</p>
+    <p><strong>Full guide:</strong> about 10 minutes · <strong>Practice:</strong> 20 minutes</p>
+  </div></header>
+  <main class="wrap" id="main">
+    <section aria-labelledby="mechanism">
+      <p class="kicker">01 · Predict</p>
+      <h2 id="mechanism">Two paths start together</h2>
+      <p>Imagine an invented $1,000 balance earning 5% once a year. No money enters or leaves. Both paths reach $1,050 after year one. Predict which ends higher after year three, then trace the boxes.</p>
+      <figure class="figure">
+        <img src="assets/growth-paths.svg" alt="Simple interest adds fifty dollars each year and reaches $1,150. Compound interest recalculates from the previous balance and reaches $1,157.63.">
+        <figcaption>Invented arithmetic comparison, not an account quote or forecast. <a href="assets/growth-paths.svg">Open the full-size SVG.</a></figcaption>
+      </figure>
+      <p><strong>Text equivalent:</strong> Simple: $1,000 → $1,050 → $1,100 → $1,150. Compound: $1,000 → $1,050 → $1,102.50 → $1,157.63. The year-three difference is $7.63.</p>
+    </section>
+    <section aria-labelledby="foundation">
+      <p class="kicker">02 · Foundation</p>
+      <h2 id="foundation">Name the moving parts</h2>
+      <div class="grid">
+        <div class="card"><h3>Principal</h3><p>The starting amount used in the calculation. In this example it is $1,000.</p></div>
+        <div class="card"><h3>Interest rate</h3><p>The percentage applied to the calculation base. Five percent is written as <code>0.05</code>.</p></div>
+        <div class="card"><h3>Compounding frequency</h3><p>How often earned interest is added before the next calculation. Our example compounds once a year.</p></div>
+      </div>
+      <p>Simple interest keeps using the original principal. Compound interest uses the previous balance, so earlier interest becomes part of the next base.</p>
+    </section>
+    <section aria-labelledby="worked">
+      <p class="kicker">03 · Worked example</p>
+      <h2 id="worked">Calculate before rounding</h2>
+      <table>
+        <thead><tr><th>Year</th><th>Simple-interest balance</th><th>Compound balance</th><th>Compound calculation</th></tr></thead>
+        <tbody>
+          <tr><td>0</td><td>$1,000.00</td><td>$1,000.00</td><td>Starting principal</td></tr>
+          <tr><td>1</td><td>$1,050.00</td><td>$1,050.00</td><td>$1,000 × 1.05</td></tr>
+          <tr><td>2</td><td>$1,100.00</td><td>$1,102.50</td><td>$1,050 × 1.05</td></tr>
+          <tr><td>3</td><td>$1,150.00</td><td>$1,157.63</td><td>$1,102.50 × 1.05 = $1,157.625</td></tr>
+        </tbody>
+      </table>
+      <p class="note"><strong>Field wisdom:</strong> Keep the unrounded balance through the calculation, then round the displayed currency amount. Real institutions follow their disclosures and applicable rules; this worksheet is not their ledger.</p>
+    </section>
+    <section aria-labelledby="compare">
+      <p class="kicker">04 · Compare honestly</p>
+      <h2 id="compare">A rate is not the whole offer</h2>
+      <p>Write down the starting balance, rate, whether the rate can change, compounding frequency, time, deposits and withdrawals. Then list what the example excludes: fees, taxes and inflation. Regulation DD distinguishes an interest rate, which does not reflect compounding, from APY, an annualized measure based on interest and principal under stated assumptions.</p>
+      <p>For investments, an estimated return is not a promised rate. For deposit accounts, read the institution’s APY, minimum-balance, fee and withdrawal disclosures rather than substituting this classroom example.</p>
+    </section>
+    <section id="try" aria-labelledby="practice">
+      <p class="kicker">05 · Practice</p>
+      <h2 id="practice">Your 20-minute rate card</h2>
+      <ol>
+        <li>Choose an invented starting principal and annual rate. Keep the rate fixed for the exercise.</li>
+        <li>Calculate three years of simple interest, then three years compounded annually. Record every balance.</li>
+        <li>Change exactly one input in <a href="https://www.investor.gov/financial-tools-calculators/calculators/compound-interest-calculator">Investor.gov’s calculator</a>. Note what changed and what remained outside the model.</li>
+      </ol>
+      <p><strong>Success:</strong> another person can reproduce your result and point to every assumption.</p>
+      <h3>Knowledge check</h3>
+      <ol>
+        <li>Why are the two balances equal after year one?</li>
+        <li>Where does the extra $2.50 after year two come from?</li>
+        <li>Does a three-year result prove the same rate will continue?</li>
+      </ol>
+      <details><summary>Reveal answer guidance</summary>
+        <ol>
+          <li>Both first calculations apply 5% to the same $1,000 starting amount.</li>
+          <li>The compound path earns 5% on the $50 of first-year interest: $2.50.</li>
+          <li>No. This is a fixed-rate arithmetic example, not a forecast or product promise.</li>
+        </ol>
+      </details>
+    </section>
+    <section aria-labelledby="next">
+      <p class="kicker">06 · Next steps</p>
+      <h2 id="next">Check the consumer guidance</h2>
+      <p><a href="https://www.consumerfinance.gov/ask-cfpb/how-does-compound-interest-work-en-1683/">CFPB’s written example</a> explains the first two years using the same principal and rate. <a href="https://www.consumerfinance.gov/rules-policy/regulations/1030/a/">Regulation DD’s APY appendix</a> shows the assumptions behind deposit-account disclosures. Claim mapping and dates are in <a href="sources.md">the source ledger</a>.</p>
+    </section>
+  </main>
+  <footer class="wrap">Original educational diagram and invented example. Educational information only; no personalized financial recommendation or return promise.</footer>
+</body>
+</html>

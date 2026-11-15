@@ -32,6 +32,7 @@ Path B spreads the same 40-metre rise over four times the horizontal distance. I
 | [Engineering · The Builder’s Workbench](archive.md#engineering) | [Safe Saves](editions/2026-10-13-safe-saves/brief.md) · [When an AI should say “I don’t know”](editions/2026-10-12-rag-that-can-abstain/brief.md) |
 | [Frontier technology · The Horizon](archive.md#frontier-technology) | [Where the heat comes from](editions/2026-11-15-heat-pump/brief.md) |
 | [Everyday life · Dad’s Field Notes](archive.md#everyday-life) | [Reading contour lines](editions/2026-11-15-reading-contours/brief.md) |
-| [Work & money · Career & Independence](archive.md#work-and-money) | [The first sale that covers costs](editions/2026-11-15-zine-table/brief.md) |
+| [Work & money · Career & Independence](archive.md#work-and-money) | [Interest on interest](editions/2026-11-15-compound-interest/brief.md) · [The first sale that covers costs](editions/2026-11-15-zine-table/brief.md) |
 
 Briefs, diagrams and answer reveals open on GitHub. Each brief takes about 3–5 minutes. To move the controls in a full guide, download the source ZIP, extract it and open its `index.html` in your browser. [Reading and lab instructions](docs/reading-guide.md) · [Browse the archive and back issues](archive.md) · [Contribute a story](CONTRIBUTING.md)
+
