@@ -92,4 +92,3 @@ Trace authorized evidence through retrieval, support checks, citations, and abst
 **For maintainers:** [default-branch delivery and recovery](docs/default-branch-delivery.md)
 
 <!-- List each completed, reviewed edition once under its primary topic, newest first within that topic. Merge its archive entry together with the edition. -->
-
