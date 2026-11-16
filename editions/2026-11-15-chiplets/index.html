@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Why split a processor into chiplets?</title>
+  <link rel="stylesheet" href="../../assets/field-guide.css">
+  <style>
+    figure img { display: block; width: min(100%, 42rem); height: auto; margin-inline: auto; }
+    .cards { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); }
+    .card { padding: 1rem; border: 1px solid #78877b; background: #fffdf6; }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { padding: .65rem; border-block-end: 1px solid #9ba69a; text-align: left; vertical-align: top; }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to lesson</a>
+  <nav aria-label="Lesson navigation">
+    <a href="../../README.md">Front page</a>
+    <a href="../../archive.md#frontier-technology">The Horizon</a>
+    <a href="brief.md">Visual brief</a>
+    <a href="sources.md">Sources and limits</a>
+  </nav>
+
+  <main id="main">
+    <header>
+      <p class="desk">Frontier technology · The Horizon</p>
+      <h1>Why split a processor into chiplets?</h1>
+      <p class="dek">Use a package boundary as a design decision: it can unlock reuse and manufacturing choices, but it also creates a link that must be powered, cooled and tested.</p>
+    </header>
+
+    <section aria-labelledby="predict">
+      <h2 id="predict">1. Make a prediction</h2>
+      <p>One 16-core processor keeps every major block on one large die. Another uses four identical four-core compute dies beside a separate input/output die. Which layout makes an eight-core sibling easier to assemble without redesigning every block?</p>
+      <details>
+        <summary>Reveal the prediction</summary>
+        <p>The modular layout can reuse two of its four-core compute dies and the input/output design. That is a reuse advantage, not proof of lower cost or higher performance.</p>
+      </details>
+    </section>
+
+    <figure>
+      <img src="assets/chiplet-boundaries.svg" alt="Conceptual comparison of one monolithic die with a package containing four compute chiplets and one input/output chiplet.">
+      <figcaption>Both sides are conceptual. The right-hand package gains modular boundaries and also has to engineer every die-to-die connection.</figcaption>
+    </figure>
+
+    <section aria-labelledby="model">
+      <h2 id="model">2. Build the mental model</h2>
+      <div class="cards">
+        <div class="card">
+          <h3>Monolithic die</h3>
+          <p>Major functions share one piece of silicon. Nearby blocks can communicate over on-die wires, but the whole design shares one die size and process plan.</p>
+        </div>
+        <div class="card">
+          <h3>Chiplet package</h3>
+          <p>Functions are partitioned across dies inside one package. Designers may repeat blocks or choose different processes, while the package and links become part of the system design.</p>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="tradeoffs">
+      <h2 id="tradeoffs">3. Follow the tradeoff</h2>
+      <table>
+        <thead>
+          <tr><th scope="col">Possible gain</th><th scope="col">New question</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Reuse one compute tile across products</td><td>Does the link carry enough data with acceptable latency and power?</td></tr>
+          <tr><td>Use a suitable manufacturing process for each function</td><td>Can the dies, package and supply chain be integrated and tested together?</td></tr>
+          <tr><td>Combine more silicon area than one reticle-limited die</td><td>Can the package deliver power and remove heat across the full assembly?</td></tr>
+        </tbody>
+      </table>
+      <p>UCIe defines an open package-level die-to-die interconnect stack. A common link is useful infrastructure, but it does not by itself make arbitrary functions, power plans, firmware or thermal designs compatible.</p>
+    </section>
+
+    <section aria-labelledby="example">
+      <h2 id="example">4. Work the Nova example</h2>
+      <p>“Nova” is an invented product family. Its 16-core member uses four identical four-core compute chiplets and one input/output chiplet. Its eight-core member reuses two compute chiplets and the same input/output design.</p>
+      <ol>
+        <li><strong>What was reused?</strong> The compute and input/output designs.</li>
+        <li><strong>What changed?</strong> The number of compute chiplets and the package configuration.</li>
+        <li><strong>What remains unknown?</strong> Yield, package cost, link performance, total power, cooling and system test results.</li>
+      </ol>
+    </section>
+
+    <section class="activity" id="try" aria-labelledby="try-title">
+      <h2 id="try-title">5. Try a boundary budget</h2>
+      <p>Pick one block—compute, memory, graphics or input/output—and write one sentence in each row.</p>
+      <table>
+        <tbody>
+          <tr><th scope="row">Reason to split</th><td>Does it repeat, scale independently or suit another process?</td></tr>
+          <tr><th scope="row">Traffic to cross</th><td>What bandwidth, latency and power budget does the link need?</td></tr>
+          <tr><th scope="row">Integration proof</th><td>What package, thermal, firmware and test evidence would you require?</td></tr>
+        </tbody>
+      </table>
+      <details>
+        <summary>Quick check: does a standard link guarantee any two chiplets work together?</summary>
+        <p>No. The link standard covers important connection layers, while a product still needs compatible functions, packaging, power, thermals, firmware, security and compliance testing.</p>
+      </details>
+    </section>
+
+    <section aria-labelledby="limits">
+      <h2 id="limits">6. Keep the limit visible</h2>
+      <p>This guide explains a partitioning tradeoff, not a universal recipe. Chiplets do not automatically make a processor faster or cheaper. The best boundary depends on workload, process technology, package capability, expected volume and measured system behavior.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p><a href="sources.md">Check the dated evidence and claim limits</a> · <a href="../../archive.md#frontier-technology">Return to The Horizon</a></p>
+  </footer>
+</body>
+</html>
