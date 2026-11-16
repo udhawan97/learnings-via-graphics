@@ -2,7 +2,7 @@
 
 [Front page](README.md) · [How to read or run a lab](docs/reading-guide.md) · [How categories work](docs/editorial-standards.md#choose-one-home)
 
-**7 completed editions across four sections.** Each has a visual brief, an original diagram, a practice activity and a dated source ledger. The Engineering editions also have Python labs. The dates identify when each edition appeared.
+**8 completed editions across four sections.** Each has a visual brief, an original diagram, a practice activity and a dated source ledger. The Engineering editions also have Python labs. The dates identify when each edition appeared.
 
 [Engineering](#engineering) · [Frontier technology](#frontier-technology) · [Everyday life](#everyday-life) · [Work & money](#work-and-money)
 
@@ -61,6 +61,15 @@ Trace authorized evidence through retrieval, support checks, citations, and abst
 ## Everyday life
 
 *Dad's Field Notes — home skills, communication, habits, nature, and practical safety.*
+
+### Safety
+
+**[What does that smoke-alarm chirp mean?](editions/2026-11-16-smoke-alarm-chirp/brief.md)** · November 16, 2026
+
+- **Read** the [visual brief](editions/2026-11-16-smoke-alarm-chirp/brief.md) or the [full guide for offline reading](editions/2026-11-16-smoke-alarm-chirp/index.html).
+- **See** the original decision tree. [Respond without disabling protection](editions/2026-11-16-smoke-alarm-chirp/assets/chirp-response.svg)
+- **Try** the [quick check on GitHub](editions/2026-11-16-smoke-alarm-chirp/brief.md) or use the offline inspection card. [Identify one alarm safely](editions/2026-11-16-smoke-alarm-chirp/index.html#try)
+- **Check** the [evidence and limitations](editions/2026-11-16-smoke-alarm-chirp/sources.md) and review [U.S. Fire Administration smoke-alarm guidance](https://www.usfa.fema.gov/prevention/home-fires/prepare-for-fire/smoke-alarms/).
 
 ### Map reading
 

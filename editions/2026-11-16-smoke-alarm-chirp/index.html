@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="A safety-first guide to responding to a smoke-alarm chirp">
+  <title>Smoke-alarm chirps — Learnings via Graphics</title>
+  <style>
+    :root{font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;line-height:1.65;color:#17233a;background:#f6f8fc}*{box-sizing:border-box}body{margin:0}a{color:#1855b5}a:focus-visible,summary:focus-visible{outline:3px solid #e29a00;outline-offset:3px}.wrap{max-width:1040px;margin:auto;padding:clamp(20px,4vw,48px)}header{background:#13233d;color:#f8fbff}header a{color:#b9dcff}.eyebrow,.kicker{text-transform:uppercase;letter-spacing:.12em;font-weight:750;font-size:.82rem}.eyebrow{color:#9dd2ff}h1{font-size:clamp(2.2rem,6vw,4.8rem);line-height:1.04;max-width:16ch;margin:.6rem 0}header p{max-width:72ch;color:#dce7f8}main{display:grid;gap:22px}section,.card{background:#fff;border:1px solid #d5dfec;border-radius:18px;padding:clamp(18px,3vw,30px)}h2{line-height:1.2;margin-top:0}h3{line-height:1.25}.kicker{color:#2c659f}.muted{color:#4c5e78}.figure{margin:0;background:#edf3fb;border-radius:14px;padding:14px;overflow-x:auto}.figure img{width:100%;min-width:700px;height:auto;display:block}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:14px}.danger{border-left:5px solid #b33b3b;background:#fff0f0;padding:16px;border-radius:8px}.note{border-left:5px solid #2d8051;background:#eef9f2;padding:16px;border-radius:8px}table{width:100%;border-collapse:collapse}th,td{text-align:left;vertical-align:top;padding:10px;border-bottom:1px solid #cdd8e7}th{background:#edf3fb}.skip{position:absolute;left:16px;top:-80px;padding:12px;background:white;color:#17233a;z-index:10}.skip:focus{top:12px}footer{padding:28px 0;color:#52617a;font-size:.92rem}@media(max-width:760px){.figure img{min-width:620px}table{font-size:.92rem}}@media(prefers-color-scheme:dark){:root{background:#0b1424;color:#e7effc}section,.card{background:#152640;border-color:#354b6a}a{color:#9cc7ff}.figure,th{background:#203754}.muted,footer{color:#bbc9df}.danger{background:#492426}.note{background:#183d30}.kicker{color:#9dceff}}
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to the guide</a>
+  <header><div class="wrap">
+    <nav aria-label="Reading options"><a href="brief.md">Visual brief</a> · <a href="../../archive.md">Browse topics</a> · <a href="sources.md">Evidence</a></nav>
+    <div class="eyebrow">Learnings via Graphics · Everyday life · Safety</div>
+    <h1>What does that smoke-alarm chirp mean?</h1>
+    <p>Start with danger, then identify the exact alarm before choosing a maintenance action. A chirp pattern without a model is a clue, not a diagnosis.</p>
+    <p><strong>Full guide:</strong> about 9 minutes · <strong>Practice:</strong> 15 minutes</p>
+  </div></header>
+  <main class="wrap" id="main">
+    <section aria-labelledby="boundary">
+      <p class="kicker">01 · Safety boundary</p>
+      <h2 id="boundary">Leave before troubleshooting danger</h2>
+      <p class="danger"><strong>Get outside first</strong> if there is smoke or heat, the device announces carbon monoxide, a full alarm sounds, or you are unsure whether danger is present. Call emergency services from a safe place. Do not stay to identify a pattern.</p>
+      <figure class="figure"><img src="assets/chirp-response.svg" alt="A safety-first decision tree sends possible danger to evacuation and sends only a clearly periodic chirp to device identification, the model manual, repair, reinstallation and testing."><figcaption>Conceptual response order, not a universal sound-code chart. <a href="assets/chirp-response.svg">Open the full-size SVG.</a></figcaption></figure>
+      <p><strong>Text equivalent:</strong> possible danger or uncertainty leads outside. A clearly periodic maintenance chirp leads to the exact device label and manual, then the specified battery or whole-alarm replacement, reinstallation and testing.</p>
+    </section>
+    <section aria-labelledby="why">
+      <p class="kicker">02 · Mechanism</p>
+      <h2 id="why">A chirp reports the alarm’s own state</h2>
+      <p>Smoke alarms monitor more than smoke. Depending on the model, a periodic chirp can report a weak replaceable battery, an expired sealed unit, a malfunction, an incomplete battery connection or a temporary hush state. Manufacturers assign different timing, light and voice patterns, so counting chirps is useful only after identifying the model.</p>
+      <div class="grid">
+        <div class="card"><h3>Device type</h3><p>Smoke, carbon-monoxide and combination alarms can use different alert patterns.</p></div>
+        <div class="card"><h3>Power type</h3><p>Replaceable battery, sealed long-life battery, or hardwired power with a backup battery changes the maintenance action.</p></div>
+        <div class="card"><h3>Age and model</h3><p>The label and manual establish replacement age, approved batteries and the meaning of status signals.</p></div>
+      </div>
+    </section>
+    <section aria-labelledby="example">
+      <p class="kicker">03 · Worked example</p>
+      <h2 id="example">A sealed alarm made in May 2016</h2>
+      <table>
+        <thead><tr><th>Observation</th><th>What it changes</th></tr></thead>
+        <tbody>
+          <tr><td>Periodic chirp; no smoke, heat, CO message or full alarm</td><td>Proceed to identification while staying alert for danger.</td></tr>
+          <tr><td>Label says smoke alarm, sealed battery, manufactured May 2016</td><td>There is no user-replaceable battery to hunt for.</td></tr>
+          <tr><td>Inspection date is November 2026</td><td>The invented unit is 10 years and 6 months old.</td></tr>
+          <tr><td>USFA says replace smoke alarms 10 years from manufacture</td><td>Replace the whole alarm according to its instructions; a manual may require earlier replacement.</td></tr>
+        </tbody>
+      </table>
+    </section>
+    <section aria-labelledby="failures">
+      <p class="kicker">04 · Failure modes</p>
+      <h2 id="failures">Four shortcuts that remove protection</h2>
+      <ul>
+        <li><strong>Pulling a battery to stop noise:</strong> silence is not a repair.</li>
+        <li><strong>Trusting a generic chirp chart:</strong> the exact model controls the code.</li>
+        <li><strong>Replacing the wrong part:</strong> sealed units and expired alarms require whole-unit action.</li>
+        <li><strong>Opening hardwired wiring:</strong> USFA directs hardwired installation to qualified electricians.</li>
+      </ul>
+      <p class="note"><strong>Field wisdom:</strong> restore the alarm to its mounted, powered state and run the manufacturer’s test. If it does not pass, contact the maker, a qualified electrician or your local fire department’s nonemergency service.</p>
+    </section>
+    <section id="try" aria-labelledby="practice">
+      <p class="kicker">05 · Practice</p>
+      <h2 id="practice">Make a 15-minute alarm card</h2>
+      <ol>
+        <li>Choose one alarm you can inspect without unsafe climbing. Do not disconnect hardwired wiring.</li>
+        <li>Record its room, device type, model, manufacture or replacement date, and power type. Stop and get help if the label is not safely reachable.</li>
+        <li>Find the manufacturer’s manual and write its maintenance signal, required action and test procedure. Schedule the next monthly test.</li>
+      </ol>
+      <p><strong>Success:</strong> another household member can identify the same device and follow its source-specific instructions without disabling it.</p>
+      <h3>Knowledge check</h3>
+      <ol>
+        <li>What observation sends you outside before any diagnosis?</li>
+        <li>Why is “one chirp per minute” not a complete diagnosis?</li>
+        <li>What closes the maintenance loop?</li>
+      </ol>
+      <details><summary>Reveal answer guidance</summary><ol><li>Smoke, heat, a CO message, a full alarm or uncertainty about danger.</li><li>Sound codes vary by device type, brand and model.</li><li>Use the exact manual, perform the specified action, reinstall the alarm and confirm its test passes.</li></ol></details>
+    </section>
+    <section aria-labelledby="sources">
+      <p class="kicker">06 · Next steps</p>
+      <h2 id="sources">Use the label, then the source</h2>
+      <p><a href="https://www.usfa.fema.gov/prevention/home-fires/prepare-for-fire/smoke-alarms/">USFA’s smoke-alarm guide</a> covers placement, power types, testing and replacement age. <a href="https://www.cpsc.gov/Newsroom/News-Releases/2023/Save-Daylight-Save-Lives-Replace-Batteries-in-Smoke-and-Carbon-Monoxide-Alarms">CPSC’s maintenance reminder</a> reinforces monthly tests and manufacturer instructions. Claim mapping is in the <a href="sources.md">source ledger</a>.</p>
+    </section>
+  </main>
+  <footer class="wrap">Educational fire-safety guidance. In possible danger, leave and call emergency services from a safe place.</footer>
+</body>
+</html>
