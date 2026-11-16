@@ -2,7 +2,7 @@
 
 **Frontier technology · The Horizon · 3–5 minutes**
 
-Compare two 16-core designs. One places cores, cache and input/output on one large die; the other places four reusable compute dies beside an input/output die in one package.
+A **die** is a single piece of silicon with electronic circuits on it. A **core** is the part of a processor that executes instructions. Compare two 16-core designs. One puts all the cores on a single die. The other uses four compute dies beside a die that handles input and output.
 
 Predict: **which design makes an eight-core sibling easier to create without redesigning every block?**
 
@@ -44,6 +44,10 @@ For one proposed split, record:
 No. A standard can define parts of the electrical and protocol connection, but a working product still needs compatible functions, packaging, power, thermal design, firmware, security and compliance testing.
 
 </details>
+
+## See a real processor
+
+In Figure 1, count the small compute tiles around the central input/output die. There are twelve. The “Nova” example above uses four to make the same layout idea easier to see. [UCIe’s processor photo (Figure 1)](https://www.uciexpress.org/post/how-ucie-will-enable-broad-chiplet-adoption)
 
 ## Visible limit
 

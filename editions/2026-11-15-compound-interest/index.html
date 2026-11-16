@@ -8,15 +8,15 @@
   <title>Interest on interest — Learnings via Graphics</title>
   <style>
     :root{font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;line-height:1.65;color:#17233a;background:#f6f8fc}
-    *{box-sizing:border-box}body{margin:0}a{color:#1855b5}a:focus-visible,summary:focus-visible{outline:3px solid #e29a00;outline-offset:3px}
+    *{box-sizing:border-box}body{margin:0}a{color:#1855b5}:focus-visible{outline:3px solid #e29a00;outline-offset:3px}
     .wrap{max-width:1040px;margin:auto;padding:clamp(20px,4vw,48px)}header{background:#13233d;color:#f8fbff}header a{color:#b9dcff}
     .eyebrow,.kicker{text-transform:uppercase;letter-spacing:.12em;font-weight:750;font-size:.82rem}.eyebrow{color:#9dd2ff}
     h1{font-size:clamp(2.2rem,6vw,4.8rem);line-height:1.04;max-width:16ch;margin:.6rem 0}header p{max-width:72ch;color:#dce7f8}
-    main{display:grid;gap:22px}section,.card{background:#fff;border:1px solid #d5dfec;border-radius:18px;padding:clamp(18px,3vw,30px)}
+    main{display:grid;grid-template-columns:minmax(0,1fr);gap:22px}section,.card{background:#fff;border:1px solid #d5dfec;border-radius:18px;padding:clamp(18px,3vw,30px)}
     h2{line-height:1.2;margin-top:0}h3{line-height:1.25}.kicker{color:#2c659f}.muted{color:#4c5e78}
     .figure{margin:0;background:#edf3fb;border-radius:14px;padding:14px;overflow-x:auto}.figure img{width:100%;min-width:700px;height:auto;display:block}
     .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:14px}.note{border-left:5px solid #2d8051;background:#eef9f2;padding:16px;border-radius:8px}
-    table{width:100%;border-collapse:collapse}th,td{text-align:left;padding:10px;border-bottom:1px solid #cdd8e7}th{background:#edf3fb}
+    .table-scroll{overflow-x:auto}table{width:100%;border-collapse:collapse}th,td{text-align:left;padding:10px;border-bottom:1px solid #cdd8e7}th{background:#edf3fb}
     code{background:#eef2f8;padding:.12rem .34rem;border-radius:4px}.skip{position:absolute;left:16px;top:-80px;padding:12px;background:white;color:#17233a;z-index:10}.skip:focus{top:12px}
     footer{padding:28px 0;color:#52617a;font-size:.92rem}
     @media(max-width:760px){.figure img{min-width:620px}table{font-size:.92rem}}
@@ -37,7 +37,7 @@
       <p class="kicker">01 · Predict</p>
       <h2 id="mechanism">Two paths start together</h2>
       <p>Imagine an invented $1,000 balance earning 5% once a year. No money enters or leaves. Both paths reach $1,050 after year one. Predict which ends higher after year three, then trace the boxes.</p>
-      <figure class="figure">
+      <figure class="figure" tabindex="0" aria-label="Simple and compound interest paths">
         <img src="assets/growth-paths.svg" alt="Simple interest adds fifty dollars each year and reaches $1,150. Compound interest recalculates from the previous balance and reaches $1,157.63.">
         <figcaption>Invented arithmetic comparison, not an account quote or forecast. <a href="assets/growth-paths.svg">Open the full-size SVG.</a></figcaption>
       </figure>
@@ -56,15 +56,17 @@
     <section aria-labelledby="worked">
       <p class="kicker">03 · Worked example</p>
       <h2 id="worked">Calculate before rounding</h2>
-      <table>
-        <thead><tr><th>Year</th><th>Simple-interest balance</th><th>Compound balance</th><th>Compound calculation</th></tr></thead>
-        <tbody>
-          <tr><td>0</td><td>$1,000.00</td><td>$1,000.00</td><td>Starting principal</td></tr>
-          <tr><td>1</td><td>$1,050.00</td><td>$1,050.00</td><td>$1,000 × 1.05</td></tr>
-          <tr><td>2</td><td>$1,100.00</td><td>$1,102.50</td><td>$1,050 × 1.05</td></tr>
-          <tr><td>3</td><td>$1,150.00</td><td>$1,157.63</td><td>$1,102.50 × 1.05 = $1,157.625</td></tr>
-        </tbody>
-      </table>
+      <div class="table-scroll" role="region" aria-label="Year-by-year interest balances" tabindex="0">
+        <table>
+          <thead><tr><th>Year</th><th>Simple-interest balance</th><th>Compound balance</th><th>Compound calculation</th></tr></thead>
+          <tbody>
+            <tr><td>0</td><td>$1,000.00</td><td>$1,000.00</td><td>Starting principal</td></tr>
+            <tr><td>1</td><td>$1,050.00</td><td>$1,050.00</td><td>$1,000 × 1.05</td></tr>
+            <tr><td>2</td><td>$1,100.00</td><td>$1,102.50</td><td>$1,050 × 1.05</td></tr>
+            <tr><td>3</td><td>$1,150.00</td><td>$1,157.63</td><td>$1,102.50 × 1.05 = $1,157.625</td></tr>
+          </tbody>
+        </table>
+      </div>
       <p class="note"><strong>Field wisdom:</strong> Keep the unrounded balance through the calculation, then round the displayed currency amount. Real institutions follow their disclosures and applicable rules; this worksheet is not their ledger.</p>
     </section>
     <section aria-labelledby="compare">
