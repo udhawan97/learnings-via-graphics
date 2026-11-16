@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 650" role="img" aria-labelledby="title desc">
+  <title id="title">Safe response to a smoke-alarm chirp</title>
+  <desc id="desc">A decision tree starts with the sound. Smoke, heat, a carbon-monoxide warning, a full alarm or uncertainty leads to getting outside and calling emergency services from safety. A clearly periodic chirp leads to identifying the device, checking its manual and power type, performing the specified battery or alarm replacement, reinstalling it and testing it.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto"><path d="M0 0 L9 4 L0 8 Z" fill="#29456f"/></marker>
+    <style>
+      .title{font:700 28px system-ui,sans-serif;fill:#13233d}.head{font:700 19px system-ui,sans-serif;fill:#13233d}.copy{font:15px system-ui,sans-serif;fill:#334967}.small{font:700 14px system-ui,sans-serif;fill:#334967}.line{stroke:#29456f;stroke-width:3;fill:none;marker-end:url(#arrow)}.box{stroke-width:2}
+    </style>
+  </defs>
+  <rect width="960" height="650" rx="24" fill="#f7f9fc"/>
+  <text class="title" x="48" y="50">Respond to the sound without disabling protection</text>
+
+  <rect class="box" x="350" y="80" width="260" height="72" rx="16" fill="#e3efff" stroke="#3d6fb3"/>
+  <text class="head" x="480" y="110" text-anchor="middle">Hear an alarm sound</text>
+  <text class="copy" x="480" y="136" text-anchor="middle">Pause and classify before touching it</text>
+
+  <path class="line" d="M480 154 V190"/>
+  <rect class="box" x="270" y="200" width="420" height="88" rx="16" fill="#fff2c7" stroke="#a86f00"/>
+  <text class="head" x="480" y="230" text-anchor="middle">Smoke, heat, CO warning, full alarm</text>
+  <text class="copy" x="480" y="256" text-anchor="middle">or uncertainty about immediate danger?</text>
+
+  <text class="small" x="204" y="328" text-anchor="middle">YES / UNSURE</text>
+  <path class="line" d="M350 290 C310 315 270 330 230 350"/>
+  <rect class="box" x="48" y="360" width="330" height="112" rx="16" fill="#ffe4e4" stroke="#b33b3b"/>
+  <text class="head" x="213" y="397" text-anchor="middle">Get outside</text>
+  <text class="copy" x="213" y="425" text-anchor="middle">Call emergency services from safety.</text>
+  <text class="copy" x="213" y="449" text-anchor="middle">Do not troubleshoot first.</text>
+
+  <text class="small" x="756" y="328" text-anchor="middle">NO — PERIODIC CHIRP</text>
+  <path class="line" d="M610 290 C650 315 690 330 730 350"/>
+  <rect class="box" x="582" y="360" width="330" height="112" rx="16" fill="#e7f8ed" stroke="#2d8051"/>
+  <text class="head" x="747" y="394" text-anchor="middle">Identify the exact device</text>
+  <text class="copy" x="747" y="422" text-anchor="middle">Type · model · manufacture date · power</text>
+  <text class="copy" x="747" y="447" text-anchor="middle">Read that model’s label or manual</text>
+
+  <path class="line" d="M747 474 V510"/>
+  <rect class="box" x="515" y="520" width="397" height="92" rx="16" fill="#e3efff" stroke="#3d6fb3"/>
+  <text class="head" x="714" y="552" text-anchor="middle">Perform the specified action</text>
+  <text class="copy" x="714" y="579" text-anchor="middle">Replace battery or alarm · reinstall · test</text>
+  <text class="copy" x="714" y="601" text-anchor="middle">Qualified electrician for hardwired work</text>
+
+  <rect x="48" y="520" width="397" height="92" rx="16" fill="#eef2f8" stroke="#718099" stroke-width="2"/>
+  <text class="head" x="246" y="552" text-anchor="middle">Pattern alone is not a diagnosis</text>
+  <text class="copy" x="246" y="579" text-anchor="middle">Brands and models use different chirps.</text>
+  <text class="copy" x="246" y="601" text-anchor="middle">Never remove power merely to silence it.</text>
+</svg>
