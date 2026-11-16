@@ -2,7 +2,7 @@
 
 [Front page](README.md) · [How to read or run a lab](docs/reading-guide.md) · [How categories work](docs/editorial-standards.md#choose-one-home)
 
-**6 completed editions across four sections.** Each has a visual brief, an original diagram, a practice activity and a dated source ledger. The Engineering editions also have Python labs. The dates identify when each edition appeared.
+**7 completed editions across four sections.** Each has a visual brief, an original diagram, a practice activity and a dated source ledger. The Engineering editions also have Python labs. The dates identify when each edition appeared.
 
 [Engineering](#engineering) · [Frontier technology](#frontier-technology) · [Everyday life](#everyday-life) · [Work & money](#work-and-money)
 
@@ -39,6 +39,15 @@ Trace authorized evidence through retrieval, support checks, citations, and abst
 ## Frontier technology
 
 *The Horizon — chips, quantum, robotics, energy, and infrastructure; distinguish research, pilots, and deployed capability.*
+
+### Chip packaging
+
+**[Why split a processor into chiplets?](editions/2026-11-15-chiplets/brief.md)** · November 15, 2026
+
+- **Read** the [visual brief](editions/2026-11-15-chiplets/brief.md) or the [full guide for offline reading](editions/2026-11-15-chiplets/index.html).
+- **See** the original illustration. [Compare one large die with a modular package](editions/2026-11-15-chiplets/assets/chiplet-boundaries.svg)
+- **Try** the [prediction and answer on GitHub](editions/2026-11-15-chiplets/brief.md) or use the offline worksheet. [Budget a chiplet boundary](editions/2026-11-15-chiplets/index.html#try)
+- **Check** the [evidence and limitations](editions/2026-11-15-chiplets/sources.md) and continue with the [UCIe Consortium’s chiplet overview](https://www.uciexpress.org/post/how-ucie-will-enable-broad-chiplet-adoption).
 
 ### Heating and energy
 
