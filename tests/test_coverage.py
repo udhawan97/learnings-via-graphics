@@ -90,6 +90,12 @@ class CoverageCheck(unittest.TestCase):
         self.git("add", ".")
         self.assertIn("lost its archive entry", self.check(expected=1))
 
+    def test_same_edition_cannot_be_indexed_twice_under_one_topic(self):
+        with (self.root / "archive.md").open("a", encoding="utf-8") as index:
+            index.write("\n**[Duplicate](editions/original/brief.md)**\n")
+        self.git("add", ".")
+        self.assertIn("indexed more than once", self.check(expected=1))
+
     def test_renaming_the_question_under_the_same_recent_topic_does_not_rotate_it(self):
         self.add_edition("same", "Engineering", "Files")
         self.git("add", ".")
