@@ -34,8 +34,11 @@ def archive(ref):
         elif desk in DESKS and topic and line.startswith("**["):
             for slug in BRIEF.findall(line):
                 home = (desk, topic)
-                if records.setdefault(slug, home) != home:
+                if slug in records and records[slug] != home:
                     raise ValueError(f"{slug} is indexed under two topics")
+                if slug in records:
+                    raise ValueError(f"{slug} is indexed more than once")
+                records[slug] = home
     return records
 
 
