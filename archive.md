@@ -2,7 +2,7 @@
 
 [Front page](README.md) · [How to read or run a lab](docs/reading-guide.md) · [How categories work](docs/editorial-standards.md#choose-one-home)
 
-**8 completed editions across four sections.** Each has a visual brief, an original diagram, a practice activity and a dated source ledger. The Engineering editions also have Python labs. The dates identify when each edition appeared.
+**9 completed editions across four sections.** Each has a visual brief, an original diagram, a practice activity and a dated source ledger. Some Engineering editions also have Python labs. The dates identify when each edition appeared.
 
 [Engineering](#engineering) · [Frontier technology](#frontier-technology) · [Everyday life](#everyday-life) · [Work & money](#work-and-money)
 
@@ -13,6 +13,15 @@
 ## Engineering
 
 *The Builder's Workbench — build, debug, test, and understand technical systems.*
+
+### APIs
+
+**[Why can retrying one request create two orders?](editions/2026-11-17-idempotency-key/brief.md)** · November 17, 2026 · Foundation with current draft context
+
+- **Read:** [visual brief](editions/2026-11-17-idempotency-key/brief.md) · [full guide (HTML)](editions/2026-11-17-idempotency-key/index.html)
+- **See:** [retry window timeline](editions/2026-11-17-idempotency-key/assets/retry-window.svg)
+- **Try:** [15-minute retry-contract worksheet](editions/2026-11-17-idempotency-key/index.html#try)
+- **Check:** [sources and limits](editions/2026-11-17-idempotency-key/sources.md)
 
 ### Files & reliability
 
