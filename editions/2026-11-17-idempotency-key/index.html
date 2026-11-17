@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="An illustrated guide to safe retries and application-level idempotency keys">
+  <title>Safe API retries — Learnings via Graphics</title>
+  <style>
+    :root{font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;line-height:1.65;color:#17233a;background:#f6f8fc}*{box-sizing:border-box}body{margin:0}a{color:#1855b5}a:focus-visible,summary:focus-visible{outline:3px solid #e29a00;outline-offset:3px}.wrap{max-width:1040px;margin:auto;padding:clamp(20px,4vw,48px)}header{background:#13233d;color:#f8fbff}header a{color:#b9dcff}.eyebrow,.kicker{text-transform:uppercase;letter-spacing:.12em;font-weight:750;font-size:.82rem}.eyebrow{color:#9dd2ff}h1{font-size:clamp(2.2rem,6vw,4.8rem);line-height:1.04;max-width:16ch;margin:.6rem 0}header p{max-width:72ch;color:#dce7f8}main{display:grid;gap:22px}section,.card{background:#fff;border:1px solid #d5dfec;border-radius:18px;padding:clamp(18px,3vw,30px)}h2{line-height:1.2;margin-top:0}h3{line-height:1.25}.kicker{color:#2c659f}.muted{color:#4c5e78}.figure{margin:0;background:#edf3fb;border-radius:14px;padding:14px;overflow-x:auto}.figure img{width:100%;min-width:700px;height:auto;display:block}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:14px}.warning{border-left:5px solid #a56417;background:#fff7e8;padding:16px;border-radius:8px}.note{border-left:5px solid #2d8051;background:#eef9f2;padding:16px;border-radius:8px}table{width:100%;border-collapse:collapse}th,td{text-align:left;vertical-align:top;padding:10px;border-bottom:1px solid #cdd8e7}th{background:#edf3fb}.skip{position:absolute;left:16px;top:-80px;padding:12px;background:white;color:#17233a;z-index:10}.skip:focus{top:12px}code{font-size:.94em}footer{padding:28px 0;color:#52617a;font-size:.92rem}@media(max-width:760px){.figure img{min-width:640px}table{font-size:.92rem}}@media(prefers-color-scheme:dark){:root{background:#0b1424;color:#e7effc}section,.card{background:#152640;border-color:#354b6a}a{color:#9cc7ff}.figure,th{background:#203754}.muted,footer{color:#bbc9df}.warning{background:#493419}.note{background:#183d30}.kicker{color:#9dceff}}
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to the guide</a>
+  <header><div class="wrap">
+    <nav aria-label="Reading options"><a href="brief.md">Visual brief</a> · <a href="../../archive.md">Browse topics</a> · <a href="sources.md">Evidence</a></nav>
+    <div class="eyebrow">Learnings via Graphics · Engineering · APIs</div>
+    <h1>Why can retrying one request create two orders?</h1>
+    <p>A timeout hides the outcome. Give one intent a stable identity so a retry can recover its result instead of repeating its effect.</p>
+    <p><strong>Full guide:</strong> about 9 minutes · <strong>Practice:</strong> 15 minutes</p>
+  </div></header>
+  <main class="wrap" id="main">
+    <section aria-labelledby="ambiguity">
+      <p class="kicker">01 · Ambiguous outcome</p>
+      <h2 id="ambiguity">No response does not mean no effect</h2>
+      <p>A create request crosses several boundaries: client, network, service and database. The service can commit an order and then lose the response. The client sees the same timeout it would see if the request never arrived, so it cannot choose a safe retry from transport evidence alone.</p>
+      <figure class="figure"><img src="assets/retry-window.svg" alt="A five-step timeline shows one order intent using key K7, the server atomically recording order O-42, the response being lost, and a retry with K7 returning O-42. New key K8 may create a second effect; K7 with changed content is rejected."><figcaption>One intent keeps one identity across an ambiguous failure. <a href="assets/retry-window.svg">Open the full-size SVG.</a></figcaption></figure>
+      <p><strong>Text equivalent:</strong> request one sends key <code>K7</code>. The service records <code>K7</code>, the request fingerprint and result <code>O-42</code> atomically. Its reply is lost. Request two reuses <code>K7</code>, so the service returns <code>O-42</code>. A fresh key could authorize another effect; changed content under <code>K7</code> is an error.</p>
+    </section>
+    <section aria-labelledby="contract">
+      <p class="kicker">02 · Contract</p>
+      <h2 id="contract">The key names one caller’s one intent</h2>
+      <p>An idempotency key is an application-level protocol. The client creates a unique value and reuses it only for retries of the same intent. The service scopes it to the authenticated caller and operation, compares a request fingerprint, and stores the outcome for a documented retention window.</p>
+      <div class="grid">
+        <div class="card"><h3>Identity</h3><p><code>caller + operation + key</code> selects one intent. The key is not a credential and must not cross callers.</p></div>
+        <div class="card"><h3>Fingerprint</h3><p>Fields that change the effect—items, quantity, destination—must match the first accepted request.</p></div>
+        <div class="card"><h3>Outcome</h3><p>A completed retry returns the recorded status and result; a concurrent duplicate follows the API’s wait or conflict rule.</p></div>
+      </div>
+      <p class="warning"><strong>Standards boundary:</strong> HTTP defines safe and idempotent methods, but <code>POST</code> is not automatically retryable. The cited <code>Idempotency-Key</code> header specification is an active Internet-Draft, not an RFC. A client cannot assume a server implements it.</p>
+    </section>
+    <section aria-labelledby="example">
+      <p class="kicker">03 · Worked example</p>
+      <h2 id="example">Two notebooks, one order</h2>
+      <table>
+        <thead><tr><th>Moment</th><th>State</th><th>Safe behavior</th></tr></thead>
+        <tbody>
+          <tr><td>First request</td><td><code>K7</code> + fingerprint for two notebooks and standard shipping</td><td>Reserve the key while creating <code>O-42</code> and storing its response.</td></tr>
+          <tr><td>Reply lost</td><td>Client knows only that the outcome is ambiguous</td><td>Do not invent a new identity.</td></tr>
+          <tr><td>Same-intent retry</td><td><code>K7</code> + matching fingerprint</td><td>Return recorded order <code>O-42</code>.</td></tr>
+          <tr><td>Changed request</td><td><code>K7</code> + three notebooks</td><td>Reject the mismatch; reconcile the first intent before creating another.</td></tr>
+        </tbody>
+      </table>
+      <p class="note"><strong>Atomicity is the hinge:</strong> if the service creates the order and records the key in separate uncoordinated steps, a crash between them can still duplicate the effect. Use one transaction or a protocol with an equivalent recovery guarantee.</p>
+    </section>
+    <section aria-labelledby="failures">
+      <p class="kicker">04 · Failure modes</p>
+      <h2 id="failures">Four ways a key can give false confidence</h2>
+      <ul>
+        <li><strong>Store after the side effect:</strong> a crash opens a duplicate window.</li>
+        <li><strong>Skip the fingerprint:</strong> one key can silently mutate into another intent.</li>
+        <li><strong>Scope only by key:</strong> another caller’s matching value can expose or suppress a result.</li>
+        <li><strong>Hide retention and concurrency:</strong> late or simultaneous retries behave unpredictably.</li>
+      </ul>
+      <p>Downstream email, inventory or payment effects need the same identity discipline. A database row alone does not make external side effects atomic.</p>
+    </section>
+    <section id="try" aria-labelledby="practice">
+      <p class="kicker">05 · Practice</p>
+      <h2 id="practice">Write a 15-minute retry contract</h2>
+      <ol>
+        <li>Pick one non-idempotent create operation. Name the exact caller intent and fields that change its effect.</li>
+        <li>Fill in: key scope, fingerprint fields, atomic storage boundary, retained response, retention window, in-flight duplicate behavior and mismatch response.</li>
+        <li>Walk three cases: response lost after commit, same key with changed content, and two concurrent requests with one key.</li>
+      </ol>
+      <p><strong>Success:</strong> a client author and service author independently predict the same result for all three cases.</p>
+      <h3>Knowledge check</h3>
+      <ol>
+        <li>Why can a timeout not prove that no order exists?</li>
+        <li>When should a retry reuse a key?</li>
+        <li>What must the server do with the key and side effect?</li>
+      </ol>
+      <details><summary>Reveal answer guidance</summary><ol><li>The service may have committed before its response was lost.</li><li>Only for the same caller, operation and intent, within the API’s documented retention contract.</li><li>Bind the scoped key, request fingerprint and outcome atomically, then return that outcome to matching retries.</li></ol></details>
+    </section>
+    <section aria-labelledby="sources">
+      <p class="kicker">06 · Evidence</p>
+      <h2 id="sources">Separate the standard from the design pattern</h2>
+      <p><a href="https://www.rfc-editor.org/rfc/rfc9110.html#section-9.2.2">RFC 9110</a> defines HTTP method idempotency and retry boundaries. The <a href="https://datatracker.ietf.org/doc/draft-ietf-httpapi-idempotency-key-header/">IETF Idempotency-Key Internet-Draft</a> describes a proposed header and application responsibilities. The <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">AWS Builders’ Library</a> supplies one production-oriented implementation perspective. Claim mapping and status are in the <a href="sources.md">source ledger</a>.</p>
+    </section>
+  </main>
+  <footer class="wrap">Educational API-design guidance. Verify the exact service contract, threat model and failure boundaries before enabling automatic retries.</footer>
+</body>
+</html>
