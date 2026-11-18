@@ -2,7 +2,7 @@
 
 [Front page](README.md) · [How to read or run a lab](docs/reading-guide.md) · [How categories work](docs/editorial-standards.md#choose-one-home)
 
-**9 completed editions across four sections.** Each has a visual brief, an original diagram, a practice activity and a dated source ledger. Some Engineering editions also have Python labs. The dates identify when each edition appeared.
+**10 completed editions across four sections.** Each has a visual brief, an original diagram, a practice activity and a dated source ledger. Some Engineering editions also have Python labs. The dates identify when each edition appeared.
 
 [Engineering](#engineering) · [Frontier technology](#frontier-technology) · [Everyday life](#everyday-life) · [Work & money](#work-and-money)
 
@@ -93,6 +93,15 @@ Trace authorized evidence through retrieval, support checks, citations, and abst
 ## Work & money
 
 *Career & Independence — careers, portfolios, negotiation, business economics, and financial literacy.*
+
+### Portfolios
+
+**[What makes a portfolio case study believable?](editions/2026-11-18-portfolio-evidence-chain/brief.md)** · November 18, 2026 · Foundation and editorial synthesis
+
+- **Read:** [visual brief](editions/2026-11-18-portfolio-evidence-chain/brief.md) · [full guide (HTML)](editions/2026-11-18-portfolio-evidence-chain/index.html)
+- **See:** [portfolio evidence chain](editions/2026-11-18-portfolio-evidence-chain/assets/evidence-chain.svg)
+- **Try:** [20-minute evidence-card worksheet](editions/2026-11-18-portfolio-evidence-chain/index.html#try)
+- **Check:** [sources and limitations](editions/2026-11-18-portfolio-evidence-chain/sources.md)
 
 ### Financial literacy
 
