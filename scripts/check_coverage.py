@@ -75,8 +75,11 @@ def featured_stories(ref, path, records=None):
         if line.startswith("## "):
             if section and section not in features:
                 raise ValueError(f"{path}: {section} needs its own linked brief")
-            desk = line[3:].split(" · ", 1)[0]
-            section = line[3:] if desk in DESKS else None
+            heading = line[3:]
+            desk = heading.split(" · ", 1)[0]
+            if desk in DESKS and heading in features:
+                raise ValueError(f"{path} duplicates section heading {heading}")
+            section = heading if desk in DESKS else None
         elif section and section not in features:
             match = BRIEF.search(line)
             if match:
