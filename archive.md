@@ -2,7 +2,7 @@
 
 [Front page](README.md) · [How to read or run a lab](docs/reading-guide.md) · [How categories work](docs/editorial-standards.md#choose-one-home)
 
-**10 completed editions across four sections.** Each has a visual brief, an original diagram, a practice activity and a dated source ledger. Some Engineering editions also have Python labs. The dates identify when each edition appeared.
+**11 completed editions across four sections.** Each has a visual brief, an original diagram, a practice activity and a dated source ledger. Some Engineering editions also have Python labs. The dates identify when each edition appeared.
 
 [Engineering](#engineering) · [Frontier technology](#frontier-technology) · [Everyday life](#everyday-life) · [Work & money](#work-and-money)
 
@@ -48,6 +48,15 @@ Trace authorized evidence through retrieval, support checks, citations, and abst
 ## Frontier technology
 
 *The Horizon — chips, quantum, robotics, energy, and infrastructure; distinguish research, pilots, and deployed capability.*
+
+### Energy storage
+
+**[Why does EV fast charging slow near full?](editions/2026-11-19-ev-charge-taper/brief.md)** · November 19, 2026 · Foundation with current public guidance
+
+- **Read:** [visual brief](editions/2026-11-19-ev-charge-taper/brief.md) · [full guide (HTML)](editions/2026-11-19-ev-charge-taper/index.html)
+- **See:** [illustrative charge-taper curve](editions/2026-11-19-ev-charge-taper/assets/charge-taper.svg)
+- **Try:** [15-minute paper session](editions/2026-11-19-ev-charge-taper/index.html#try)
+- **Check:** [sources and limitations](editions/2026-11-19-ev-charge-taper/sources.md)
 
 ### Chip packaging
 
