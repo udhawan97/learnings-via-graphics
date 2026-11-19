@@ -70,6 +70,13 @@ class CoverageCheck(unittest.TestCase):
         self.git("add", ".")
         self.assertIn("at least two sections", self.check("--exception", "Documented correction", expected=1))
 
+    def test_issue_section_needs_a_reader_facing_headline(self):
+        self.add_edition("hills", "Everyday life", "Map reading")
+        self.write("issues/2026-11-15.md", "## Engineering\n[Files](../editions/original/brief.md)\n"
+                   "## Everyday life · Hills\n[Map](../editions/hills/brief.md)\n")
+        self.git("add", ".")
+        self.assertIn("needs a headline", self.check(expected=1))
+
     def test_duplicate_issue_section_cannot_reuse_the_first_feature(self):
         self.add_edition("hills", "Everyday life", "Map reading")
         self.write("issues/2026-11-15.md", "## Engineering · Files\n[Files](../editions/original/brief.md)\n"

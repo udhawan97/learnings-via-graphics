@@ -76,7 +76,10 @@ def featured_stories(ref, path, records=None):
             if section and section not in features:
                 raise ValueError(f"{path}: {section} needs its own linked brief")
             heading = line[3:]
-            desk = heading.split(" · ", 1)[0]
+            parts = heading.split(" · ", 1)
+            desk = parts[0]
+            if desk in DESKS and (len(parts) == 1 or not parts[1].strip()):
+                raise ValueError(f"{path}: {desk} section needs a headline")
             if desk in DESKS and heading in features:
                 raise ValueError(f"{path} duplicates section heading {heading}")
             section = heading if desk in DESKS else None
