@@ -2,6 +2,7 @@
 """Review staged or committed newsletter coverage against the default branch."""
 import argparse
 from collections import Counter
+from datetime import date
 from pathlib import PurePosixPath
 import re
 import subprocess
@@ -9,6 +10,7 @@ import sys
 
 DESKS = ("Engineering", "Frontier technology", "Everyday life", "Work & money")
 BRIEF = re.compile(r"\]\((?:\.\./)?editions/([^/)]+)/brief\.md(?:#[^)]*)?\)")
+ISSUE = re.compile(r"issues/(\d{4}-\d{2}-\d{2})\.md")
 WINDOW = 4
 
 
@@ -101,6 +103,11 @@ def check_issues(base, head, compare, records):
     issues = {path for path in previous.union(changed) if path.endswith(".md")}
     reprints = []
     for path in sorted(set(changed) & issues):
+        match = ISSUE.fullmatch(path)
+        try:
+            date.fromisoformat(match.group(1))
+        except (AttributeError, ValueError):
+            raise ValueError(f"{path} must use a valid YYYY-MM-DD date") from None
         features = featured_stories(head, path, records)
         if len({records[slug][0] for slug in features.values()}) < 2:
             raise ValueError(f"{path} needs featured briefs from at least two sections")
