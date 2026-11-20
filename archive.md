@@ -2,7 +2,7 @@
 
 [Front page](README.md) · [How to read or run a lab](docs/reading-guide.md) · [How categories work](docs/editorial-standards.md#choose-one-home)
 
-**11 completed editions across four sections.** Each has a visual brief, an original diagram, a practice activity and a dated source ledger. Some Engineering editions also have Python labs. The dates identify when each edition appeared.
+**12 completed editions across four sections.** Each has a visual brief, an original diagram, a practice activity and a dated source ledger. Some Engineering editions also have Python labs. The dates identify when each edition appeared.
 
 [Engineering](#engineering) · [Frontier technology](#frontier-technology) · [Everyday life](#everyday-life) · [Work & money](#work-and-money)
 
@@ -79,6 +79,15 @@ Trace authorized evidence through retrieval, support checks, citations, and abst
 ## Everyday life
 
 *Dad's Field Notes — home skills, communication, habits, nature, and practical safety.*
+
+### Home
+
+**[Why does the inside of a window fog up?](editions/2026-11-20-window-condensation/brief.md)** · November 20, 2026 · Foundation with current moisture guidance
+
+- **Read:** [visual brief](editions/2026-11-20-window-condensation/brief.md) · [full guide (HTML)](editions/2026-11-20-window-condensation/index.html)
+- **See:** [dew-point threshold at a window](editions/2026-11-20-window-condensation/assets/window-dew-point.svg)
+- **Try:** [20-minute condensation map](editions/2026-11-20-window-condensation/index.html#try)
+- **Check:** [sources and limitations](editions/2026-11-20-window-condensation/sources.md)
 
 ### Safety
 
