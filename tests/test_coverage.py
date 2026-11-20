@@ -77,6 +77,22 @@ class CoverageCheck(unittest.TestCase):
         self.git("add", ".")
         self.assertIn("needs a headline", self.check(expected=1))
 
+    def test_issue_filename_must_use_a_valid_iso_date(self):
+        self.add_edition("hills", "Everyday life", "Map reading")
+        issue = ("## Engineering · Files\n[Files](../editions/original/brief.md)\n"
+                 "## Everyday life · Hills\n[Map](../editions/hills/brief.md)\n")
+        self.write("issues/latest.md", issue)
+        self.git("add", ".")
+        self.assertIn("must use a valid YYYY-MM-DD date", self.check(expected=1))
+
+    def test_issue_filename_rejects_an_impossible_calendar_date(self):
+        self.add_edition("hills", "Everyday life", "Map reading")
+        issue = ("## Engineering · Files\n[Files](../editions/original/brief.md)\n"
+                 "## Everyday life · Hills\n[Map](../editions/hills/brief.md)\n")
+        self.write("issues/2026-02-30.md", issue)
+        self.git("add", ".")
+        self.assertIn("must use a valid YYYY-MM-DD date", self.check(expected=1))
+
     def test_duplicate_issue_section_cannot_reuse_the_first_feature(self):
         self.add_edition("hills", "Everyday life", "Map reading")
         self.write("issues/2026-11-15.md", "## Engineering · Files\n[Files](../editions/original/brief.md)\n"
