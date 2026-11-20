@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">Window condensation starts when glass falls below the room air's dew point</title>
+  <desc id="desc">A warm room on the left contains water vapor and has a dew point of twelve degrees Celsius. Two panes on the right compare a fifteen-degree surface, where vapor stays in the air, with an eight-degree surface, where droplets form. A labeled threshold arrow shows that condensation becomes possible below the dew point.</desc>
+  <defs>
+    <linearGradient id="room" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#fff4d6"/>
+      <stop offset="1" stop-color="#e6f4ff"/>
+    </linearGradient>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="9" refY="4" orient="auto">
+      <path d="M0 0 L10 4 L0 8" fill="none" stroke="#12335f" stroke-width="2.2"/>
+    </marker>
+  </defs>
+  <rect width="960" height="540" rx="28" fill="#f8fbff"/>
+  <rect x="36" y="46" width="888" height="448" rx="24" fill="url(#room)" stroke="#31577d" stroke-width="3"/>
+  <text x="76" y="96" fill="#17324f" font-family="system-ui, sans-serif" font-size="25" font-weight="700">Room air: dew point 12°C</text>
+  <text x="76" y="128" fill="#405a74" font-family="system-ui, sans-serif" font-size="17">Same moisture content; two different surface temperatures</text>
+
+  <g fill="#4c78a8" opacity=".85">
+    <circle cx="108" cy="196" r="7"/><circle cx="182" cy="164" r="6"/><circle cx="256" cy="218" r="8"/>
+    <circle cx="128" cy="294" r="6"/><circle cx="218" cy="330" r="7"/><circle cx="306" cy="276" r="6"/>
+  </g>
+  <text x="76" y="388" fill="#17324f" font-family="system-ui, sans-serif" font-size="19" font-weight="700">Water vapor in warm air</text>
+  <text x="76" y="416" fill="#405a74" font-family="system-ui, sans-serif" font-size="16">Cooling at the glass decides whether it stays vapor.</text>
+  <path d="M326 248 H414" stroke="#12335f" stroke-width="4" marker-end="url(#arrow)"/>
+
+  <rect x="448" y="152" width="190" height="248" rx="18" fill="#e8f7ed" stroke="#27734b" stroke-width="3"/>
+  <text x="543" y="202" text-anchor="middle" fill="#16472f" font-family="system-ui, sans-serif" font-size="25" font-weight="700">15°C pane</text>
+  <text x="543" y="238" text-anchor="middle" fill="#16472f" font-family="system-ui, sans-serif" font-size="18">above 12°C</text>
+  <text x="543" y="303" text-anchor="middle" fill="#16472f" font-family="system-ui, sans-serif" font-size="20" font-weight="700">Vapor stays</text>
+  <text x="543" y="332" text-anchor="middle" fill="#315a45" font-family="system-ui, sans-serif" font-size="16">No droplets in this</text>
+  <text x="543" y="355" text-anchor="middle" fill="#315a45" font-family="system-ui, sans-serif" font-size="16">simple model</text>
+
+  <rect x="694" y="152" width="190" height="248" rx="18" fill="#e8f2ff" stroke="#285d9f" stroke-width="3"/>
+  <text x="789" y="202" text-anchor="middle" fill="#173f74" font-family="system-ui, sans-serif" font-size="25" font-weight="700">8°C pane</text>
+  <text x="789" y="238" text-anchor="middle" fill="#173f74" font-family="system-ui, sans-serif" font-size="18">below 12°C</text>
+  <g fill="#2c7fc3" stroke="#155689" stroke-width="1.5">
+    <path d="M742 280 C728 299 729 312 742 319 C755 312 756 299 742 280Z"/>
+    <path d="M790 264 C776 283 777 296 790 303 C803 296 804 283 790 264Z"/>
+    <path d="M837 288 C823 307 824 320 837 327 C850 320 851 307 837 288Z"/>
+  </g>
+  <text x="789" y="359" text-anchor="middle" fill="#173f74" font-family="system-ui, sans-serif" font-size="20" font-weight="700">Droplets form</text>
+
+  <path d="M448 444 H884" stroke="#9b5f00" stroke-width="4" marker-end="url(#arrow)"/>
+  <text x="666" y="476" text-anchor="middle" fill="#6e4300" font-family="system-ui, sans-serif" font-size="18" font-weight="700">Below the dew point → condensation becomes possible</text>
+</svg>
