@@ -29,7 +29,7 @@ Path B spreads the same 40-metre rise over four times the horizontal distance. I
 
 | Section | Open a visual brief |
 | --- | --- |
-| [Engineering · The Builder’s Workbench](archive.md#engineering) | [Make one retry create one order](editions/2026-11-17-idempotency-key/brief.md) · [Safe Saves](editions/2026-10-13-safe-saves/brief.md) · [When an AI should say “I don’t know”](editions/2026-10-12-rag-that-can-abstain/brief.md) |
+| [Engineering · The Builder’s Workbench](archive.md#engineering) | [Diagnose a suite-only test failure](editions/2026-11-21-test-isolation/brief.md) · [Make one retry create one order](editions/2026-11-17-idempotency-key/brief.md) · [Safe Saves](editions/2026-10-13-safe-saves/brief.md) · [When an AI should say “I don’t know”](editions/2026-10-12-rag-that-can-abstain/brief.md) |
 | [Frontier technology · The Horizon](archive.md#frontier-technology) | [Why fast charging slows near full](editions/2026-11-19-ev-charge-taper/brief.md) · [Why processors use chiplets](editions/2026-11-15-chiplets/brief.md) · [Where the heat comes from](editions/2026-11-15-heat-pump/brief.md) |
 | [Everyday life · Dad’s Field Notes](archive.md#everyday-life) | [Read window condensation](editions/2026-11-20-window-condensation/brief.md) · [Respond to a smoke-alarm chirp](editions/2026-11-16-smoke-alarm-chirp/brief.md) · [Reading contour lines](editions/2026-11-15-reading-contours/brief.md) |
 | [Work & money · Career & Independence](archive.md#work-and-money) | [Make a portfolio claim inspectable](editions/2026-11-18-portfolio-evidence-chain/brief.md) · [Interest on interest](editions/2026-11-15-compound-interest/brief.md) · [The first sale that covers costs](editions/2026-11-15-zine-table/brief.md) |
