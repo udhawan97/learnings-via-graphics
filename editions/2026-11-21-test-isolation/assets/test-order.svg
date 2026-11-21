@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" role="img" aria-labelledby="title desc">
+  <title id="title">Why Test B passes alone but fails after Test A</title>
+  <desc id="desc">Three rows compare test execution. B alone starts with a feature flag off and passes. A then B leaves the flag on, so B fails. With a reset before each test, both orders start with the flag off and pass.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0 0 L8 3 L0 6" fill="none" stroke="#243b64" stroke-width="2"/></marker>
+    <style>
+      text{font-family:system-ui,-apple-system,Segoe UI,sans-serif;fill:#17233b}.label{font-size:22px;font-weight:700}.small{font-size:17px}.result{font-size:18px;font-weight:700}.line{stroke:#243b64;stroke-width:3;marker-end:url(#arrow)}
+    </style>
+  </defs>
+  <rect width="960" height="520" rx="24" fill="#f7f9fc"/>
+  <text x="40" y="48" class="label">Same Test B, different starting state</text>
+
+  <text x="40" y="118" class="label">B alone</text>
+  <rect x="210" y="78" width="180" height="72" rx="14" fill="#dbeafe" stroke="#315ba2" stroke-width="2"/>
+  <text x="300" y="108" text-anchor="middle" class="small">flag = OFF</text><text x="300" y="133" text-anchor="middle" class="small">clean start</text>
+  <path d="M400 114 H500" class="line"/>
+  <rect x="520" y="78" width="180" height="72" rx="14" fill="#e8eef7" stroke="#526b91" stroke-width="2"/>
+  <text x="610" y="121" text-anchor="middle" class="label">Test B</text>
+  <path d="M710 114 H790" class="line"/>
+  <rect x="810" y="78" width="110" height="72" rx="14" fill="#dcfce7" stroke="#25774a" stroke-width="2"/>
+  <text x="865" y="121" text-anchor="middle" class="result">PASS</text>
+
+  <text x="40" y="258" class="label">A → B</text>
+  <rect x="210" y="218" width="180" height="72" rx="14" fill="#fff1c7" stroke="#9b6111" stroke-width="2"/>
+  <text x="300" y="248" text-anchor="middle" class="small">Test A leaves</text><text x="300" y="273" text-anchor="middle" class="small">flag = ON</text>
+  <path d="M400 254 H500" class="line"/>
+  <rect x="520" y="218" width="180" height="72" rx="14" fill="#e8eef7" stroke="#526b91" stroke-width="2"/>
+  <text x="610" y="261" text-anchor="middle" class="label">Test B</text>
+  <path d="M710 254 H790" class="line"/>
+  <rect x="810" y="218" width="110" height="72" rx="14" fill="#fee2e2" stroke="#b64141" stroke-width="2"/>
+  <text x="865" y="261" text-anchor="middle" class="result">FAIL</text>
+
+  <text x="40" y="398" class="label">Reset each test</text>
+  <rect x="210" y="358" width="180" height="72" rx="14" fill="#dff7ef" stroke="#287b64" stroke-width="2"/>
+  <text x="300" y="388" text-anchor="middle" class="small">setup restores</text><text x="300" y="413" text-anchor="middle" class="small">flag = OFF</text>
+  <path d="M400 394 H500" class="line"/>
+  <rect x="520" y="358" width="180" height="72" rx="14" fill="#e8eef7" stroke="#526b91" stroke-width="2"/>
+  <text x="610" y="388" text-anchor="middle" class="small">A → B and B → A</text><text x="610" y="413" text-anchor="middle" class="small">same start</text>
+  <path d="M710 394 H790" class="line"/>
+  <rect x="810" y="358" width="110" height="72" rx="14" fill="#dcfce7" stroke="#25774a" stroke-width="2"/>
+  <text x="865" y="401" text-anchor="middle" class="result">PASS</text>
+
+  <text x="40" y="484" class="small">Conceptual example · order is evidence · cleanup is the repair</text>
+</svg>
