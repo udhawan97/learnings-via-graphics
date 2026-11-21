@@ -2,15 +2,15 @@
 
 [Visual brief](brief.md) · [Full guide](index.html) · [Evidence](sources.md)
 
-Use this card for one test that passes alone but fails in a suite. Replace the bracketed prompts; do not add retries while diagnosing.
+Use this card for one test that passes alone but fails in a suite. Write short notes on each blank; do not add retries while diagnosing.
 
 ## 1. Name the smallest sequence
 
-- Observer test: `[test that fails]`
-- Suspected predecessor: `[test that runs before it]`
-- Alone result: `[pass/fail and command]`
-- Predecessor → observer: `[pass/fail and command]`
-- Observer → predecessor: `[pass/fail and command]`
+- Observer test: ________________________________________________
+- Suspected predecessor: ________________________________________
+- Alone result and command: _____________________________________
+- Predecessor → observer result and command: _____________________
+- Observer → predecessor result and command: _____________________
 
 ## 2. Inventory shared boundaries
 
@@ -24,10 +24,10 @@ Use this card for one test that passes alone but fails in a suite. Replace the b
 
 ## 3. Make ownership explicit
 
-- Setup creates: `[the exact state this test needs]`
-- Cleanup runs through: `[fixture/finalizer/tearDown/defer mechanism]`
-- Cleanup still runs after failure because: `[framework guarantee or verified control flow]`
-- Broader-scoped state that remains: `[why sharing is safe, or how it is reset]`
+- Setup creates: _________________________________________________
+- Cleanup runs through: __________________________________________
+- Cleanup still runs after failure because: _______________________
+- Broader-scoped state that remains, and why it is safe: __________
 
 ## 4. Verification matrix
 
