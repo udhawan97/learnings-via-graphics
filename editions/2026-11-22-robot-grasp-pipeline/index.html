@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="An illustrated beginner guide to the stages between robot object recognition and a verified grasp">
+  <title>Why can a robot see a cup but still miss the pick? — Learnings via Graphics</title>
+  <link rel="stylesheet" href="../../assets/field-guide.css">
+  <style>
+    .figure-object{display:block;width:100%;min-height:310px;border:0}.gate-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:1rem}.gate{padding:1rem;border:1px solid #7f8c78;border-radius:.75rem;background:#f4f7ef}.note{padding:1rem;border-inline-start:.3rem solid #9a440a;background:#fff2d8}.table-scroll{overflow-x:auto}.table-scroll table{width:100%;border-collapse:collapse;min-width:38rem}.table-scroll th,.table-scroll td{padding:.7rem;border-block-end:1px solid #9ba69a;text-align:left;vertical-align:top}.table-scroll th{background:#e9f1e6}
+    @media(prefers-color-scheme:dark){:root{color-scheme:dark;color:#edf5ef;background:#14201c}a{color:#9bd7be}.gate{background:#20352d;border-color:#718679}.note{background:#3a2b16}.table-scroll th{background:#20352d}.skip{background:#f5f7f5;color:#17233b}}
+  </style>
+</head>
+<body>
+  <a href="#main" class="skip">Skip to the guide</a>
+  <nav aria-label="Reading options"><a href="brief.md">Visual brief</a><a href="../../archive.md#frontier-technology">Frontier technology</a><a href="sources.md">Evidence</a></nav>
+  <main id="main">
+    <header>
+      <p class="desk">The Horizon · Robotics · Edition 2026-11-22</p>
+      <h1>Why can a robot see a cup but still miss the pick?</h1>
+      <p class="dek">Recognition provides a label and location estimate. A successful pick also needs a usable pose, safe motion, stable contact, adequate force and friction, and feedback that the object actually moved with the hand.</p>
+      <p>Full guide: 9 minutes · Practice: 20 minutes</p>
+    </header>
+
+    <section aria-labelledby="pipeline">
+      <h2 id="pipeline">One pick, four gates</h2>
+      <figure>
+        <object class="figure-object" data="assets/grasp-pipeline.svg" type="image/svg+xml" aria-label="Four-gate robot grasp pipeline">Your browser cannot display the diagram. <a href="assets/grasp-pipeline.svg">Open the accessible SVG.</a></object>
+        <figcaption>Conceptual pipeline. Real controllers may re-sense and re-plan continuously; these gates separate the evidence a demonstration needs.</figcaption>
+      </figure>
+      <p><strong>Text equivalent:</strong> First the system locates an object and estimates its position and orientation. It then plans a reachable approach around obstacles. The hand makes contact and lifts using suitable force and friction. Finally, sensing checks whether the object moved with the hand. Errors in pose, motion, contact or verification can each defeat the pick even when the object label is correct.</p>
+    </section>
+
+    <section aria-labelledby="gates">
+      <h2 id="gates">What each gate contributes</h2>
+      <div class="gate-grid">
+        <article class="gate"><h3>1. Locate</h3><p>Recognition says what may be present. Pose estimation adds where it is and how it is oriented. Uncertainty matters because fingers need contact locations, not just a bounding box.</p></article>
+        <article class="gate"><h3>2. Approach</h3><p>A motion planner must find a reachable path that avoids the table, nearby objects and the robot itself. A good grasp point is useless if the arm cannot arrive safely.</p></article>
+        <article class="gate"><h3>3. Grip and lift</h3><p>Contact geometry, applied force, surface friction and object load determine whether the object stays between the fingers without being crushed or pushed away.</p></article>
+        <article class="gate"><h3>4. Verify</h3><p>Vision, touch or force feedback can test whether the object moved with the hand. If not, the system needs a stop, recovery or new plan—not an optimistic success flag.</p></article>
+      </div>
+    </section>
+
+    <section aria-labelledby="example">
+      <h2 id="example">Worked example: the correctly named cup that slips</h2>
+      <div class="table-scroll" role="region" aria-label="Invented cup-pick stages" tabindex="0">
+        <table>
+          <thead><tr><th>Stage</th><th>Invented observation</th><th>What it proves</th><th>What remains open</th></tr></thead>
+          <tbody>
+            <tr><td>Locate</td><td>Camera labels one cup</td><td>The object class is recognized in this frame</td><td>Exact pose and hidden surfaces</td></tr>
+            <tr><td>Approach</td><td>Arm reaches the chosen side contacts</td><td>The planned path was executable</td><td>Whether both contacts arrive together</td></tr>
+            <tr><td>Grip</td><td>One finger touches the rim first and tilts the cup</td><td>Contact occurred</td><td>Stable force and friction</td></tr>
+            <tr><td>Verify</td><td>Cup slips during the lift</td><td>The attempted pick failed</td><td>Which revised pose or contact will work</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note"><strong>Why this matters:</strong> The recognition result can be correct while the system-level task fails. Debug the failing gate instead of demanding a larger vision model by default.</p>
+    </section>
+
+    <section aria-labelledby="benchmarks">
+      <h2 id="benchmarks">A benchmark needs repeats and conditions</h2>
+      <p>A showcase video answers “can this happen?” A benchmark asks a narrower, repeatable question: under stated objects, starting configurations and success rules, how often and how well does the system complete the task? NIST's work separates properties such as pose error, touch sensitivity, force tracking, grasp strength, cycle time and slip resistance so teams can compare capabilities instead of collapsing them into one vague score.</p>
+      <p>Competition tasks extend that idea toward system behavior with novel objects, clutter, random starting configurations and varied physical properties. Those results still belong to the tested conditions; they do not certify every object or environment.</p>
+    </section>
+
+    <section aria-labelledby="limits">
+      <h2 id="limits">Reality check</h2>
+      <ul>
+        <li>The four gates are an educational decomposition, not a universal software architecture or official NIST standard.</li>
+        <li>Stages interact: contact can improve pose estimates, and a new pose estimate can change the motion plan.</li>
+        <li>Rigid known objects on an empty table are easier than transparent, deformable, novel or cluttered objects.</li>
+        <li>Do not enter a robot work area or place your hand near moving equipment to test a claim. Use authorized test fixtures and safety procedures.</li>
+      </ul>
+    </section>
+
+    <section class="activity" aria-labelledby="try">
+      <h2 id="try">Try a 20-minute demo review</h2>
+      <ol>
+        <li>Choose one recorded or safely observed pick-and-place demonstration.</li>
+        <li>Use the <a href="review-card.md">pick review card</a> to record evidence for each gate.</li>
+        <li>Write “unknown” where the demonstration does not expose a condition or signal.</li>
+        <li>Finish one bounded sentence: “This supports ___ under ___; it does not yet show ___.”</li>
+      </ol>
+      <h3>Check your model</h3>
+      <details><summary>If recognition is correct, which gates can still fail?</summary><p>Approach, contact/lift and verification can all fail. The pose estimate inside the locate gate can also be unusable even when the object class is right.</p></details>
+      <details><summary>Why is one successful pick not a reliability measure?</summary><p>It omits the number of trials, variation in starting conditions, failure count and predeclared success rule.</p></details>
+      <details><summary>What does a failed lift tell you?</summary><p>It confirms the system-level pick did not succeed. It does not by itself identify whether pose, contact, force, friction or another condition was the root cause.</p></details>
+    </section>
+
+    <section aria-labelledby="next">
+      <h2 id="next">Keep exploring</h2>
+      <p>Start with NIST's <a href="https://www.nist.gov/el/intelligent-systems-division-73500/robotic-grasping-and-manipulation-assembly/grasping">grasping metric catalog</a>. Read the short descriptions for pose estimation, touch sensitivity, force tracking and slip resistance, then compare which gate each metric informs. The <a href="sources.md">source ledger</a> maps the edition's claims and limits.</p>
+    </section>
+  </main>
+  <footer>Original conceptual diagram and educational synthesis. Reviewed source files only; no deployment or robot qualification claim.</footer>
+</body>
+</html>

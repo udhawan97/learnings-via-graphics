@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">Four gates between seeing an object and completing a robot pick</title>
+  <desc id="desc">A left-to-right flow shows locate and estimate pose, plan an approach, grip and lift, and verify the result. Each gate has a distinct failure below it: pose error, collision or unreachable path, unstable contact or slip, and no confirmation. A feedback arrow returns from verification to locating.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="11" markerHeight="11" refX="9" refY="4" orient="auto">
+      <path d="M0 0 L10 4 L0 8" fill="none" stroke="#173b67" stroke-width="2.2"/>
+    </marker>
+    <marker id="back" markerWidth="11" markerHeight="11" refX="2" refY="4" orient="auto">
+      <path d="M10 0 L0 4 L10 8" fill="none" stroke="#7c4a11" stroke-width="2.2"/>
+    </marker>
+  </defs>
+  <rect width="960" height="540" rx="28" fill="#f7fafc"/>
+  <text x="48" y="58" fill="#172b49" font-family="system-ui, sans-serif" font-size="26" font-weight="750">Seeing the cup is only the first gate</text>
+  <text x="48" y="88" fill="#486079" font-family="system-ui, sans-serif" font-size="17">Conceptual pipeline — real controllers may loop and combine these stages</text>
+
+  <g font-family="system-ui, sans-serif">
+    <g transform="translate(42 128)">
+      <rect width="196" height="164" rx="18" fill="#e5f1ff" stroke="#2e66a6" stroke-width="3"/>
+      <text x="18" y="34" fill="#174b82" font-size="14" font-weight="800">1 · LOCATE</text>
+      <rect x="54" y="53" width="72" height="60" rx="11" fill="none" stroke="#2e66a6" stroke-width="3" stroke-dasharray="8 6"/>
+      <path d="M80 61 v44 M101 61 v44" stroke="#2e66a6" stroke-width="4"/>
+      <text x="98" y="136" text-anchor="middle" fill="#17334f" font-size="17" font-weight="700">Name + pose estimate</text>
+      <text x="98" y="157" text-anchor="middle" fill="#486079" font-size="13">position and orientation</text>
+    </g>
+    <g transform="translate(269 128)">
+      <rect width="196" height="164" rx="18" fill="#e9f7ef" stroke="#2b7b53" stroke-width="3"/>
+      <text x="18" y="34" fill="#1b6242" font-size="14" font-weight="800">2 · APPROACH</text>
+      <path d="M31 104 C68 55 117 63 162 82" fill="none" stroke="#2b7b53" stroke-width="5" marker-end="url(#arrow)"/>
+      <rect x="135" y="91" width="34" height="28" rx="6" fill="#b9dec8" stroke="#2b7b53" stroke-width="2"/>
+      <text x="98" y="136" text-anchor="middle" fill="#17334f" font-size="17" font-weight="700">Reach without collision</text>
+      <text x="98" y="157" text-anchor="middle" fill="#486079" font-size="13">arm, table, clutter, self</text>
+    </g>
+    <g transform="translate(496 128)">
+      <rect width="196" height="164" rx="18" fill="#fff3dc" stroke="#a86513" stroke-width="3"/>
+      <text x="18" y="34" fill="#7f4d0b" font-size="14" font-weight="800">3 · GRIP + LIFT</text>
+      <path d="M60 63 v45 M136 63 v45" stroke="#a86513" stroke-width="9" stroke-linecap="round"/>
+      <path d="M78 67 h40 l-7 49 H85 Z" fill="#ffe0a3" stroke="#a86513" stroke-width="3"/>
+      <path d="M98 54 V35" stroke="#a86513" stroke-width="4" marker-end="url(#arrow)"/>
+      <text x="98" y="136" text-anchor="middle" fill="#17334f" font-size="17" font-weight="700">Stable contact</text>
+      <text x="98" y="157" text-anchor="middle" fill="#486079" font-size="13">force, friction, load</text>
+    </g>
+    <g transform="translate(723 128)">
+      <rect width="196" height="164" rx="18" fill="#eeeafd" stroke="#6750a4" stroke-width="3"/>
+      <text x="18" y="34" fill="#513b8c" font-size="14" font-weight="800">4 · VERIFY</text>
+      <path d="M47 86 l23 23 48-55" fill="none" stroke="#6750a4" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M133 62 q22 20 0 40 q22 20 0 40" fill="none" stroke="#6750a4" stroke-width="3"/>
+      <text x="98" y="136" text-anchor="middle" fill="#17334f" font-size="17" font-weight="700">Did it move together?</text>
+      <text x="98" y="157" text-anchor="middle" fill="#486079" font-size="13">touch, vision, force feedback</text>
+    </g>
+  </g>
+
+  <g stroke="#173b67" stroke-width="4" fill="none" marker-end="url(#arrow)">
+    <path d="M241 210 H260"/><path d="M468 210 H487"/><path d="M695 210 H714"/>
+  </g>
+
+  <g font-family="system-ui, sans-serif" text-anchor="middle">
+    <g transform="translate(42 326)"><rect width="196" height="84" rx="14" fill="#fff0ee" stroke="#b34e3b" stroke-width="2"/><text x="98" y="33" fill="#873526" font-size="15" font-weight="750">Failure: pose error</text><text x="98" y="58" fill="#5e4a47" font-size="13">box right, contact wrong</text></g>
+    <g transform="translate(269 326)"><rect width="196" height="84" rx="14" fill="#fff0ee" stroke="#b34e3b" stroke-width="2"/><text x="98" y="33" fill="#873526" font-size="15" font-weight="750">Failure: no safe path</text><text x="98" y="58" fill="#5e4a47" font-size="13">blocked or unreachable</text></g>
+    <g transform="translate(496 326)"><rect width="196" height="84" rx="14" fill="#fff0ee" stroke="#b34e3b" stroke-width="2"/><text x="98" y="33" fill="#873526" font-size="15" font-weight="750">Failure: slip or damage</text><text x="98" y="58" fill="#5e4a47" font-size="13">contact cannot hold safely</text></g>
+    <g transform="translate(723 326)"><rect width="196" height="84" rx="14" fill="#fff0ee" stroke="#b34e3b" stroke-width="2"/><text x="98" y="33" fill="#873526" font-size="15" font-weight="750">Failure: no confirmation</text><text x="98" y="58" fill="#5e4a47" font-size="13">motion assumed, not checked</text></g>
+  </g>
+
+  <path d="M820 438 C730 500 238 500 138 438" fill="none" stroke="#7c4a11" stroke-width="4" marker-end="url(#back)"/>
+  <text x="480" y="486" text-anchor="middle" fill="#6f4311" font-family="system-ui, sans-serif" font-size="17" font-weight="700">Feedback can trigger re-sensing and a new plan</text>
+</svg>

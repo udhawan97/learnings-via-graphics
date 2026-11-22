@@ -2,7 +2,7 @@
 
 [Front page](README.md) · [How to read or run a lab](docs/reading-guide.md) · [How categories work](docs/editorial-standards.md#choose-one-home)
 
-**13 completed editions across four sections.** Each has a visual brief, an original diagram, a practice activity and a dated source ledger. Some Engineering editions also have Python labs. The dates identify when each edition appeared.
+**14 completed editions across four sections.** Each has a visual brief, an original diagram, a practice activity and a dated source ledger. Some Engineering editions also have Python labs. The dates identify when each edition appeared.
 
 [Engineering](#engineering) · [Frontier technology](#frontier-technology) · [Everyday life](#everyday-life) · [Work & money](#work-and-money)
 
@@ -57,6 +57,15 @@ Trace authorized evidence through retrieval, support checks, citations, and abst
 ## Frontier technology
 
 *The Horizon — chips, quantum, robotics, energy, and infrastructure; distinguish research, pilots, and deployed capability.*
+
+### Robotics
+
+**[Why can a robot see a cup but still miss the pick?](editions/2026-11-22-robot-grasp-pipeline/brief.md)** · November 22, 2026 · Foundation with current NIST benchmarking context
+
+- **Read:** [visual brief](editions/2026-11-22-robot-grasp-pipeline/brief.md) · [full guide (HTML)](editions/2026-11-22-robot-grasp-pipeline/index.html)
+- **See:** [four-gate grasp pipeline](editions/2026-11-22-robot-grasp-pipeline/assets/grasp-pipeline.svg)
+- **Try:** [20-minute robot pick review card](editions/2026-11-22-robot-grasp-pipeline/review-card.md)
+- **Check:** [sources and limitations](editions/2026-11-22-robot-grasp-pipeline/sources.md)
 
 ### Energy storage
 
