@@ -2,6 +2,7 @@
 """Review staged or committed newsletter coverage against the default branch."""
 import argparse
 from collections import Counter
+from datetime import date
 from pathlib import PurePosixPath
 import re
 import subprocess
@@ -9,6 +10,7 @@ import sys
 
 DESKS = ("Engineering", "Frontier technology", "Everyday life", "Work & money")
 BRIEF = re.compile(r"\]\((?:\.\./)?editions/([^/)]+)/brief\.md(?:#[^)]*)?\)")
+ISSUE = re.compile(r"issues/(\d{4}-\d{2}-\d{2})\.md")
 WINDOW = 4
 
 
@@ -34,8 +36,11 @@ def archive(ref):
         elif desk in DESKS and topic and line.startswith("**["):
             for slug in BRIEF.findall(line):
                 home = (desk, topic)
-                if records.setdefault(slug, home) != home:
+                if slug in records and records[slug] != home:
                     raise ValueError(f"{slug} is indexed under two topics")
+                if slug in records:
+                    raise ValueError(f"{slug} is indexed more than once")
+                records[slug] = home
     return records
 
 
@@ -72,8 +77,14 @@ def featured_stories(ref, path, records=None):
         if line.startswith("## "):
             if section and section not in features:
                 raise ValueError(f"{path}: {section} needs its own linked brief")
-            desk = line[3:].split(" · ", 1)[0]
-            section = line[3:] if desk in DESKS else None
+            heading = line[3:]
+            parts = heading.split(" · ", 1)
+            desk = parts[0]
+            if desk in DESKS and (len(parts) == 1 or not parts[1].strip()):
+                raise ValueError(f"{path}: {desk} section needs a headline")
+            if desk in DESKS and heading in features:
+                raise ValueError(f"{path} duplicates section heading {heading}")
+            section = heading if desk in DESKS else None
         elif section and section not in features:
             match = BRIEF.search(line)
             if match:
@@ -92,6 +103,11 @@ def check_issues(base, head, compare, records):
     issues = {path for path in previous.union(changed) if path.endswith(".md")}
     reprints = []
     for path in sorted(set(changed) & issues):
+        match = ISSUE.fullmatch(path)
+        try:
+            date.fromisoformat(match.group(1))
+        except (AttributeError, ValueError):
+            raise ValueError(f"{path} must use a valid YYYY-MM-DD date") from None
         features = featured_stories(head, path, records)
         if len({records[slug][0] for slug in features.values()}) < 2:
             raise ValueError(f"{path} needs featured briefs from at least two sections")

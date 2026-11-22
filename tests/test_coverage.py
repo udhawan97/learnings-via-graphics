@@ -70,6 +70,37 @@ class CoverageCheck(unittest.TestCase):
         self.git("add", ".")
         self.assertIn("at least two sections", self.check("--exception", "Documented correction", expected=1))
 
+    def test_issue_section_needs_a_reader_facing_headline(self):
+        self.add_edition("hills", "Everyday life", "Map reading")
+        self.write("issues/2026-11-15.md", "## Engineering\n[Files](../editions/original/brief.md)\n"
+                   "## Everyday life · Hills\n[Map](../editions/hills/brief.md)\n")
+        self.git("add", ".")
+        self.assertIn("needs a headline", self.check(expected=1))
+
+    def test_issue_filename_must_use_a_valid_iso_date(self):
+        self.add_edition("hills", "Everyday life", "Map reading")
+        issue = ("## Engineering · Files\n[Files](../editions/original/brief.md)\n"
+                 "## Everyday life · Hills\n[Map](../editions/hills/brief.md)\n")
+        self.write("issues/latest.md", issue)
+        self.git("add", ".")
+        self.assertIn("must use a valid YYYY-MM-DD date", self.check(expected=1))
+
+    def test_issue_filename_rejects_an_impossible_calendar_date(self):
+        self.add_edition("hills", "Everyday life", "Map reading")
+        issue = ("## Engineering · Files\n[Files](../editions/original/brief.md)\n"
+                 "## Everyday life · Hills\n[Map](../editions/hills/brief.md)\n")
+        self.write("issues/2026-02-30.md", issue)
+        self.git("add", ".")
+        self.assertIn("must use a valid YYYY-MM-DD date", self.check(expected=1))
+
+    def test_duplicate_issue_section_cannot_reuse_the_first_feature(self):
+        self.add_edition("hills", "Everyday life", "Map reading")
+        self.write("issues/2026-11-15.md", "## Engineering · Files\n[Files](../editions/original/brief.md)\n"
+                   "## Everyday life · Hills\n[Map](../editions/hills/brief.md)\n"
+                   "## Everyday life · Hills\n")
+        self.git("add", ".")
+        self.assertIn("duplicates section heading", self.check(expected=1))
+
     def test_date_only_reprint_and_cross_desk_footer(self):
         self.add_edition("hills", "Everyday life", "Map reading")
         issue = ("## Everyday life · Hills\n[Map](../editions/hills/brief.md)\n"
@@ -89,6 +120,12 @@ class CoverageCheck(unittest.TestCase):
         path.write_text(path.read_text().replace("**[Brief]", "[Brief]"))
         self.git("add", ".")
         self.assertIn("lost its archive entry", self.check(expected=1))
+
+    def test_same_edition_cannot_be_indexed_twice_under_one_topic(self):
+        with (self.root / "archive.md").open("a", encoding="utf-8") as index:
+            index.write("\n**[Duplicate](editions/original/brief.md)**\n")
+        self.git("add", ".")
+        self.assertIn("indexed more than once", self.check(expected=1))
 
     def test_renaming_the_question_under_the_same_recent_topic_does_not_rotate_it(self):
         self.add_edition("same", "Engineering", "Files")

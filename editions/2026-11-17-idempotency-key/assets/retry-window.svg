@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="650" viewBox="0 0 960 650" role="img" aria-labelledby="title desc">
+  <title id="title">One order intent survives a lost response</title>
+  <desc id="desc">A timeline follows key K7 from an initial order request through an atomic server commit, a lost response, and a retry that returns the recorded order O-42. Notes contrast a new key, which may create a duplicate, and a changed payload under K7, which the server rejects.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#234f86"/>
+    </marker>
+    <style>
+      text{font-family:system-ui,-apple-system,Segoe UI,sans-serif;fill:#15263d}.title{font-size:28px;font-weight:760}.sub{font-size:16px;fill:#40536d}.lane{font-size:18px;font-weight:720}.step{font-size:17px;font-weight:720}.body{font-size:15px}.code{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:15px}.box{fill:#f7faff;stroke:#315f95;stroke-width:2}.server{fill:#edf8f1;stroke:#2e7550;stroke-width:2}.warn{fill:#fff5e5;stroke:#9c6419;stroke-width:2}.error{fill:#fff0f0;stroke:#a53f3f;stroke-width:2}.line{stroke:#6c7d93;stroke-width:2}.flow{stroke:#234f86;stroke-width:3;fill:none;marker-end:url(#arrow)}
+    </style>
+  </defs>
+  <rect width="960" height="650" rx="24" fill="#eef3f9"/>
+  <text x="48" y="54" class="title">The reply can vanish after the effect commits</text>
+  <text x="48" y="82" class="sub">Stable identity lets a retry recover the first result instead of authorizing a second effect.</text>
+
+  <text x="55" y="132" class="lane">Client</text>
+  <text x="735" y="132" class="lane">Order service</text>
+  <line x1="110" y1="150" x2="110" y2="492" class="line"/>
+  <line x1="850" y1="150" x2="850" y2="492" class="line"/>
+
+  <rect x="145" y="155" width="305" height="76" rx="12" class="box"/>
+  <text x="165" y="182" class="step">1 · Send one intent</text>
+  <text x="165" y="208" class="code">POST /orders · key K7</text>
+  <path d="M 450 193 H 824" class="flow"/>
+
+  <rect x="565" y="246" width="285" height="104" rx="12" class="server"/>
+  <text x="585" y="273" class="step">2 · Commit atomically</text>
+  <text x="585" y="299" class="body">Reserve K7 + fingerprint</text>
+  <text x="585" y="322" class="body">Create O-42 + store result</text>
+  <text x="585" y="343" class="sub">one transaction or equivalent</text>
+
+  <path d="M 824 378 H 455" class="flow"/>
+  <path d="M 455 365 l 25 26 M 480 365 l -25 26" stroke="#a53f3f" stroke-width="4"/>
+  <rect x="150" y="350" width="292" height="77" rx="12" class="error"/>
+  <text x="170" y="378" class="step">3 · Response is lost</text>
+  <text x="170" y="404" class="body">Client cannot tell whether O-42 exists.</text>
+
+  <rect x="145" y="446" width="305" height="75" rx="12" class="box"/>
+  <text x="165" y="473" class="step">4 · Retry the same intent</text>
+  <text x="165" y="499" class="code">POST /orders · key K7</text>
+  <path d="M 450 484 H 824" class="flow"/>
+
+  <rect x="575" y="454" width="260" height="67" rx="12" class="server"/>
+  <text x="595" y="481" class="step">5 · Return O-42</text>
+  <text x="595" y="505" class="body">No second order is created.</text>
+  <path d="M 824 535 H 455" class="flow"/>
+
+  <rect x="48" y="552" width="398" height="66" rx="12" class="warn"/>
+  <text x="68" y="579" class="step">New key K8 → a new effect may be valid</text>
+  <text x="68" y="603" class="body">Do not generate a fresh key for a retry of the same intent.</text>
+  <rect x="478" y="552" width="434" height="66" rx="12" class="error"/>
+  <text x="498" y="579" class="step">K7 + changed payload → reject the mismatch</text>
+  <text x="498" y="603" class="body">A key identifies one intent; it is not a mutable shopping cart.</text>
+</svg>

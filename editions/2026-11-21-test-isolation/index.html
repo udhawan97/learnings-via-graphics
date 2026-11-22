@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="An illustrated guide to diagnosing tests that pass alone but fail in a full suite">
+  <title>Why can a test pass alone but fail in the full suite? — Learnings via Graphics</title>
+  <style>
+    :root{font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;line-height:1.65;color:#17233b;background:#f5f7fb}*{box-sizing:border-box}body{margin:0}a{color:#1855a5}a:focus-visible,summary:focus-visible{outline:3px solid #e49a00;outline-offset:3px}.wrap{max-width:1060px;margin:auto;padding:clamp(20px,4vw,48px)}header{background:#13213a;color:#f8fafc}header a{color:#b9dcff}.eyebrow{color:#a9d6ff;text-transform:uppercase;letter-spacing:.14em;font-size:.82rem;font-weight:750}h1{font-size:clamp(2rem,5vw,4.3rem);line-height:1.06;max-width:19ch;margin:.6rem 0}header p{max-width:72ch;color:#deebfa}main{display:grid;gap:24px}section,.card{background:#fff;border:1px solid #d5dfec;border-radius:18px;padding:clamp(18px,3vw,30px)}h2{line-height:1.2;margin-top:0}h3{line-height:1.25}.kicker{color:#2b5f9b;font-weight:750;letter-spacing:.06em;text-transform:uppercase;font-size:.84rem}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:15px}.figure{margin:0;background:#eef3fa;border-radius:14px;padding:16px;overflow-x:auto}.figure object{width:100%;min-width:700px;min-height:380px;display:block}.tag{display:inline-block;border:1px solid #88a1c2;border-radius:999px;padding:3px 11px;font-size:.85rem;margin:4px 6px 4px 0}.note{border-left:5px solid #287b64;background:#eaf8f3;padding:16px;border-radius:8px}.warning{border-left:5px solid #a56618;background:#fff6e7;padding:16px;border-radius:8px}table{border-collapse:collapse;width:100%}th,td{border:1px solid #bdcadb;padding:.7rem;text-align:left;vertical-align:top}th{background:#edf2f8}.skip{position:absolute;left:16px;top:-80px;padding:12px;background:white;color:#17233b;z-index:10}.skip:focus{top:12px}code{background:#edf1f7;padding:.1rem .3rem;border-radius:4px}footer{padding:28px 0;color:#4c5c74;font-size:.9rem}@media(prefers-color-scheme:dark){:root{background:#0b1424;color:#e7efff}section,.card{background:#152640;border-color:#354c6b}a{color:#9cc8ff}.figure,th{background:#203653}.note{background:#183d32}.warning{background:#49361d}.kicker{color:#9dccff}code{background:#263a58}th,td{border-color:#50647e}footer{color:#bcc9dc}}
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to the guide</a>
+  <header><div class="wrap">
+    <nav aria-label="Reading options"><a href="brief.md">Visual brief</a> · <a href="../../archive.md">Browse topics</a> · <a href="worksheet.md">Worksheet</a> · <a href="sources.md">Evidence</a></nav>
+    <div class="eyebrow">Learnings via Graphics · Edition 2026-11-21</div>
+    <h1>Why can a test pass alone but fail in the full suite?</h1>
+    <p>Order changes the starting state. Find the smallest failing sequence, make each test own its setup and cleanup, then prove the suite works in both orders without retries.</p>
+    <span class="tag">ENGINEERING / THE BUILDER'S WORKBENCH · TESTING</span><span class="tag">FULL GUIDE: 9 MIN · PRACTICE: 20 MIN</span>
+  </div></header>
+  <main class="wrap" id="main">
+    <section aria-labelledby="mechanism"><p class="kicker">01 · Visual model</p><h2 id="mechanism">A hidden handoff changes Test B</h2>
+      <figure class="figure"><object data="assets/test-order.svg" type="image/svg+xml" aria-label="Comparison of Test B alone, after leaked state, and after per-test reset">Your browser cannot display the diagram. <a href="assets/test-order.svg">Open its accessible SVG and description.</a></object><figcaption>Conceptual comparison: B is unchanged; only its starting state differs.</figcaption></figure>
+      <p><strong>Text equivalent:</strong> B alone starts with the feature flag off and passes. A then B fails because A leaves the flag on. A reset before every test restores the off state, so both A then B and B then A pass.</p>
+    </section>
+    <section aria-labelledby="evidence"><p class="kicker">02 · Read the evidence</p><h2 id="evidence">Three runs turn a mystery into a boundary</h2>
+      <table><thead><tr><th>Run</th><th>Result</th><th>What it tells you</th></tr></thead><tbody><tr><td>B alone</td><td>Pass</td><td>B can pass from a clean start.</td></tr><tr><td>A → B</td><td>Fail</td><td>A, or state created while A runs, changes B's conditions.</td></tr><tr><td>B → A</td><td>Pass</td><td>The dependency is directional; inspect what A leaves behind.</td></tr></tbody></table>
+      <p>This pattern supports a shared-state hypothesis. It does not prove which boundary leaked, so inspect the narrowest candidates first.</p>
+    </section>
+    <section aria-labelledby="boundaries"><p class="kicker">03 · Shared boundaries</p><h2 id="boundaries">State hides in more places than globals</h2>
+      <div class="grid"><div class="card"><h3>Process</h3><p>Singletons, feature flags, environment variables, locale, timezone, fake clocks and random seeds.</p></div><div class="card"><h3>Storage</h3><p>Temporary files, fixed paths, database rows, browser storage, caches and snapshots.</p></div><div class="card"><h3>Resources</h3><p>Ports, server processes, threads, queues, locks and unfinished asynchronous work.</p></div><div class="card"><h3>Framework</h3><p>Broader-scoped fixtures, mocks, monkeypatches, registered hooks and mutated test doubles.</p></div></div>
+    </section>
+    <section aria-labelledby="repair"><p class="kicker">04 · Repair</p><h2 id="repair">Give every test an owned starting state</h2>
+      <ol><li>Move required state into per-test setup or a function-scoped fixture.</li><li>Register cleanup through the framework's guaranteed lifecycle, not only at the happy path's last line.</li><li>Use unique temporary resources instead of fixed shared names.</li><li>Wait for background work to finish and release its resources.</li><li>Keep broader-scoped fixtures only when their state is immutable or explicitly reset.</li></ol>
+      <p class="note"><strong>Success criterion:</strong> B alone, A → B, B → A and the full suite all pass without retrying, sleeping or fixing the test order.</p>
+    </section>
+    <section aria-labelledby="limits"><p class="kicker">05 · Reality check</p><h2 id="limits">Order is not the only source of suite-only failure</h2>
+      <ul><li>Parallel workers can race for a port, file, database row or quota.</li><li>Time, randomness and external services can vary between runs.</li><li>Resource pressure can reveal a timeout or cleanup bug only in the full suite.</li><li>An overly strict assertion can fail at harmless numeric or timing boundaries.</li></ul>
+      <p class="warning"><strong>Do not call retries a fix.</strong> A retry may reduce visible failures while preserving an unreliable test signal. If the two-test sequence is not repeatable, collect timing and environment evidence and widen the hypothesis.</p>
+    </section>
+    <section id="try" aria-labelledby="practice"><p class="kicker">06 · Practice</p><h2 id="practice">Fill a 20-minute isolation card</h2>
+      <ol><li>Record the observer alone, suspected predecessor → observer, and the reverse order.</li><li>Inventory the process, storage, resource and framework boundaries both tests touch.</li><li>Name the setup owner, cleanup mechanism and expected start state.</li><li>Apply the smallest repair, then complete the five-row verification matrix.</li></ol>
+      <p><a href="worksheet.md">Open the copyable worksheet.</a></p>
+      <h3>Knowledge check</h3><ol><li>What does A → B failing add beyond B failing in the suite?</li><li>Why is putting B before A not a repair?</li><li>What evidence closes the loop?</li></ol>
+      <details><summary>Reveal answer guidance</summary><ol><li>It identifies a small directional sequence and makes leaked state a concrete hypothesis.</li><li>Another order, parallel worker or later test can still encounter the leak.</li><li>Both orders, each test alone and the full suite pass from controlled starts without retries.</li></ol></details>
+    </section>
+    <section aria-labelledby="references"><p class="kicker">07 · Next steps</p><h2 id="references">Use the lifecycle your framework guarantees</h2>
+      <p>Read pytest's <a href="https://docs.pytest.org/en/stable/explanation/flaky.html">flaky-test guide</a> for causes and triage, its <a href="https://docs.pytest.org/en/stable/how-to/fixtures.html#teardown-cleanup-aka-fixture-finalization">fixture teardown guide</a> for cleanup patterns, and Python's <a href="https://docs.python.org/3/library/unittest.html">unittest documentation</a> for per-test setup and teardown. Claim mapping and limitations are in the <a href="sources.md">source ledger</a>.</p>
+    </section>
+  </main>
+  <footer class="wrap">Original educational diagram and worksheet. Adapt the lifecycle names and cleanup guarantees to the actual test framework.</footer>
+</body>
+</html>

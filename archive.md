@@ -2,7 +2,7 @@
 
 [Front page](README.md) · [How to read or run a lab](docs/reading-guide.md) · [How categories work](docs/editorial-standards.md#choose-one-home)
 
-**8 completed editions across four sections.** Each has a visual brief, an original diagram, a practice activity and a dated source ledger. The Engineering editions also have Python labs. The dates identify when each edition appeared.
+**13 completed editions across four sections.** Each has a visual brief, an original diagram, a practice activity and a dated source ledger. Some Engineering editions also have Python labs. The dates identify when each edition appeared.
 
 [Engineering](#engineering) · [Frontier technology](#frontier-technology) · [Everyday life](#everyday-life) · [Work & money](#work-and-money)
 
@@ -13,6 +13,24 @@
 ## Engineering
 
 *The Builder's Workbench — build, debug, test, and understand technical systems.*
+
+### Testing
+
+**[Why can a test pass alone but fail in the full suite?](editions/2026-11-21-test-isolation/brief.md)** · November 21, 2026 · Foundation with current testing guidance
+
+- **Read:** [visual brief](editions/2026-11-21-test-isolation/brief.md) · [full guide (HTML)](editions/2026-11-21-test-isolation/index.html)
+- **See:** [test-order state diagram](editions/2026-11-21-test-isolation/assets/test-order.svg)
+- **Try:** [20-minute isolation worksheet](editions/2026-11-21-test-isolation/worksheet.md)
+- **Check:** [sources and limitations](editions/2026-11-21-test-isolation/sources.md)
+
+### APIs
+
+**[Why can retrying one request create two orders?](editions/2026-11-17-idempotency-key/brief.md)** · November 17, 2026 · Foundation with current draft context
+
+- **Read:** [visual brief](editions/2026-11-17-idempotency-key/brief.md) · [full guide (HTML)](editions/2026-11-17-idempotency-key/index.html)
+- **See:** [retry window timeline](editions/2026-11-17-idempotency-key/assets/retry-window.svg)
+- **Try:** [15-minute retry-contract worksheet](editions/2026-11-17-idempotency-key/index.html#try)
+- **Check:** [sources and limits](editions/2026-11-17-idempotency-key/sources.md)
 
 ### Files & reliability
 
@@ -40,6 +58,15 @@ Trace authorized evidence through retrieval, support checks, citations, and abst
 
 *The Horizon — chips, quantum, robotics, energy, and infrastructure; distinguish research, pilots, and deployed capability.*
 
+### Energy storage
+
+**[Why does EV fast charging slow near full?](editions/2026-11-19-ev-charge-taper/brief.md)** · November 19, 2026 · Foundation with current public guidance
+
+- **Read:** [visual brief](editions/2026-11-19-ev-charge-taper/brief.md) · [full guide (HTML)](editions/2026-11-19-ev-charge-taper/index.html)
+- **See:** [illustrative charge-taper curve](editions/2026-11-19-ev-charge-taper/assets/charge-taper.svg)
+- **Try:** [15-minute paper session](editions/2026-11-19-ev-charge-taper/index.html#try)
+- **Check:** [sources and limitations](editions/2026-11-19-ev-charge-taper/sources.md)
+
 ### Chip packaging
 
 **[Why split a processor into chiplets?](editions/2026-11-15-chiplets/brief.md)** · November 15, 2026
@@ -61,6 +88,15 @@ Trace authorized evidence through retrieval, support checks, citations, and abst
 ## Everyday life
 
 *Dad's Field Notes — home skills, communication, habits, nature, and practical safety.*
+
+### Home
+
+**[Why does the inside of a window fog up?](editions/2026-11-20-window-condensation/brief.md)** · November 20, 2026 · Foundation with current moisture guidance
+
+- **Read:** [visual brief](editions/2026-11-20-window-condensation/brief.md) · [full guide (HTML)](editions/2026-11-20-window-condensation/index.html)
+- **See:** [dew-point threshold at a window](editions/2026-11-20-window-condensation/assets/window-dew-point.svg)
+- **Try:** [20-minute condensation map](editions/2026-11-20-window-condensation/index.html#try)
+- **Check:** [sources and limitations](editions/2026-11-20-window-condensation/sources.md)
 
 ### Safety
 
@@ -84,6 +120,15 @@ Trace authorized evidence through retrieval, support checks, citations, and abst
 ## Work & money
 
 *Career & Independence — careers, portfolios, negotiation, business economics, and financial literacy.*
+
+### Portfolios
+
+**[What makes a portfolio case study believable?](editions/2026-11-18-portfolio-evidence-chain/brief.md)** · November 18, 2026 · Foundation and editorial synthesis
+
+- **Read:** [visual brief](editions/2026-11-18-portfolio-evidence-chain/brief.md) · [full guide (HTML)](editions/2026-11-18-portfolio-evidence-chain/index.html)
+- **See:** [portfolio evidence chain](editions/2026-11-18-portfolio-evidence-chain/assets/evidence-chain.svg)
+- **Try:** [20-minute evidence-card worksheet](editions/2026-11-18-portfolio-evidence-chain/index.html#try)
+- **Check:** [sources and limitations](editions/2026-11-18-portfolio-evidence-chain/sources.md)
 
 ### Financial literacy
 

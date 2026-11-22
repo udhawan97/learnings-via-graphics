@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="A visual field guide to reading an EV fast-charge taper">
+  <title>Why EV fast charging slows near full — Learnings via Graphics</title>
+  <style>
+    :root{font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;line-height:1.65;color:#152b3c;background:#f3f7fb}
+    *{box-sizing:border-box}body{margin:0}a{color:#075aa8}a:focus-visible,summary:focus-visible{outline:3px solid #e07a00;outline-offset:3px}
+    .wrap{max-width:1040px;margin:auto;padding:clamp(20px,4vw,48px)}header{background:#102f4f;color:#f7fbff}header a{color:#bfe2ff}
+    .eyebrow{color:#9dd7ff;text-transform:uppercase;letter-spacing:.14em;font-size:.82rem;font-weight:750}h1{font-size:clamp(2rem,5vw,4.2rem);line-height:1.08;max-width:18ch;margin:.5rem 0}header p{max-width:68ch;color:#e0effb}
+    main{display:grid;gap:22px}section,.card{background:#fff;border:1px solid #ccd9e5;border-radius:18px;padding:clamp(18px,3vw,30px)}h2{line-height:1.2;margin-top:0}h3{line-height:1.25}.kicker{color:#075a8f;font-weight:750;text-transform:uppercase;letter-spacing:.06em;font-size:.84rem}
+    .figure{margin:0;background:#eef6ff;border-radius:14px;padding:14px}.figure img{display:block;width:100%;height:auto}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,245px),1fr));gap:14px}.note{border-left:5px solid #0b6e4f;background:#eaf8f2;padding:16px;border-radius:8px}.warning{border-left-color:#b76000;background:#fff4df}.tag{display:inline-block;border:1px solid #9ab0c4;border-radius:999px;padding:3px 11px;font-size:.84rem;margin:4px 6px 4px 0}.skip{position:absolute;left:14px;top:-80px;padding:12px;background:white;color:#152b3c;z-index:10}.skip:focus{top:12px}table{width:100%;border-collapse:collapse}th,td{text-align:left;vertical-align:top;border-bottom:1px solid #ccd9e5;padding:.65rem}.muted,footer{color:#455c70}footer{padding:26px 0;font-size:.9rem}
+    @media(prefers-color-scheme:dark){:root{background:#081725;color:#e8f3fb}section,.card{background:#132b3e;border-color:#35526a}a{color:#91caff}.figure,.note{background:#173a53}.warning{background:#473115}.kicker{color:#8ed5ff}.muted,footer{color:#bed1df}th,td{border-color:#3a586e}}
+  </style>
+</head>
+<body>
+  <a href="#main" class="skip">Skip to the guide</a>
+  <header><div class="wrap">
+    <nav aria-label="Reading options"><a href="brief.md">Visual brief</a> · <a href="../../archive.md">Browse topics</a> · <a href="sources.md">Evidence</a></nav>
+    <div class="eyebrow">Learnings via Graphics · Edition 2026-11-19</div>
+    <h1>Why does EV fast charging slow near full?</h1>
+    <p>A charger’s label is an offer, not a promise. The vehicle continually limits the power its battery accepts, and that acceptance usually falls as state of charge approaches full.</p>
+    <span class="tag">Frontier technology / The Horizon · Energy storage</span><span class="tag">Full guide: 8 minutes · Practice: 15 minutes</span>
+  </div></header>
+  <main class="wrap" id="main">
+    <section aria-labelledby="mechanism"><p class="kicker">01 · Visual model</p><h2 id="mechanism">Offer, accept, taper</h2>
+      <figure class="figure"><img src="assets/charge-taper.svg" alt="An illustrative charging curve stays high through the middle of the battery and slopes down after about 80 percent state of charge."><figcaption>The curve is conceptual. NREL’s modeled curves differ by vehicle class and model year but generally decrease around 80–85% SOC.</figcaption></figure>
+      <p><strong>Text equivalent:</strong> At low charge, the station and car negotiate. If the battery and equipment allow, the car accepts high power through a middle region. Near full, accepted power falls. The location and shape of that taper vary, so the live rate matters more than a memorized threshold.</p>
+    </section>
+    <section aria-labelledby="terms"><p class="kicker">02 · Read the display</p><h2 id="terms">Separate energy from power</h2><div class="grid">
+      <div class="card"><h3>kWh is energy</h3><p>A 60 kWh usable battery stores an amount of energy. Percentage points describe a fraction of that usable capacity.</p></div>
+      <div class="card"><h3>kW is power</h3><p>The charging screen’s kW value is the present rate of energy transfer. The vehicle can accept less than the station’s advertised maximum.</p></div>
+      <div class="card"><h3>SOC is fullness</h3><p>State of charge is the battery’s current energy expressed as a percentage of usable capacity. It is not a charging-speed gauge.</p></div>
+    </div></section>
+    <section aria-labelledby="example"><p class="kicker">03 · Worked example</p><h2 id="example">Fewer percentage points, similar minutes</h2>
+      <p>Use an invented 60 kWh battery. From 20% to 80%, the car adds <strong>36 kWh</strong>. At an idealized average of 120 kW, that is 0.3 hours, or 18 minutes. From 80% to 100%, it adds only <strong>12 kWh</strong>. If tapering lowers the average to 40 kW, that is also 0.3 hours.</p>
+      <div class="note"><strong>The relationship:</strong> time is approximately energy divided by average accepted power. Real sessions include losses, ramping and interruptions, so these numbers explain the shape rather than predict a trip.</div>
+    </section>
+    <section aria-labelledby="limits"><p class="kicker">04 · Reality check</p><h2 id="limits">There is no universal 80% rule</h2>
+      <p>Battery temperature, chemistry and condition, vehicle software, the car’s power limit, charger sharing, and site conditions all change the curve. DOE guidance says many batteries reduce power in the 80–100% range, while NREL’s modeled curves generally fall around 80–85%. Neither source says every driver must unplug at one number.</p>
+      <p class="note warning"><strong>Use the actual trip:</strong> Continue when the next leg and your chosen margin require the energy. Stop when slower added range is no longer worth the time. Follow the vehicle and station instructions.</p>
+    </section>
+    <section aria-labelledby="try-heading" id="try"><p class="kicker">05 · Practice</p><h2 id="try-heading">Run a 15-minute paper session</h2>
+      <ol><li>Choose an imaginary start SOC: 25%.</li><li>Write the next-leg need and a margin: 65% total.</li><li>Sketch a live display that holds 120 kW, then falls to 50 kW after 82%.</li><li>Circle the earliest SOC that meets the need. Explain why the charger’s 150 kW label does not override the observed 50 kW rate.</li></ol>
+      <p><strong>Success:</strong> your stop decision uses route need plus the observed acceptance rate, not a universal percentage.</p>
+      <h3>Knowledge check</h3><ol><li>What does the charger’s maximum kW rating describe?</li><li>Why can 80–100% take longer per percentage point?</li><li>Name two conditions that can reshape the curve.</li></ol>
+      <details><summary>Reveal answer guidance</summary><p>The rating is the equipment’s possible output, while the car sets what it accepts. Tapering lowers average power, so each remaining unit of energy takes longer. Temperature, chemistry, battery condition, software, vehicle limits, charger sharing, and site conditions are valid examples.</p></details>
+    </section>
+    <section aria-labelledby="references"><p class="kicker">06 · Next steps</p><h2 id="references">Compare the guide with real evidence</h2>
+      <p>Open <a href="https://docs.nrel.gov/docs/fy23osti/87100.pdf">NREL’s September 2023 report</a> and inspect Figure 5: look for where each modeled curve begins to fall. Then read the <a href="https://afdc.energy.gov/fuels/electricity-stations">Alternative Fuels Data Center charging overview</a> for the factors that change charging time. The <a href="sources.md">source ledger</a> maps each claim and limitation.</p>
+    </section>
+  </main>
+  <footer class="wrap">Original educational diagram. Foundation guidance, not a vehicle specification or trip-time promise.</footer>
+</body>
+</html>

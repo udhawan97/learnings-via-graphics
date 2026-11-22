@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="An illustrated field guide to why indoor window condensation forms and how to observe it safely">
+  <title>Why does the inside of a window fog up? — Learnings via Graphics</title>
+  <style>
+    :root{font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;line-height:1.65;color:#17233b;background:#f4f7fb}
+    *{box-sizing:border-box}body{margin:0}a{color:#1855a5}a:focus-visible,summary:focus-visible{outline:3px solid #f59e0b;outline-offset:3px}
+    .wrap{max-width:1060px;margin:auto;padding:clamp(20px,4vw,48px)}header{background:#10243c;color:#f8fafc}header a{color:#b9ddff}
+    header .eyebrow{color:#9ed8ca;text-transform:uppercase;letter-spacing:.14em;font-size:.82rem;font-weight:750}header h1{font-size:clamp(2rem,5vw,4.2rem);line-height:1.08;max-width:19ch;margin:.6rem 0}header p{max-width:70ch;color:#deebf7}
+    main{display:grid;gap:24px}section,.card{background:#fff;border:1px solid #d4deeb;border-radius:18px;padding:clamp(18px,3vw,30px)}
+    h2{line-height:1.2;margin-top:0}h3{line-height:1.25}.muted{color:#465770}.kicker{color:#2a6472;font-weight:750;letter-spacing:.05em;text-transform:uppercase;font-size:.85rem}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));gap:16px}.figure{margin-inline:0;background:#eef5fb;border-radius:14px;padding:16px;overflow-x:auto}.figure object{width:100%;height:auto;min-height:300px}
+    .tag{display:inline-block;border:1px solid #87a6ba;border-radius:999px;padding:3px 11px;font-size:.85rem;margin:4px 6px 4px 0}.note{border-left:5px solid #28768a;background:#eaf6f8;padding:16px;border-radius:8px}
+    table{border-collapse:collapse;width:100%}th,td{border:1px solid #b9c8d7;padding:.65rem;text-align:left;vertical-align:top}th{background:#edf3f8}.skip{position:absolute;left:16px;top:-80px;padding:12px;background:white;color:#17233b;z-index:10}.skip:focus{top:12px}footer{padding:28px 0;color:#465770;font-size:.9rem}
+    @media(prefers-color-scheme:dark){:root{background:#0b1524;color:#e7efff}section,.card{background:#15263d;border-color:#38506d}.muted,footer{color:#c0cde0}a{color:#9cc9ff}.figure,.note{background:#1d3850}.kicker{color:#98d5df}th{background:#20354e}th,td{border-color:#53677f}}
+  </style>
+</head>
+<body>
+  <a href="#main" class="skip">Skip to the guide</a>
+  <header><div class="wrap">
+    <nav aria-label="Reading options"><a href="brief.md">Visual brief</a> · <a href="../../archive.md">Browse topics</a> · <a href="sources.md">Evidence</a></nav>
+    <div class="eyebrow">Learnings via Graphics · Edition 2026-11-20</div>
+    <h1>Why does the inside of a window fog up?</h1>
+    <p>Indoor window fog appears when the room-side glass is colder than the air's dew point. The wet glass is a clue, not a diagnosis: dry it, record where it returns, reduce obvious moisture sources, and investigate persistent dampness.</p>
+    <span class="tag">EVERYDAY LIFE / DAD'S FIELD NOTES · HOME</span><span class="tag">FULL GUIDE: 9 MIN · PRACTICE: 20 MIN</span>
+  </div></header>
+  <main class="wrap" id="main">
+    <section aria-labelledby="mechanism"><p class="kicker">01 · Visual model</p><h2 id="mechanism">One threshold decides whether vapor can stay vapor</h2>
+      <figure class="figure"><object data="assets/window-dew-point.svg" type="image/svg+xml" aria-label="Dew-point comparison for a warm and cold window pane">Your browser cannot display the diagram. <a href="assets/window-dew-point.svg">Open its accessible SVG and description.</a></object><figcaption>Conceptual comparison with invented readings. Both panes meet air with a 12°C dew point; only the 8°C pane falls below the threshold.</figcaption></figure>
+      <p><strong>Text equivalent:</strong> The room air contains water vapor. Its dew point is 12°C. A 15°C pane is warmer than that threshold, so the simple model keeps the water as vapor. An 8°C pane is colder, so some vapor becomes droplets on the glass. The model compares temperatures; it does not diagnose why the pane is cold or why the air is moist.</p>
+    </section>
+
+    <section aria-labelledby="why"><p class="kicker">02 · Read the clue</p><h2 id="why">First locate the water</h2>
+      <div class="grid">
+        <div class="card"><h3>Room side</h3><p>Warm indoor air met a colder interior surface. Indoor moisture, surface temperature, air movement and outdoor weather can all contribute.</p></div>
+        <div class="card"><h3>Outdoor side</h3><p>Outdoor air met an exterior surface below its dew point. That is a different air mass and does not by itself prove excess indoor humidity.</p></div>
+        <div class="card"><h3>Apparently between panes</h3><p>The moisture is not reachable from either exposed face. Record it and use the window maker's guidance or a qualified professional rather than dismantling the unit.</p></div>
+      </div>
+    </section>
+
+    <section aria-labelledby="basics"><p class="kicker">03 · Foundations</p><h2 id="basics">Dew point is not the same as relative humidity</h2>
+      <p><strong>Dew point</strong> is the temperature at which air with the same amount of water vapor reaches saturation. <strong>Relative humidity</strong> compares current moisture with the amount the air could hold at its current temperature. Cooling air next to a pane can raise its local relative humidity to 100% even while the room's displayed relative humidity stays lower.</p>
+      <p>A window can cross the threshold because the air carries more moisture, the pane becomes colder, or both. Better-insulating windows generally keep their interior surface warmer; DOE describes condensation resistance as a product's ability to resist interior moisture or frost in cold weather.</p>
+    </section>
+
+    <section aria-labelledby="case"><p class="kicker">04 · Worked example</p><h2 id="case">The cold edge gets wet first</h2>
+      <table><thead><tr><th>Observation</th><th>Compare with 12°C dew point</th><th>Simple prediction</th></tr></thead><tbody><tr><td>Center of pane: 15°C</td><td>3°C above</td><td>Vapor stays in air</td></tr><tr><td>Pane edge: 8°C</td><td>4°C below</td><td>Condensation can form</td></tr></tbody></table>
+      <p>The readings are invented to expose the rule. A real pane has changing temperatures, airflow and materials; an inexpensive room meter may estimate humidity but does not prove the temperature of every surface.</p>
+      <div class="note"><strong>Field wisdom:</strong> Treat one wet window as an observation to map. Dry it, note the side and location, and see whether the same pattern returns under similar conditions.</div>
+    </section>
+
+    <section aria-labelledby="limits"><p class="kicker">05 · Reality check</p><h2 id="limits">What the droplets cannot tell you</h2>
+      <ul><li>Condensation does not identify a single cause. Indoor humidity, a cold bridge, closed coverings, restricted airflow, a leak or several factors may overlap.</li><li>A humidity target is not universal. Climate, construction, occupants and equipment matter; follow building and equipment guidance.</li><li>Do not paint or caulk over recurring dampness, dismantle a sealed pane, or disturb visible mold to complete this exercise.</li><li>Dry wet surfaces promptly. Renters should report persistent moisture; widespread dampness, hidden leaks or visible mold may need qualified help.</li></ul>
+    </section>
+
+    <section aria-labelledby="try"><p class="kicker">06 · Practice</p><h2 id="try">Make a 20-minute condensation map</h2>
+      <ol><li>Without taking the window apart, mark whether moisture is inside, outside or apparently between panes.</li><li>Sketch where it is heaviest: center, edge, frame or sill. Note weather, cooking, showering, laundry and closed coverings.</li><li>Wipe the exposed wet surface dry. Record room relative humidity if you already have a meter.</li><li>Choose one reversible, safe action supported by the space and equipment: use an outdoor-vented bath or kitchen exhaust, move a covering enough to restore airflow, or follow a dehumidifier's instructions.</li><li>Define success before the next similar day: less area wet, fewer droplets, or no water on the sill. If it returns or extends beyond the pane, report or investigate it.</li></ol>
+      <h3>Knowledge check</h3><ol><li>What comparison makes condensation possible?</li><li>Why is a room-side droplet a clue rather than a diagnosis?</li><li>What makes the observation useful?</li></ol>
+      <details><summary>Reveal answer guidance</summary><ol><li>The surface temperature falls below the adjacent air's dew point.</li><li>Several moisture, temperature and airflow conditions can create the same visible droplet.</li><li>Record the side, location, conditions, one reversible action and a recheck criterion; dry the surface and escalate persistent moisture.</li></ol></details>
+    </section>
+
+    <section aria-labelledby="references"><p class="kicker">07 · Next steps</p><h2 id="references">Evidence and further learning</h2>
+      <p>Read the <a href="sources.md">source ledger</a> for claim-by-claim dates and limits. NOAA's <a href="https://www.weather.gov/arx/why_dewpoint_vs_humidity">dew-point explainer</a> defines the threshold. EPA's <a href="https://www.epa.gov/mold/interactive-mold-house-tour">interactive mold house</a> places window moisture in a household context, while its <a href="https://www.epa.gov/mold/brief-guide-mold-moisture-and-your-home">moisture guide</a> gives action and professional-help boundaries.</p>
+    </section>
+  </main>
+  <footer class="wrap">Original educational diagram. General home-moisture education, not a diagnosis of a particular building.</footer>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 360" role="img" aria-labelledby="title desc">
+  <title id="title">Portfolio evidence chain</title>
+  <desc id="desc">Four connected cards show context, decision, artifact, and check. Context names the constraint and starting signal. Decision records the choice and trade-off. Artifact points to inspectable work. Check compares an observable result. A dark rail beneath them says scope and limit apply to every claim.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0 0 L8 3 L0 6" fill="none" stroke="#173b6d" stroke-width="2"/>
+    </marker>
+  </defs>
+  <rect width="960" height="360" rx="24" fill="#f7f9fc"/>
+  <g font-family="system-ui, -apple-system, Segoe UI, sans-serif">
+    <text x="480" y="38" text-anchor="middle" font-size="24" font-weight="700" fill="#132747">A claim becomes easier to trust when each link is inspectable</text>
+    <g>
+      <rect x="28" y="72" width="194" height="150" rx="16" fill="#dbeafe" stroke="#315ba2" stroke-width="2"/>
+      <text x="125" y="112" text-anchor="middle" font-size="20" font-weight="700" fill="#132747">1 · Context</text>
+      <text x="125" y="145" text-anchor="middle" font-size="15" fill="#243b60">Constraint + audience</text>
+      <text x="125" y="170" text-anchor="middle" font-size="15" fill="#243b60">Starting signal</text>
+      <text x="125" y="198" text-anchor="middle" font-size="13" font-weight="700" fill="#1e4f8f">What was true before?</text>
+    </g>
+    <g>
+      <rect x="264" y="72" width="194" height="150" rx="16" fill="#fef3c7" stroke="#9b6111" stroke-width="2"/>
+      <text x="361" y="112" text-anchor="middle" font-size="20" font-weight="700" fill="#3c2a08">2 · Decision</text>
+      <text x="361" y="145" text-anchor="middle" font-size="15" fill="#4f390e">Choice + rejected option</text>
+      <text x="361" y="170" text-anchor="middle" font-size="15" fill="#4f390e">Trade-off</text>
+      <text x="361" y="198" text-anchor="middle" font-size="13" font-weight="700" fill="#784a0a">Why this path?</text>
+    </g>
+    <g>
+      <rect x="500" y="72" width="194" height="150" rx="16" fill="#ede9fe" stroke="#6d4bb8" stroke-width="2"/>
+      <text x="597" y="112" text-anchor="middle" font-size="20" font-weight="700" fill="#2f1d55">3 · Artifact</text>
+      <text x="597" y="145" text-anchor="middle" font-size="15" fill="#46306f">Code, design, or demo</text>
+      <text x="597" y="170" text-anchor="middle" font-size="15" fill="#46306f">Inspectability</text>
+      <text x="597" y="198" text-anchor="middle" font-size="13" font-weight="700" fill="#5a3b98">Where is the work?</text>
+    </g>
+    <g>
+      <rect x="736" y="72" width="194" height="150" rx="16" fill="#dcfce7" stroke="#25774a" stroke-width="2"/>
+      <text x="833" y="112" text-anchor="middle" font-size="20" font-weight="700" fill="#153d2a">4 · Check</text>
+      <text x="833" y="145" text-anchor="middle" font-size="15" fill="#214b36">Test, review, or</text>
+      <text x="833" y="170" text-anchor="middle" font-size="15" fill="#214b36">before/after signal</text>
+      <text x="833" y="198" text-anchor="middle" font-size="13" font-weight="700" fill="#1e6841">What changed?</text>
+    </g>
+    <g fill="none" stroke="#173b6d" stroke-width="3" marker-end="url(#arrow)">
+      <path d="M226 147 H252"/>
+      <path d="M462 147 H488"/>
+      <path d="M698 147 H724"/>
+    </g>
+    <rect x="80" y="258" width="800" height="62" rx="14" fill="#132747"/>
+    <text x="480" y="285" text-anchor="middle" font-size="18" font-weight="700" fill="#ffffff">Scope + limit travel with every claim</text>
+    <text x="480" y="307" text-anchor="middle" font-size="14" fill="#dbeafe">Name your role, uncertainty, privacy boundary, and what the check did not establish.</text>
+    <path d="M125 230 V248 H833 V230" fill="none" stroke="#315ba2" stroke-width="2" stroke-dasharray="6 5"/>
+  </g>
+</svg>
