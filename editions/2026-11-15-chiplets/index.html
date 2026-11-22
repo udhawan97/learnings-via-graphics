@@ -31,7 +31,7 @@
 
     <section aria-labelledby="predict">
       <h2 id="predict">1. Make a prediction</h2>
-      <p>One 16-core processor keeps every major block on one large die. Another uses four identical four-core compute dies beside a separate input/output die. Which layout makes an eight-core sibling easier to assemble without redesigning every block?</p>
+      <p>A <strong>die</strong> is a single piece of silicon with electronic circuits on it. A <strong>core</strong> is the part of a processor that executes instructions. One 16-core processor keeps every major block on one die. Another uses four identical four-core compute dies beside a die that handles input and output. Which layout makes an eight-core sibling easier to assemble without redesigning every block?</p>
       <details>
         <summary>Reveal the prediction</summary>
         <p>The modular layout can reuse two of its four-core compute dies and the input/output design. That is a reuse advantage, not proof of lower cost or higher performance.</p>
@@ -101,6 +101,10 @@
     <section aria-labelledby="limits">
       <h2 id="limits">6. Keep the limit visible</h2>
       <p>This guide explains a partitioning tradeoff, not a universal recipe. Chiplets do not automatically make a processor faster or cheaper. The best boundary depends on workload, process technology, package capability, expected volume and measured system behavior.</p>
+    </section>
+    <section aria-labelledby="real-package">
+      <h2 id="real-package">See a real processor</h2>
+      <p>Figure 1 shows twelve small compute tiles around one central input/output die. Compare that photo with the four compute tiles in the invented Nova example. <a href="https://www.uciexpress.org/post/how-ucie-will-enable-broad-chiplet-adoption">Open UCIe’s processor photo and explanation.</a></p>
     </section>
   </main>
 
