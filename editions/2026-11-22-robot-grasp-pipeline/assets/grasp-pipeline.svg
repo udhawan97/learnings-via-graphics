@@ -60,6 +60,6 @@
     <g transform="translate(723 326)"><rect width="196" height="84" rx="14" fill="#fff0ee" stroke="#b34e3b" stroke-width="2"/><text x="98" y="33" fill="#873526" font-size="15" font-weight="750">Failure: no confirmation</text><text x="98" y="58" fill="#5e4a47" font-size="13">motion assumed, not checked</text></g>
   </g>
 
-  <path d="M820 438 C730 500 238 500 138 438" fill="none" stroke="#7c4a11" stroke-width="4" marker-end="url(#back)"/>
-  <text x="480" y="486" text-anchor="middle" fill="#6f4311" font-family="system-ui, sans-serif" font-size="17" font-weight="700">Feedback can trigger re-sensing and a new plan</text>
+  <text x="480" y="448" text-anchor="middle" fill="#6f4311" font-family="system-ui, sans-serif" font-size="17" font-weight="700">Feedback can trigger re-sensing and a new plan</text>
+  <path d="M820 470 C730 526 238 526 138 470" fill="none" stroke="#7c4a11" stroke-width="4" marker-end="url(#back)"/>
 </svg>
