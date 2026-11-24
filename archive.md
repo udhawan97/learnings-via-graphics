@@ -2,7 +2,7 @@
 
 [Front page](README.md) · [How to read or run a lab](docs/reading-guide.md) · [How categories work](docs/editorial-standards.md#choose-one-home)
 
-**14 completed editions across four sections.** Each has a visual brief, an original diagram, a practice activity and a dated source ledger. Some Engineering editions also have Python labs. The dates identify when each edition appeared.
+**15 completed editions across four sections.** Each has a visual brief, an original diagram, a practice activity and a dated source ledger. Some Engineering editions also have Python labs. The dates identify when each edition appeared.
 
 [Engineering](#engineering) · [Frontier technology](#frontier-technology) · [Everyday life](#everyday-life) · [Work & money](#work-and-money)
 
@@ -138,6 +138,15 @@ Trace authorized evidence through retrieval, support checks, citations, and abst
 - **See:** [portfolio evidence chain](editions/2026-11-18-portfolio-evidence-chain/assets/evidence-chain.svg)
 - **Try:** [20-minute evidence-card worksheet](editions/2026-11-18-portfolio-evidence-chain/index.html#try)
 - **Check:** [sources and limitations](editions/2026-11-18-portfolio-evidence-chain/sources.md)
+
+### Pay & benefits
+
+**[Where did the rest of my paycheck go?](editions/2026-11-23-read-a-pay-stub/brief.md)** · November 23, 2026 · Foundation with current federal guidance
+
+- **Read:** [visual brief](editions/2026-11-23-read-a-pay-stub/brief.md) · [full guide (HTML)](editions/2026-11-23-read-a-pay-stub/index.html)
+- **See:** [invented pay-stub flow](editions/2026-11-23-read-a-pay-stub/assets/pay-stub-flow.svg)
+- **Try:** [20-minute pay-stub review card](editions/2026-11-23-read-a-pay-stub/pay-stub-review-card.md)
+- **Check:** [sources and limitations](editions/2026-11-23-read-a-pay-stub/sources.md)
 
 ### Financial literacy
 

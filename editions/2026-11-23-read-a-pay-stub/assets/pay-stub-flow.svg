@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 430" role="img" aria-labelledby="title desc">
+  <title id="title">Invented pay-stub flow from gross pay to net pay</title>
+  <desc id="desc">A two-thousand-dollar gross paycheck moves through three subtractions: one hundred fifty dollars for a pre-tax benefit, three hundred fifty dollars in tax withholdings, and fifty dollars for a post-tax item. The invented example ends at one thousand four hundred fifty dollars of net pay. A note says the sequence is a learning ledger, not a universal tax-base calculation.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L8,4 L0,8" fill="none" stroke="#123a63" stroke-width="2"/>
+    </marker>
+  </defs>
+  <rect width="960" height="430" rx="24" fill="#f7fbff"/>
+  <text x="480" y="42" text-anchor="middle" font-family="system-ui, sans-serif" font-size="24" font-weight="700" fill="#12233f">One invented paycheck, reconciled</text>
+  <text x="480" y="68" text-anchor="middle" font-family="system-ui, sans-serif" font-size="15" fill="#394b66">Follow current-pay amounts; read year-to-date totals separately</text>
+
+  <g font-family="system-ui, sans-serif">
+    <rect x="30" y="118" width="170" height="120" rx="16" fill="#dbeafe" stroke="#23548e" stroke-width="3"/>
+    <text x="115" y="154" text-anchor="middle" font-size="16" font-weight="700" fill="#12233f">GROSS PAY</text>
+    <text x="115" y="194" text-anchor="middle" font-size="30" font-weight="800" fill="#153b66">$2,000</text>
+    <text x="115" y="219" text-anchor="middle" font-size="12" fill="#334a68">earned before subtractions</text>
+
+    <rect x="234" y="118" width="160" height="120" rx="16" fill="#fef3c7" stroke="#8a5a08" stroke-width="3"/>
+    <text x="314" y="152" text-anchor="middle" font-size="15" font-weight="700" fill="#3b2a08">PRE-TAX ITEM</text>
+    <text x="314" y="191" text-anchor="middle" font-size="28" font-weight="800" fill="#694208">− $150</text>
+    <text x="314" y="217" text-anchor="middle" font-size="13" fill="#59430f">example benefit</text>
+
+    <rect x="428" y="118" width="160" height="120" rx="16" fill="#ffe4e6" stroke="#9f3341" stroke-width="3"/>
+    <text x="508" y="152" text-anchor="middle" font-size="15" font-weight="700" fill="#4b1820">WITHHOLDINGS</text>
+    <text x="508" y="191" text-anchor="middle" font-size="28" font-weight="800" fill="#7e2633">− $350</text>
+    <text x="508" y="217" text-anchor="middle" font-size="13" fill="#642630">example taxes</text>
+
+    <rect x="622" y="118" width="160" height="120" rx="16" fill="#ede9fe" stroke="#6546a7" stroke-width="3"/>
+    <text x="702" y="152" text-anchor="middle" font-size="15" font-weight="700" fill="#2d1e55">POST-TAX ITEM</text>
+    <text x="702" y="191" text-anchor="middle" font-size="28" font-weight="800" fill="#51358a">− $50</text>
+    <text x="702" y="217" text-anchor="middle" font-size="13" fill="#473378">example deduction</text>
+
+    <rect x="816" y="118" width="114" height="120" rx="16" fill="#dcfce7" stroke="#227447" stroke-width="3"/>
+    <text x="873" y="152" text-anchor="middle" font-size="15" font-weight="700" fill="#153f29">NET PAY</text>
+    <text x="873" y="191" text-anchor="middle" font-size="27" font-weight="800" fill="#1d623c">$1,450</text>
+    <text x="873" y="217" text-anchor="middle" font-size="13" fill="#28543b">take-home pay</text>
+
+    <g stroke="#123a63" stroke-width="3" marker-end="url(#arrow)">
+      <path d="M202 178 H226"/>
+      <path d="M396 178 H420"/>
+      <path d="M590 178 H614"/>
+      <path d="M784 178 H808"/>
+    </g>
+
+    <rect x="84" y="286" width="792" height="98" rx="16" fill="#ffffff" stroke="#8da4bd" stroke-width="2"/>
+    <text x="480" y="321" text-anchor="middle" font-size="21" font-weight="700" fill="#12233f">$2,000 − $150 − $350 − $50 = $1,450</text>
+    <text x="480" y="350" text-anchor="middle" font-size="15" fill="#3d506c">Learning ledger only: actual tax bases, deduction rules and labels can differ.</text>
+    <text x="480" y="373" text-anchor="middle" font-size="15" fill="#3d506c">Reconcile the statement first; ask payroll about any line you cannot explain.</text>
+  </g>
+</svg>
