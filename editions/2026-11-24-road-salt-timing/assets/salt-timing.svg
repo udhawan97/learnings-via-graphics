@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Choose winter-surface treatment by timing, removal and pavement temperature</title>
+  <desc id="desc">A three-stage conceptual flow. Before snow bonds, timed brine can weaken the bond. After accumulation, shoveling or plowing removes the bulk. For the thin layer left behind, ordinary salt is a practical option only when the pavement and label support it; below about 15 degrees Fahrenheit, choose traction, another labeled method or waiting rather than simply adding more salt.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M1 1 L11 6 L1 11" fill="none" stroke="#1d3557" stroke-width="2"/>
+    </marker>
+    <style>
+      .heading{font:700 31px system-ui,sans-serif;fill:#10233e}.body{font:500 20px system-ui,sans-serif;fill:#263b59}.step{font:800 18px system-ui,sans-serif;letter-spacing:.08em;fill:#334155}.small{font:600 17px system-ui,sans-serif;fill:#334155}.line{stroke:#1d3557;stroke-width:5;fill:none;marker-end:url(#arrow)}
+    </style>
+  </defs>
+  <rect width="1200" height="630" rx="28" fill="#f8fafc"/>
+  <text x="60" y="62" class="heading">Salt helps with the bond—not the bulk</text>
+  <text x="60" y="98" class="body">A conceptual decision, not an application-rate guide</text>
+
+  <rect x="55" y="150" width="320" height="330" rx="24" fill="#dbeafe" stroke="#315ba2" stroke-width="3"/>
+  <text x="85" y="190" class="step">1 · BEFORE BONDING</text>
+  <path d="M100 335 H330" stroke="#415a77" stroke-width="13" stroke-linecap="round"/>
+  <path d="M110 292 C150 267 190 318 230 290 S300 300 325 277" stroke="#3b82f6" stroke-width="10" fill="none" stroke-linecap="round"/>
+  <circle cx="135" cy="250" r="8" fill="#0ea5e9"/><circle cx="195" cy="238" r="8" fill="#0ea5e9"/><circle cx="265" cy="252" r="8" fill="#0ea5e9"/>
+  <text x="85" y="385" class="heading">Time the brine</text>
+  <text x="85" y="419" class="body">Lower the freezing point;</text>
+  <text x="85" y="449" class="body">weaken a future bond.</text>
+
+  <path d="M392 315 H437" class="line"/>
+
+  <rect x="455" y="150" width="320" height="330" rx="24" fill="#dcfce7" stroke="#25774a" stroke-width="3"/>
+  <text x="485" y="190" class="step">2 · AFTER ACCUMULATION</text>
+  <path d="M500 335 H730" stroke="#415a77" stroke-width="13" stroke-linecap="round"/>
+  <path d="M500 310 Q560 250 620 310 T730 310" stroke="#94a3b8" stroke-width="32" fill="none" stroke-linecap="round"/>
+  <path d="M545 238 l92 62" stroke="#8b5e34" stroke-width="12" stroke-linecap="round"/>
+  <path d="M618 295 l85 -34 l10 30 l-86 34 z" fill="#f59e0b" stroke="#8a5310" stroke-width="3"/>
+  <text x="485" y="385" class="heading">Remove the bulk</text>
+  <text x="485" y="419" class="body">Plow, shovel or scrape</text>
+  <text x="485" y="449" class="body">before treating residue.</text>
+
+  <path d="M792 315 H837" class="line"/>
+
+  <rect x="855" y="150" width="290" height="330" rx="24" fill="#fef3c7" stroke="#9b6111" stroke-width="3"/>
+  <text x="885" y="190" class="step">3 · THIN RESIDUE</text>
+  <rect x="895" y="216" width="210" height="88" rx="15" fill="#fff" stroke="#64748b" stroke-width="2"/>
+  <text x="1000" y="245" text-anchor="middle" class="small">Pavement at least</text>
+  <text x="1000" y="270" text-anchor="middle" class="small">about 15°F?</text>
+  <text x="1000" y="295" text-anchor="middle" class="small">Check the label.</text>
+  <text x="885" y="346" class="heading">Choose the job</text>
+  <text x="885" y="382" class="body">Melt/loosen</text>
+  <text x="885" y="414" class="body">or add traction</text>
+  <text x="885" y="446" class="body">or block and wait.</text>
+
+  <rect x="55" y="510" width="1090" height="78" rx="16" fill="#fff" stroke="#94a3b8" stroke-width="2"/>
+  <text x="600" y="541" text-anchor="middle" class="body">Cold boundary: below about 15°F pavement temperature, ordinary sodium chloride slows sharply.</text>
+  <text x="600" y="571" text-anchor="middle" class="body">Adding more salt is not the same as adding more safety.</text>
+</svg>

@@ -2,7 +2,7 @@
 
 [Front page](README.md) · [How to read or run a lab](docs/reading-guide.md) · [How categories work](docs/editorial-standards.md#choose-one-home)
 
-**15 completed editions across four sections.** Each has a visual brief, an original diagram, a practice activity and a dated source ledger. Some Engineering editions also have Python labs. The dates identify when each edition appeared.
+**16 completed editions across four sections.** Each has a visual brief, an original diagram, a practice activity and a dated source ledger. Some Engineering editions also have Python labs. The dates identify when each edition appeared.
 
 [Engineering](#engineering) · [Frontier technology](#frontier-technology) · [Everyday life](#everyday-life) · [Work & money](#work-and-money)
 
@@ -97,6 +97,15 @@ Trace authorized evidence through retrieval, support checks, citations, and abst
 ## Everyday life
 
 *Dad's Field Notes — home skills, communication, habits, nature, and practical safety.*
+
+### Winter surfaces
+
+**[Why do road crews salt before snow—and why does more salt stop helping?](editions/2026-11-24-road-salt-timing/brief.md)** · November 24, 2026 · Foundation with current public guidance
+
+- **Read:** [visual brief](editions/2026-11-24-road-salt-timing/brief.md) · [full guide (HTML)](editions/2026-11-24-road-salt-timing/index.html)
+- **See:** [salt-timing decision](editions/2026-11-24-road-salt-timing/assets/salt-timing.svg)
+- **Try:** [15-minute winter-surface decision card](editions/2026-11-24-road-salt-timing/winter-surface-card.md)
+- **Check:** [sources and limitations](editions/2026-11-24-road-salt-timing/sources.md)
 
 ### Home
 
