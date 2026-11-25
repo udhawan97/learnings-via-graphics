@@ -2,7 +2,7 @@
 
 [Front page](README.md) · [How to read or run a lab](docs/reading-guide.md) · [How categories work](docs/editorial-standards.md#choose-one-home)
 
-**16 completed editions across four sections.** Each has a visual brief, an original diagram, a practice activity and a dated source ledger. Some Engineering editions also have Python labs. The dates identify when each edition appeared.
+**17 completed editions across four sections.** Each has a visual brief, an original diagram, a practice activity and a dated source ledger. Some Engineering editions also have Python labs. The dates identify when each edition appeared.
 
 [Engineering](#engineering) · [Frontier technology](#frontier-technology) · [Everyday life](#everyday-life) · [Work & money](#work-and-money)
 
@@ -13,6 +13,15 @@
 ## Engineering
 
 *The Builder's Workbench — build, debug, test, and understand technical systems.*
+
+### Databases
+
+**[Why can a database index speed up reads but slow down writes?](editions/2026-11-25-database-index-tradeoff/brief.md)** · November 25, 2026 · Foundation with current PostgreSQL and SQLite guidance
+
+- **Read:** [visual brief](editions/2026-11-25-database-index-tradeoff/brief.md) · [full guide (HTML)](editions/2026-11-25-database-index-tradeoff/index.html)
+- **See:** [index read/write trade-off](editions/2026-11-25-database-index-tradeoff/assets/index-tradeoff.svg)
+- **Try:** [20-minute database-index decision card](editions/2026-11-25-database-index-tradeoff/index-decision-card.md)
+- **Check:** [sources and limitations](editions/2026-11-25-database-index-tradeoff/sources.md)
 
 ### Testing
 
