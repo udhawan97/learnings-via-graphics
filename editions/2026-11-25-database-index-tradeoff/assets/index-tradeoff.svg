@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" role="img" aria-labelledby="title desc">
+  <title id="title">A database index trades a read shortcut for write maintenance</title>
+  <desc id="desc">The top path shows a lookup without a useful index scanning many table rows. The middle path shows an ordered email index narrowing the lookup to matching row references before fetching rows. The bottom path shows each insert updating both the table and the index.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0 0 L8 3 L0 6" fill="none" stroke="#243b64" stroke-width="2"/></marker>
+    <style>text{font-family:system-ui,-apple-system,Segoe UI,sans-serif;fill:#17233b}.title{font-size:24px;font-weight:700}.label{font-size:19px;font-weight:700}.small{font-size:16px}.line{stroke:#243b64;stroke-width:3;marker-end:url(#arrow)}</style>
+  </defs>
+  <rect width="960" height="560" rx="24" fill="#f7f9fc"/>
+  <text x="40" y="48" class="title">One extra structure, two consequences</text>
+
+  <text x="40" y="114" class="label">Read without a useful index</text>
+  <rect x="300" y="76" width="180" height="76" rx="14" fill="#eef2f7" stroke="#526b91" stroke-width="2"/>
+  <text x="390" y="108" text-anchor="middle" class="small">scan table rows</text><text x="390" y="132" text-anchor="middle" class="small">until matches appear</text>
+  <path d="M490 114 H620" class="line"/>
+  <rect x="640" y="76" width="250" height="76" rx="14" fill="#fff1c7" stroke="#9b6111" stroke-width="2"/>
+  <text x="765" y="108" text-anchor="middle" class="small">work grows with rows</text><text x="765" y="132" text-anchor="middle" class="small">that must be inspected</text>
+
+  <text x="40" y="244" class="label">Read with a matching index</text>
+  <rect x="300" y="196" width="180" height="96" rx="14" fill="#dbeafe" stroke="#315ba2" stroke-width="2"/>
+  <text x="390" y="228" text-anchor="middle" class="small">ordered email keys</text><text x="390" y="252" text-anchor="middle" class="small">+ row references</text><text x="390" y="276" text-anchor="middle" class="small">narrow candidates</text>
+  <path d="M490 244 H620" class="line"/>
+  <rect x="640" y="206" width="250" height="76" rx="14" fill="#dcfce7" stroke="#25774a" stroke-width="2"/>
+  <text x="765" y="238" text-anchor="middle" class="small">fetch matching rows</text><text x="765" y="262" text-anchor="middle" class="small">when the planner chooses it</text>
+
+  <text x="40" y="398" class="label">Write an indexed value</text>
+  <rect x="300" y="350" width="150" height="88" rx="14" fill="#e8eef7" stroke="#526b91" stroke-width="2"/>
+  <text x="375" y="389" text-anchor="middle" class="small">insert or</text><text x="375" y="413" text-anchor="middle" class="small">update row</text>
+  <path d="M460 394 H560" class="line"/>
+  <rect x="580" y="350" width="180" height="88" rx="14" fill="#dff7ef" stroke="#287b64" stroke-width="2"/>
+  <text x="670" y="382" text-anchor="middle" class="small">update table</text><text x="670" y="410" text-anchor="middle" class="small">+ maintain index</text>
+  <path d="M770 394 H820" class="line"/>
+  <rect x="830" y="378" width="90" height="76" rx="14" fill="#fff1c7" stroke="#9b6111" stroke-width="2"/>
+  <text x="875" y="410" text-anchor="middle" class="small">extra</text><text x="875" y="434" text-anchor="middle" class="small">work</text>
+  <text x="40" y="530" class="small">Conceptual model · measure the actual plan and workload before deciding</text>
+</svg>
