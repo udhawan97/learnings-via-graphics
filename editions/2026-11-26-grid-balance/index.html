@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="A visual field guide to electric-grid supply, demand, and frequency">
+  <title>Why the power grid must stay balanced — Learnings via Graphics</title>
+  <style>
+    :root{font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;line-height:1.65;color:#14283b;background:#f3f7fb}*{box-sizing:border-box}body{margin:0}a{color:#075aa8}a:focus-visible,summary:focus-visible{outline:3px solid #e07a00;outline-offset:3px}.wrap{max-width:1040px;margin:auto;padding:clamp(20px,4vw,48px)}header{background:#102f4f;color:#f7fbff}header a{color:#bfe2ff}.eyebrow{color:#9dd7ff;text-transform:uppercase;letter-spacing:.14em;font-size:.82rem;font-weight:750}h1{font-size:clamp(2rem,5vw,4.2rem);line-height:1.08;max-width:20ch;margin:.5rem 0}header p{max-width:70ch;color:#e0effb}main{display:grid;gap:22px}section,.card{background:#fff;border:1px solid #ccd9e5;border-radius:18px;padding:clamp(18px,3vw,30px)}h2{line-height:1.2;margin-top:0}h3{line-height:1.25}.kicker{color:#075a8f;font-weight:750;text-transform:uppercase;letter-spacing:.06em;font-size:.84rem}.figure{margin:0;background:#eef6ff;border-radius:14px;padding:14px}.figure img{display:block;width:100%;height:auto}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,245px),1fr));gap:14px}.note{border-left:5px solid #0b6e4f;background:#eaf8f2;padding:16px;border-radius:8px}.warning{border-left-color:#b76000;background:#fff4df}.tag{display:inline-block;border:1px solid #9ab0c4;border-radius:999px;padding:3px 11px;font-size:.84rem;margin:4px 6px 4px 0}.skip{position:absolute;left:14px;top:-80px;padding:12px;background:white;color:#152b3c;z-index:10}.skip:focus{top:12px}table{width:100%;border-collapse:collapse}th,td{text-align:left;vertical-align:top;border-bottom:1px solid #ccd9e5;padding:.65rem}.muted,footer{color:#455c70}footer{padding:26px 0;font-size:.9rem}@media(prefers-color-scheme:dark){:root{background:#081725;color:#e8f3fb}section,.card{background:#132b3e;border-color:#35526a}a{color:#91caff}.figure,.note{background:#173a53}.warning{background:#473115}.kicker{color:#8ed5ff}.muted,footer{color:#bed1df}th,td{border-color:#3a586e}}
+  </style>
+</head>
+<body>
+  <a href="#main" class="skip">Skip to the guide</a>
+  <header><div class="wrap">
+    <nav aria-label="Reading options"><a href="brief.md">Visual brief</a> · <a href="../../archive.md">Browse topics</a> · <a href="sources.md">Evidence</a></nav>
+    <div class="eyebrow">Learnings via Graphics · Edition 2026-11-26</div>
+    <h1>Why must the power grid keep supply and demand in balance?</h1>
+    <p>An alternating-current grid continuously matches production, use, storage and transfers. Frequency reveals the direction of a mismatch, while layered controls and operators restore balance.</p>
+    <span class="tag">Frontier technology / The Horizon · Electric-grid infrastructure</span><span class="tag">Full guide: 9 minutes · Practice: 20 minutes</span>
+  </div></header>
+  <main class="wrap" id="main">
+    <section aria-labelledby="mechanism"><p class="kicker">01 · Visual model</p><h2 id="mechanism">Read the direction, not a diagnosis</h2>
+      <figure class="figure"><img src="assets/grid-balance.svg" alt="Three grid states compare supply and demand and show frequency tending low, scheduled, or high."><figcaption>This conceptual model maps the sign of an imbalance. It does not show the magnitude of a frequency change or prescribe an operating action.</figcaption></figure>
+      <p><strong>Text equivalent:</strong> When demand is greater than available supply, frequency tends below its scheduled value. When supply is greater, frequency tends above it. When the two balance, frequency is at the scheduled value. Small variations occur continuously, so the system uses overlapping responses to correct them.</p>
+    </section>
+    <section aria-labelledby="terms"><p class="kicker">02 · Foundations</p><h2 id="terms">Three ideas to keep separate</h2><div class="grid">
+      <div class="card"><h3>Power is a rate</h3><p>Generation and demand are compared in watts, often megawatts. Energy is power accumulated over time; a battery stores energy but charges or discharges at a power rate.</p></div>
+      <div class="card"><h3>Frequency is shared</h3><p>Within an AC interconnection, frequency reflects the combined balance. In the continental United States, the scheduled value is normally 60 hertz.</p></div>
+      <div class="card"><h3>Balance has layers</h3><p>Physical response and equipment controls act quickly. Automatic generation control and operator actions continue the correction over longer intervals.</p></div>
+    </div></section>
+    <section aria-labelledby="example"><p class="kicker">03 · Worked example</p><h2 id="example">A 50 MW shortfall gives direction, not magnitude</h2>
+      <p>Suppose an invented area has 1,000 MW of demand and 950 MW from generation plus net imports. Demand exceeds supply by 50 MW, so frequency tends downward. The arithmetic does not predict an exact hertz value: inertia, controls, the size of the interconnection and the disturbance’s location all affect the motion.</p>
+      <div class="note"><strong>Corrective direction:</strong> raise available generation, discharge storage, increase imports, or reduce demand. The safe mix depends on ramp rates, reserves, transmission and local procedures.</div>
+    </section>
+    <section aria-labelledby="responses"><p class="kicker">04 · Response ladder</p><h2 id="responses">Different tools cover different moments</h2>
+      <table><thead><tr><th>Layer</th><th>Job</th><th>Examples</th></tr></thead><tbody><tr><td>Immediate</td><td>Arrest the change</td><td>Frequency-sensitive equipment and fast controls</td></tr><tr><td>Automatic</td><td>Restore scheduled balance</td><td>Generator controls, storage controls, automatic generation control</td></tr><tr><td>Operator</td><td>Sustain and reposition</td><td>Dispatch, interchange, demand response, reserves</td></tr></tbody></table>
+      <p class="note warning"><strong>Boundary:</strong> The layers overlap. Not every resource can act in every place or time, and inverter-based resources may provide frequency support through controls rather than rotating inertia.</p>
+    </section>
+    <section aria-labelledby="try-heading" id="try"><p class="kicker">05 · Practice</p><h2 id="try-heading">Run the 20-minute observation card</h2>
+      <p>Open the <a href="grid-balance-card.md">grid-balance observation card</a>. Calculate an invented area’s total supply, predict frequency direction, select two response families, and name one constraint that could change the choice.</p>
+      <h3>Knowledge check</h3><ol><li>If frequency tends low, which side of the balance is larger?</li><li>Why can storage appear on either side?</li><li>What important fact can frequency alone not reveal?</li></ol>
+      <details><summary>Reveal answer guidance</summary><p>Demand is larger than available supply. Storage can discharge as supply or charge as demand. Frequency does not identify the cause, location, safe resource, voltage condition or transmission constraint.</p></details>
+    </section>
+    <section aria-labelledby="references"><p class="kicker">06 · Next steps</p><h2 id="references">Compare the model with operating explanations</h2>
+      <p>Read the <a href="https://www.eia.gov/electricity/930-content/about.html">EIA electric-system introduction</a> for the high/low-frequency mapping and a disturbance example. Then use DOE’s <a href="https://www.energy.gov/sites/default/files/2023-08/Balancing%20Authority%20Backgrounder_2022-Formatted_041723_508.pdf">balancing-authority backgrounder</a> to see how generation, storage, transfers and demand-side measures fit together. The <a href="sources.md">source ledger</a> records claim boundaries.</p>
+    </section>
+  </main>
+  <footer class="wrap">Original educational diagram. Foundation guidance, not a real-time grid operating procedure.</footer>
+</body>
+</html>

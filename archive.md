@@ -2,7 +2,7 @@
 
 [Front page](README.md) · [How to read or run a lab](docs/reading-guide.md) · [How categories work](docs/editorial-standards.md#choose-one-home)
 
-**17 completed editions across four sections.** Each has a visual brief, an original diagram, a practice activity and a dated source ledger. Some Engineering editions also have Python labs. The dates identify when each edition appeared.
+**18 completed editions across four sections.** Each has a visual brief, an original diagram, a practice activity and a dated source ledger. Some Engineering editions also have Python labs. The dates identify when each edition appeared.
 
 [Engineering](#engineering) · [Frontier technology](#frontier-technology) · [Everyday life](#everyday-life) · [Work & money](#work-and-money)
 
@@ -66,6 +66,15 @@ Trace authorized evidence through retrieval, support checks, citations, and abst
 ## Frontier technology
 
 *The Horizon — chips, quantum, robotics, energy, and infrastructure; distinguish research, pilots, and deployed capability.*
+
+### Electric-grid infrastructure
+
+**[Why must the power grid keep supply and demand in balance?](editions/2026-11-26-grid-balance/brief.md)** · November 26, 2026 · Foundation with current EIA, DOE and NERC guidance
+
+- **Read:** [visual brief](editions/2026-11-26-grid-balance/brief.md) · [full guide (HTML)](editions/2026-11-26-grid-balance/index.html)
+- **See:** [grid-balance signal](editions/2026-11-26-grid-balance/assets/grid-balance.svg)
+- **Try:** [20-minute grid-balance observation card](editions/2026-11-26-grid-balance/grid-balance-card.md)
+- **Check:** [sources and limitations](editions/2026-11-26-grid-balance/sources.md)
 
 ### Robotics
 
