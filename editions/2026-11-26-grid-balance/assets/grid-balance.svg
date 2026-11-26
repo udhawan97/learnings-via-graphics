@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" role="img" aria-labelledby="title desc">
+  <title id="title">Supply, demand, and grid-frequency direction</title>
+  <desc id="desc">Three panels compare supply with demand. In the first, demand is larger and frequency tends low. In the second, the two match and frequency is at its scheduled value. In the third, supply is larger and frequency tends high. A response strip lists generation, demand, storage, and interchange as balancing tools.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0 0 L8 3 L0 6" fill="none" stroke="#183b64" stroke-width="2"/></marker>
+  </defs>
+  <rect width="960" height="560" rx="28" fill="#f4f8fc"/>
+  <text x="48" y="54" font-family="system-ui, sans-serif" font-size="28" font-weight="700" fill="#102a43">Frequency points toward the imbalance</text>
+  <text x="48" y="83" font-family="system-ui, sans-serif" font-size="16" fill="#486581">Conceptual direction model — not an operator display or measured event</text>
+
+  <g font-family="system-ui, sans-serif">
+    <rect x="48" y="118" width="260" height="290" rx="20" fill="#fff1e6" stroke="#b65324" stroke-width="3"/>
+    <text x="178" y="156" text-anchor="middle" font-size="21" font-weight="700" fill="#7c2d12">Demand &gt; supply</text>
+    <rect x="86" y="190" width="54" height="110" rx="8" fill="#5b8fc9"/><rect x="158" y="166" width="54" height="134" rx="8" fill="#d96b39"/>
+    <text x="113" y="324" text-anchor="middle" font-size="14" fill="#243b53">supply</text><text x="185" y="324" text-anchor="middle" font-size="14" fill="#243b53">demand</text>
+    <path d="M239 204 V276" stroke="#9b3412" stroke-width="5" marker-end="url(#arrow)"/>
+    <text x="178" y="350" text-anchor="middle" font-size="18" font-weight="700" fill="#7c2d12">frequency tends low</text>
+    <text x="178" y="386" text-anchor="middle" font-size="15" fill="#52677d">add supply or reduce demand</text>
+
+    <rect x="350" y="118" width="260" height="290" rx="20" fill="#eaf7ef" stroke="#2f7d4e" stroke-width="3"/>
+    <text x="480" y="156" text-anchor="middle" font-size="21" font-weight="700" fill="#1d5c36">Supply = demand</text>
+    <rect x="402" y="176" width="54" height="124" rx="8" fill="#5b8fc9"/><rect x="504" y="176" width="54" height="124" rx="8" fill="#d96b39"/>
+    <text x="429" y="324" text-anchor="middle" font-size="14" fill="#243b53">supply</text><text x="531" y="324" text-anchor="middle" font-size="14" fill="#243b53">demand</text>
+    <path d="M445 332 H515" stroke="#256b42" stroke-width="5"/>
+    <text x="480" y="371" text-anchor="middle" font-size="18" font-weight="700" fill="#1d5c36">scheduled frequency</text>
+
+    <rect x="652" y="118" width="260" height="290" rx="20" fill="#eef1ff" stroke="#5261a8" stroke-width="3"/>
+    <text x="782" y="156" text-anchor="middle" font-size="21" font-weight="700" fill="#35448c">Supply &gt; demand</text>
+    <rect x="700" y="166" width="54" height="134" rx="8" fill="#5b8fc9"/><rect x="772" y="190" width="54" height="110" rx="8" fill="#d96b39"/>
+    <text x="727" y="324" text-anchor="middle" font-size="14" fill="#243b53">supply</text><text x="799" y="324" text-anchor="middle" font-size="14" fill="#243b53">demand</text>
+    <path d="M853 276 V204" stroke="#4252a0" stroke-width="5" marker-end="url(#arrow)"/>
+    <text x="782" y="350" text-anchor="middle" font-size="18" font-weight="700" fill="#35448c">frequency tends high</text>
+    <text x="782" y="386" text-anchor="middle" font-size="15" fill="#52677d">reduce supply or add demand</text>
+
+    <rect x="48" y="444" width="864" height="78" rx="16" fill="#ffffff" stroke="#9fb3c8" stroke-width="2"/>
+    <text x="480" y="476" text-anchor="middle" font-size="18" font-weight="700" fill="#102a43">Response families: generation · demand · storage · interchange</text>
+    <text x="480" y="503" text-anchor="middle" font-size="15" fill="#52677d">Frequency gives direction; location, reserves, voltage and network limits shape the safe response.</text>
+  </g>
+</svg>
