@@ -2,7 +2,7 @@
 
 [Front page](README.md) · [How to read or run a lab](docs/reading-guide.md) · [How categories work](docs/editorial-standards.md#choose-one-home)
 
-**18 completed editions across four sections.** Each has a visual brief, an original diagram, a practice activity and a dated source ledger. Some Engineering editions also have Python labs. The dates identify when each edition appeared.
+**19 completed editions across four sections.** Each has a visual brief, an original diagram, a practice activity and a dated source ledger. Some Engineering editions also have Python labs. The dates identify when each edition appeared.
 
 [Engineering](#engineering) · [Frontier technology](#frontier-technology) · [Everyday life](#everyday-life) · [Work & money](#work-and-money)
 
@@ -115,6 +115,15 @@ Trace authorized evidence through retrieval, support checks, citations, and abst
 ## Everyday life
 
 *Dad's Field Notes — home skills, communication, habits, nature, and practical safety.*
+
+### Communication
+
+**[Why repeat an instruction back in your own words?](editions/2026-11-27-check-back/brief.md)** · November 27, 2026 · Foundation with current AHRQ and FAA guidance
+
+- **Read:** [visual brief](editions/2026-11-27-check-back/brief.md) · [full guide (HTML)](editions/2026-11-27-check-back/index.html)
+- **See:** [check-back communication loop](editions/2026-11-27-check-back/assets/check-back-loop.svg)
+- **Try:** [15-minute check-back card](editions/2026-11-27-check-back/check-back-card.md)
+- **Check:** [sources and limitations](editions/2026-11-27-check-back/sources.md)
 
 ### Winter surfaces
 
