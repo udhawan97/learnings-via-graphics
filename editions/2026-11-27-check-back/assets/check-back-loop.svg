@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" role="img" aria-labelledby="title desc">
+  <title id="title">The three-step check-back communication loop</title>
+  <desc id="desc">A sender states the key person, action, time, and place. A receiver repeats those details. The sender confirms a match or corrects a mismatch, which sends the corrected detail through the loop again. A lower strip states that matching verifies the message, not consent, memory, or completion.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0 0 L8 3 L0 6" fill="none" stroke="#244a68" stroke-width="2"/></marker>
+    <marker id="arrow-correct" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0 0 L8 3 L0 6" fill="none" stroke="#9b3b21" stroke-width="2"/></marker>
+  </defs>
+  <rect width="960" height="560" rx="28" fill="#f5f8fb"/>
+  <g font-family="system-ui, sans-serif">
+    <text x="48" y="54" font-size="29" font-weight="700" fill="#102a43">Close the loop before the task begins</text>
+    <text x="48" y="84" font-size="16" fill="#52677d">Repeat the outcome-changing details; confirm them or correct and check again.</text>
+
+    <rect x="48" y="128" width="250" height="250" rx="20" fill="#e9f3ff" stroke="#24669a" stroke-width="3"/>
+    <circle cx="91" cy="174" r="25" fill="#24669a"/>
+    <text x="91" y="183" text-anchor="middle" font-size="25" font-weight="700" fill="#fff">1</text>
+    <text x="128" y="181" font-size="23" font-weight="700" fill="#164b73">SEND</text>
+    <text x="75" y="229" font-size="17" font-weight="700" fill="#102a43">State key details</text>
+    <text x="75" y="265" font-size="16" fill="#334e68">who · action</text>
+    <text x="75" y="294" font-size="16" fill="#334e68">time · place</text>
+    <text x="75" y="337" font-size="15" fill="#52677d">“Maya · 5:40 · north”</text>
+
+    <rect x="355" y="128" width="250" height="250" rx="20" fill="#eef8ee" stroke="#347448" stroke-width="3"/>
+    <circle cx="398" cy="174" r="25" fill="#347448"/>
+    <text x="398" y="183" text-anchor="middle" font-size="25" font-weight="700" fill="#fff">2</text>
+    <text x="435" y="181" font-size="23" font-weight="700" fill="#205b33">CHECK BACK</text>
+    <text x="382" y="229" font-size="17" font-weight="700" fill="#102a43">Repeat what you heard</text>
+    <text x="382" y="265" font-size="16" fill="#334e68">Use your own words.</text>
+    <text x="382" y="294" font-size="16" fill="#334e68">Keep the key facts.</text>
+    <text x="382" y="337" font-size="15" fill="#52677d">“Maya · 5:40 · north”</text>
+
+    <rect x="662" y="128" width="250" height="250" rx="20" fill="#fff4e9" stroke="#ad552d" stroke-width="3"/>
+    <circle cx="705" cy="174" r="25" fill="#ad552d"/>
+    <text x="705" y="183" text-anchor="middle" font-size="25" font-weight="700" fill="#fff">3</text>
+    <text x="742" y="171" font-size="21" font-weight="700" fill="#7c341b">CONFIRM</text>
+    <text x="742" y="197" font-size="21" font-weight="700" fill="#7c341b">OR CORRECT</text>
+    <text x="689" y="244" font-size="16" fill="#334e68">Match: “Correct.”</text>
+    <text x="689" y="277" font-size="16" fill="#334e68">Mismatch: fix one detail,</text>
+    <text x="689" y="304" font-size="16" fill="#334e68">then check it back again.</text>
+    <text x="689" y="345" font-size="15" fill="#7c341b">“Correction: 5:40.”</text>
+
+    <path d="M300 252 H343" stroke="#244a68" stroke-width="5" marker-end="url(#arrow)"/>
+    <path d="M607 252 H650" stroke="#244a68" stroke-width="5" marker-end="url(#arrow)"/>
+    <path d="M785 390 C785 429 485 429 485 392" fill="none" stroke="#9b3b21" stroke-width="4" stroke-dasharray="9 7" marker-end="url(#arrow-correct)"/>
+    <text x="638" y="454" text-anchor="middle" font-size="14" fill="#7c341b">If corrected, repeat the changed detail</text>
+
+    <rect x="48" y="466" width="864" height="58" rx="15" fill="#fff" stroke="#9fb3c8" stroke-width="2"/>
+    <text x="480" y="491" text-anchor="middle" font-size="17" font-weight="700" fill="#102a43">A match verifies the message at that moment</text>
+    <text x="480" y="514" text-anchor="middle" font-size="15" fill="#52677d">It does not prove consent, memory, deeper understanding, or completion.</text>
+  </g>
+</svg>
