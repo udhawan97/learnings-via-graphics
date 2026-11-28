@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" role="img" aria-labelledby="title desc">
+  <title id="title">A job requirement becomes a truthful, inspectable evidence chain</title>
+  <desc id="desc">Four columns show a posting requirement, a candidate's truthful claim, safe supporting evidence, and either a match or a visible gap with a next action. A lower strip says that the map targets an application but cannot reveal hidden hiring criteria or guarantee an interview.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0 0 L8 3 L0 6" fill="none" stroke="#314e68" stroke-width="2"/></marker>
+  </defs>
+  <rect width="960" height="600" rx="28" fill="#f7f5ed"/>
+  <g font-family="system-ui, sans-serif">
+    <text x="48" y="54" font-size="29" font-weight="700" fill="#18323c">Turn each requirement into a traceable claim</text>
+    <text x="48" y="84" font-size="16" fill="#536873">Keep evidence specific, safe to share, and honest about gaps.</text>
+
+    <rect x="44" y="128" width="196" height="292" rx="18" fill="#e7f0f4" stroke="#2f6574" stroke-width="3"/>
+    <circle cx="82" cy="168" r="23" fill="#2f6574"/>
+    <text x="82" y="176" text-anchor="middle" font-size="22" font-weight="700" fill="#fff">1</text>
+    <text x="116" y="175" font-size="19" font-weight="700" fill="#174a58">REQUIREMENT</text>
+    <text x="66" y="226" font-size="16" font-weight="700" fill="#18323c">Employer's words</text>
+    <text x="66" y="258" font-size="15" fill="#405965">Required?</text>
+    <text x="66" y="284" font-size="15" fill="#405965">Preferred?</text>
+    <text x="66" y="310" font-size="15" fill="#405965">Unclear?</text>
+    <rect x="65" y="340" width="154" height="52" rx="10" fill="#fff" stroke="#86a8b0"/>
+    <text x="142" y="362" text-anchor="middle" font-size="13" fill="#405965">“Coordinate weekly</text>
+    <text x="142" y="381" text-anchor="middle" font-size="13" fill="#405965">updates”</text>
+
+    <rect x="284" y="128" width="196" height="292" rx="18" fill="#eef4df" stroke="#587522" stroke-width="3"/>
+    <circle cx="322" cy="168" r="23" fill="#587522"/>
+    <text x="322" y="176" text-anchor="middle" font-size="22" font-weight="700" fill="#fff">2</text>
+    <text x="356" y="175" font-size="19" font-weight="700" fill="#3d5a16">CLAIM</text>
+    <text x="306" y="226" font-size="16" font-weight="700" fill="#18323c">What you did</text>
+    <text x="306" y="258" font-size="15" fill="#405965">Action</text>
+    <text x="306" y="284" font-size="15" fill="#405965">Scope</text>
+    <text x="306" y="310" font-size="15" fill="#405965">Your contribution</text>
+    <rect x="305" y="340" width="154" height="52" rx="10" fill="#fff" stroke="#9aad6a"/>
+    <text x="382" y="362" text-anchor="middle" font-size="13" fill="#405965">Scheduled work for</text>
+    <text x="382" y="381" text-anchor="middle" font-size="13" fill="#405965">12 volunteers</text>
+
+    <rect x="524" y="128" width="196" height="292" rx="18" fill="#fff1d9" stroke="#a16418" stroke-width="3"/>
+    <circle cx="562" cy="168" r="23" fill="#a16418"/>
+    <text x="562" y="176" text-anchor="middle" font-size="22" font-weight="700" fill="#fff">3</text>
+    <text x="596" y="175" font-size="19" font-weight="700" fill="#7b4810">EVIDENCE</text>
+    <text x="546" y="226" font-size="16" font-weight="700" fill="#18323c">What supports it</text>
+    <text x="546" y="258" font-size="15" fill="#405965">Outcome or record</text>
+    <text x="546" y="284" font-size="15" fill="#405965">Safe work sample</text>
+    <text x="546" y="310" font-size="15" fill="#405965">Verifier</text>
+    <rect x="545" y="340" width="154" height="52" rx="10" fill="#fff" stroke="#c39253"/>
+    <text x="622" y="362" text-anchor="middle" font-size="13" fill="#405965">Redacted tracker +</text>
+    <text x="622" y="381" text-anchor="middle" font-size="13" fill="#405965">recorded result</text>
+
+    <rect x="764" y="128" width="152" height="292" rx="18" fill="#f5e9ee" stroke="#8b3b5a" stroke-width="3"/>
+    <circle cx="802" cy="168" r="23" fill="#8b3b5a"/>
+    <text x="802" y="176" text-anchor="middle" font-size="22" font-weight="700" fill="#fff">4</text>
+    <text x="836" y="175" font-size="18" font-weight="700" fill="#6c2944">DECIDE</text>
+    <text x="786" y="226" font-size="16" font-weight="700" fill="#18323c">Match or gap?</text>
+    <text x="786" y="258" font-size="15" fill="#405965">Target the claim</text>
+    <text x="786" y="284" font-size="15" fill="#405965">Learn or ask</text>
+    <text x="786" y="310" font-size="15" fill="#405965">Apply or skip</text>
+    <rect x="785" y="340" width="110" height="52" rx="10" fill="#fff" stroke="#b47a90"/>
+    <text x="840" y="362" text-anchor="middle" font-size="13" fill="#405965">Keep every</text>
+    <text x="840" y="381" text-anchor="middle" font-size="13" fill="#405965">gap visible</text>
+
+    <path d="M242 274 H272" stroke="#314e68" stroke-width="4" marker-end="url(#arrow)"/>
+    <path d="M482 274 H512" stroke="#314e68" stroke-width="4" marker-end="url(#arrow)"/>
+    <path d="M722 274 H752" stroke="#314e68" stroke-width="4" marker-end="url(#arrow)"/>
+
+    <rect x="44" y="466" width="872" height="82" rx="16" fill="#fff" stroke="#9aabb0" stroke-width="2"/>
+    <text x="480" y="497" text-anchor="middle" font-size="18" font-weight="700" fill="#18323c">The map makes an application more truthful and targeted</text>
+    <text x="480" y="526" text-anchor="middle" font-size="15" fill="#536873">It cannot reveal hidden criteria, replace application instructions, or guarantee an interview.</text>
+  </g>
+</svg>
