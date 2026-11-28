@@ -2,7 +2,7 @@
 
 [Front page](README.md) · [How to read or run a lab](docs/reading-guide.md) · [How categories work](docs/editorial-standards.md#choose-one-home)
 
-**19 completed editions across four sections.** Each has a visual brief, an original diagram, a practice activity and a dated source ledger. Some Engineering editions also have Python labs. The dates identify when each edition appeared.
+**20 completed editions across four sections.** Each has a visual brief, an original diagram, a practice activity and a dated source ledger. Some Engineering editions also have Python labs. The dates identify when each edition appeared.
 
 [Engineering](#engineering) · [Frontier technology](#frontier-technology) · [Everyday life](#everyday-life) · [Work & money](#work-and-money)
 
@@ -165,6 +165,15 @@ Trace authorized evidence through retrieval, support checks, citations, and abst
 ## Work & money
 
 *Career & Independence — careers, portfolios, negotiation, business economics, and financial literacy.*
+
+### Careers
+
+**[How do you turn a job posting into an evidence map?](editions/2026-11-28-job-evidence-map/brief.md)** · November 28, 2026 · Foundation with current U.S. Department of Labor resources
+
+- **Read:** [visual brief](editions/2026-11-28-job-evidence-map/brief.md) · [full guide (HTML)](editions/2026-11-28-job-evidence-map/index.html)
+- **See:** [job-evidence map](editions/2026-11-28-job-evidence-map/assets/job-evidence-map.svg)
+- **Try:** [20-minute job-evidence worksheet](editions/2026-11-28-job-evidence-map/job-evidence-map.md)
+- **Check:** [sources and limitations](editions/2026-11-28-job-evidence-map/sources.md)
 
 ### Portfolios
 
